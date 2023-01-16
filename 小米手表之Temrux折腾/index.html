@@ -132,7 +132,9 @@
 <p>由于小米手表的屏幕过小，在Termux中无法调用输入法，因此利用 “安卓手表ADB实用工具箱” 更改dpi至150</p>
 <div class="tag-plugin quot"><p class="content" type="text">更换清华源</p></div>
 <p>众所周知的原因，我们需要更换软件源以提高下载速度<br>这里推荐使用清华源<br>使用如下命令行替换官方源为 TUNA 镜像源</p>
-<div class="tag-plugin note" ><div class="title"><strong>命令 codeblock</strong></div><div class="body"><p>sed -i ‘s@^(deb.*stable main)$@#\1\ndeb <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main">https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main</a> stable main@’ $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list<br>apt update &amp;&amp; apt upgrade</p></div></div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;s@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@&#x27; $PREFIX/etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade</span><br></pre></td></tr></table></figure>
 
 <div class="tag-plugin quot"><p class="content" type="text">ssh服务</p></div>
 
