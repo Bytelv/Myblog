@@ -6,7 +6,7 @@
   <link href="https://space.lvbyte.tk/atom.xml" rel="self"/>
   
   <link href="https://space.lvbyte.tk/"/>
-  <updated>2023-01-01T07:50:25.000Z</updated>
+  <updated>2023-01-16T20:40:42.000Z</updated>
   <id>https://space.lvbyte.tk/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小米手表之Temrux折腾</title>
+    <link href="https://space.lvbyte.tk/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8%E4%B9%8BTemrux%E6%8A%98%E8%85%BE/"/>
+    <id>https://space.lvbyte.tk/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8%E4%B9%8BTemrux%E6%8A%98%E8%85%BE/</id>
+    <published>2023-01-16T20:40:36.000Z</published>
+    <updated>2023-01-16T20:40:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>references:</p><ul><li>title: ‘termux安装ssh并连接’<br>url: <a href="https://www.cnblogs.com/CJTARRR/p/16353860.html)/28/15231176397746.html">https://www.cnblogs.com/CJTARRR/p/16353860.html)/28/15231176397746.html</a></li><li>title: ‘极致安卓之—Termux安装完整版Linux’<br>url: <a href="https://zhuanlan.zhihu.com/p/95865982">https://zhuanlan.zhihu.com/p/95865982</a></li></ul><hr><div class="tag-plugin quot"><p class="content" type="text">前言</p></div><p>我一直有自建服务器的想法，可家里旧的台式电脑耗电太大。回想起2年前折腾的Termux，便把“魔爪”伸向了我的小米手表。尝试搭建一些服务在手表上。</p><p>以下是我的折腾过程。</p><div class="tag-plugin quot"><p class="content" type="text">安装 Termux</p></div><p>小米手表的安卓版本是支持安装最新的Termux</p><p>下载链接[官方]：</p><div class="tag-plugin link dis-select"><a class="link-card plain" title="F-Droid" href="https://f-droid.org/en/packages/com.termux/" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="icon"><div class="left"><span class="title">F-Droid</span><span class="cap link fs12">https://f-droid.org/en/packages/com.termux/</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/link/8f277b4ee0ecd.svg"></div></div></a></div><p>下载完apk文件后，利用 安卓手表ADB实用工具箱 将apk文件安装到小米手表上。</p><div class="tag-plugin quot"><p class="content" type="text">更改dpi</p></div><p>由于小米手表的屏幕过小，在Termux中无法调用输入法，因此利用 “安卓手表ADB实用工具箱” 更改dpi至150</p><div class="tag-plugin quot"><p class="content" type="text">ssh服务</p></div><p>1.安装openssh：pkg install openssh</p><p>2.启动openssh ： sshd</p><p>开放端口默认为8022</p><p>3.查看用户名： whoami</p><p>4.修改用户密码: passwd</p><p>5.查看IP地址： ifconfig</p><p>后续可根据平台选择对应的ssh软件（我是用Xshell）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;references:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;title: ‘termux安装ssh并连接’&lt;br&gt;url: &lt;a href=&quot;https://www.cnblogs.com/CJTARRR/p/16353860.html)/28/15231176397746</summary>
+      
+    
+    
+    
+    <category term="termux" scheme="https://space.lvbyte.tk/categories/termux/"/>
+    
+    <category term="小米手表" scheme="https://space.lvbyte.tk/categories/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8/"/>
+    
+    <category term="折腾" scheme="https://space.lvbyte.tk/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="termux" scheme="https://space.lvbyte.tk/tags/termux/"/>
+    
+    <category term="小米手表" scheme="https://space.lvbyte.tk/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8/"/>
+    
+    <category term="折腾" scheme="https://space.lvbyte.tk/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>2022年度总结</title>
