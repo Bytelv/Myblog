@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>https://space.lvbyte.tk/about/index.html</loc>
-    
-    <lastmod>2023-01-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://space.lvbyte.tk/friend/index.html</loc>
     
     <lastmod>2023-01-17</lastmod>
@@ -39,6 +30,15 @@
   
   <url>
     <loc>https://space.lvbyte.tk/friend/rss/index.html</loc>
+    
+    <lastmod>2023-01-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://space.lvbyte.tk/about/index.html</loc>
     
     <lastmod>2023-01-17</lastmod>
     
