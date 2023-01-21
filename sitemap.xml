@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://space.lvbyte.tk/%E7%83%9F%E8%8A%B1%E6%98%93%E5%86%B7%EF%BC%8C%E4%BA%BA%E6%83%85%E6%9A%96%E3%80%82/</loc>
+    <loc>https://space.lvbyte.tk/about/index.html</loc>
     
-    <lastmod>2023-01-22</lastmod>
+    <lastmod>2023-01-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://space.lvbyte.tk/about/index.html</loc>
+    <loc>https://space.lvbyte.tk/friend/index.html</loc>
     
     <lastmod>2023-01-21</lastmod>
     
@@ -30,15 +30,6 @@
   
   <url>
     <loc>https://space.lvbyte.tk/timeline/index.html</loc>
-    
-    <lastmod>2023-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://space.lvbyte.tk/friend/index.html</loc>
     
     <lastmod>2023-01-21</lastmod>
     
@@ -172,27 +163,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://space.lvbyte.tk/tags/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2023-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://space.lvbyte.tk/tags/%E7%A7%91%E6%8A%80%E6%96%B0%E9%97%BB/</loc>
-    <lastmod>2023-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://space.lvbyte.tk/tags/%E6%80%9D%E8%80%83/</loc>
-    <lastmod>2023-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -225,13 +195,6 @@
   
   <url>
     <loc>https://space.lvbyte.tk/categories/termux/</loc>
-    <lastmod>2023-01-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://space.lvbyte.tk/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2023-01-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
