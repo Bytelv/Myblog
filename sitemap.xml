@@ -126,6 +126,27 @@
   </url>
   
   <url>
+    <loc>https://blog.lvbyte.top/tags/Hexo/</loc>
+    <lastmod>2023-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/Stellar/</loc>
+    <lastmod>2023-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/Qexo/</loc>
+    <lastmod>2023-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/tags/%E9%92%89%E9%92%89/</loc>
     <lastmod>2023-01-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -206,6 +227,13 @@
   
   <url>
     <loc>https://blog.lvbyte.top/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2023-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/categories/Hexo%E4%B8%BB%E9%A2%98/</loc>
     <lastmod>2023-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
