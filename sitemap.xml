@@ -189,27 +189,6 @@
   </url>
   
   <url>
-    <loc>https://blog.lvbyte.top/tags/termux/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/tags/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.lvbyte.top/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -225,6 +204,27 @@
   
   <url>
     <loc>https://blog.lvbyte.top/tags/%E6%80%9D%E8%80%83/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/termux/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/%E6%8A%98%E8%85%BE/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -268,14 +268,14 @@
   </url>
   
   <url>
-    <loc>https://blog.lvbyte.top/categories/termux/</loc>
+    <loc>https://blog.lvbyte.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.lvbyte.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
+    <loc>https://blog.lvbyte.top/categories/termux/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
