@@ -20,6 +20,15 @@
   </url>
   
   <url>
+    <loc>https://blog.lvbyte.top/timeline/index.html</loc>
+    
+    <lastmod>2023-01-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/about/index.html</loc>
     
     <lastmod>2023-01-25</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://blog.lvbyte.top/links/index.html</loc>
-    
-    <lastmod>2023-01-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/timeline/index.html</loc>
     
     <lastmod>2023-01-25</lastmod>
     
@@ -261,6 +261,13 @@
   </url>
   
   <url>
+    <loc>https://blog.lvbyte.top/categories/%E9%92%89%E9%92%89/%E7%BD%91%E8%AF%BE/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/categories/%E5%88%9D%E4%B8%AD%E5%8E%86%E5%8F%B2/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -276,13 +283,6 @@
   
   <url>
     <loc>https://blog.lvbyte.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/categories/%E9%92%89%E9%92%89/%E7%BD%91%E8%AF%BE/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
