@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.lvbyte.top/0%E5%91%A8%E7%9B%AE/</loc>
+    
+    <lastmod>2023-02-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8%E4%B9%8BTemrux%E6%8A%98%E8%85%BE/</loc>
     
     <lastmod>2023-02-04</lastmod>
@@ -126,6 +135,27 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/%E4%B8%AD%E8%80%83/</loc>
+    <lastmod>2023-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/%E5%AD%A6%E6%A0%A1%E7%94%9F%E6%B4%BB/</loc>
+    <lastmod>2023-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.lvbyte.top/tags/%E6%97%A5%E8%AE%B0/</loc>
+    <lastmod>2023-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://blog.lvbyte.top/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
@@ -263,6 +293,13 @@
 
   
   <url>
+    <loc>https://blog.lvbyte.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
+    <lastmod>2023-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2023-02-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -299,13 +336,6 @@
   
   <url>
     <loc>https://blog.lvbyte.top/categories/termux/</loc>
-    <lastmod>2023-02-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
     <lastmod>2023-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
