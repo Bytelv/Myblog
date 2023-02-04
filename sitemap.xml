@@ -20,6 +20,15 @@
   </url>
   
   <url>
+    <loc>https://blog.lvbyte.top/about/index.html</loc>
+    
+    <lastmod>2023-02-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/friend/index.html</loc>
     
     <lastmod>2023-02-04</lastmod>
@@ -48,15 +57,6 @@
   
   <url>
     <loc>https://blog.lvbyte.top/friend/rss/index.html</loc>
-    
-    <lastmod>2023-02-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/about/index.html</loc>
     
     <lastmod>2023-02-04</lastmod>
     
