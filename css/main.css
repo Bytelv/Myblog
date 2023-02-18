@@ -123,7 +123,7 @@ table:not([class]) tr:hover {
   background: var(--block);
 }
 *[ff=title] {
-  font-family: HarmonyOS_Regular;
+  font-family: HarmonyOS_Medium;
 }
 blockquote {
   display: block;
