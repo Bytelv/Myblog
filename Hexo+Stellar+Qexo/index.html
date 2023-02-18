@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pic.hipyt.cn/pic/2023/01/03/e1b3ca7b101fa.png">
 <meta property="og:image" content="https://vercel.com/button">
 <meta property="article:published_time" content="2023-01-22T13:05:22.000Z">
-<meta property="article:modified_time" content="2023-01-28T23:54:20.000Z">
+<meta property="article:modified_time" content="2023-02-18T13:51:51.000Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Stellar">
@@ -116,6 +116,7 @@
       
 
 
+
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Hexo%E4%B8%BB%E9%A2%98/">Hexo主题</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-01-22T13:05:22.000Z">2023-01-22</time></div></div>
 
 <article class='md-text content post'>
@@ -125,7 +126,7 @@
 
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文前提：</p>
 <ol>
-<li>你已经在本地安装好hexo和stellar&#x3D;&#x3D;&#x3D;&#x3D;&gt;<a target="_blank" rel="noopener" href="https://https//xaoxuu.com/wiki/stellar/#start">来这里安装</a></li>
+<li>你已经在本地安装好hexo和stellar&#x3D;&#x3D;&#x3D;&#x3D;&gt;<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/#start">来这里安装</a></li>
 <li>有足够的耐心研究</li>
 <li>你会使用工具（git，baidu，doc）</li>
 <li>【】框内的内容需要根据你的自定义进行修改</li>
@@ -361,6 +362,9 @@
     // 从 butterfly 和 volantis 获得灵感
     loadScript: (src, opt) => new Promise((resolve, reject) => {
       var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
       script.src = src;
       if (opt) {
         for (let key of Object.keys(opt)) {
@@ -399,6 +403,7 @@
       day: '天前',
       month: '个月前',
     },
+    root : '/',
   };
 
   // required plugins (only load if needs)
