@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.lvbyte.top/1%E5%91%A8%E7%9B%AE/</loc>
+    <lastmod>2023-03-11</lastmod>
+  </url>
+  <url>
     <loc>https://blog.lvbyte.top/0%E5%91%A8%E7%9B%AE/</loc>
     <lastmod>2023-03-11</lastmod>
   </url>
@@ -15,10 +19,6 @@
   <url>
     <loc>https://blog.lvbyte.top/Hexo+Stellar+Qexo/</loc>
     <lastmod>2023-02-18</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.lvbyte.top/1%E5%91%A8%E7%9B%AE/</loc>
-    <lastmod>2023-02-12</lastmod>
   </url>
   <url>
     <loc>https://blog.lvbyte.top/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8%E4%B9%8BTemrux%E6%8A%98%E8%85%BE/</loc>
