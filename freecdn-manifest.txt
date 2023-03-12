@@ -1,0 +1,12 @@
+/sw.js
+	https://ajax.cdnjs.com/ajax/libs/foundation/5.4.1/css/foundation.min.css
+	https://cdnjs.cloudflare.com/ajax/libs/foundation/5.4.1/css/foundation.min.css
+	https://cdn.jsdelivr.net/gh/cdnjs/cdnjs/ajax/libs/foundation/5.4.1/css/foundation.min.css
+	https://lf6-cdn-tos.bytecdntp.com/cdn/expire-6-M/foundation/5.4.1/css/foundation.min.css
+	https://cdnjs.loli.net/ajax/libs/foundation/5.4.1/css/foundation.min.css
+	https://lib.baomitu.com/foundation/5.4.1/css/foundation.min.css
+	https://cdn.staticfile.org/foundation/5.4.1/css/foundation.min.css
+	https://cdn.bootcss.com/foundation/5.4.1/css/foundation.min.css
+	https://cdn.bootcdn.net/ajax/libs/foundation/5.4.1/css/foundation.min.css
+	https://pagecdn.io/lib/foundation/5.4.1/css/foundation.min.css
+	hash=AbpHGcgLb+kRsJGnwFEktk7uzpZOCcBY74+YBdrKVGs=
