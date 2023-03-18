@@ -141,3 +141,103 @@ const lfetch = async (urls, url) => {
         })
     }))
 }
+
+
+
+//全站npm静态化
+self.addEventListener('fetch', async event => {
+    event.respondWith(handle(event.request))
+});
+const handle = async(req)=>{
+    const urlStr = req.url
+    const urlObj = new URL(urlStr);
+    const urlPath = urlObj.pathname;
+    const domain = urlObj.hostname;
+    //从这里开始
+    if(domain === "blog.lvbyte.top"){
+        return lfetch(generate_blog_urls('lvbyte-blog',await db.read('blog_version') || '0.0.2',fullpath(urlPath)))
+        .then(res=>res.arrayBuffer())//arrayBuffer最科学也是最快的返回
+        .then(buffer=>new Response(buffer,{headers:{"Content-Type":"text/html;charset=utf-8"}}))//重新定义header
+}
+}
+
+const fullpath = (path) => {
+    path = path.split('?')[0].split('#')[0]
+    if (path.match(/\/$/)) {
+        path += 'index'
+    }
+    if (!path.match(/\.[a-zA-Z]+$/)) {
+        path += '.html'
+    }
+    return path
+}
+
+const generate_blog_urls = (packagename, blogversion, path) => {
+    const npmmirror = [
+        `https://unpkg.com/${packagename}@${blogversion}/public`,
+        `https://npm.elemecdn.com/${packagename}@${blogversion}/public`,
+        `https://cdn.jsdelivr.net/npm/${packagename}@${blogversion}/public`,
+        `https://npm.sourcegcdn.com/npm/${packagename}@${blogversion}/public`,
+        `https://cdn1.tianli0.top/npm/${packagename}@${blogversion}/public`
+    ]
+    for (var i in npmmirror) {
+        npmmirror[i] += path
+    }
+    return npmmirror
+}
+
+
+const mirror = [
+        `https://registry.npmmirror.com/lvbyte-blog/latest`,
+        `https://registry.npmjs.org/lvbyte-blog/latest`,
+        `https://mirrors.cloud.tencent.com/npm/lvbyte-blog/latest`
+]
+const get_newest_version = async (mirror) => {
+    return lfetch(mirror, mirror[0])
+        .then(res => res.json())
+        .then(res.version)
+}
+
+
+self.db = { //全局定义db,只要read和write,看不懂可以略过
+    read: (key, config) => {
+        if (!config) { config = { type: "text" } }
+        return new Promise((resolve, reject) => {
+            caches.open(CACHE_NAME).then(cache => {
+                cache.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
+                    if (!res) resolve(null)
+                    res.text().then(text => resolve(text))
+                }).catch(() => {
+                    resolve(null)
+                })
+            })
+        })
+    },
+    write: (key, value) => {
+        return new Promise((resolve, reject) => {
+            caches.open(CACHE_NAME).then(function (cache) {
+                cache.put(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`), new Response(value));
+                resolve()
+            }).catch(() => {
+                reject()
+            })
+        })
+    }
+}
+
+const set_newest_version = async (mirror) => { //改为最新版本写入数据库
+    return lfetch(mirror, mirror[0])
+        .then(res => res.json()) //JSON Parse
+        .then(async res => {
+            await db.write('blog_version', res.version) //写入
+            return;
+        })
+}
+
+setInterval(async() => {
+    await set_newest_version(mirror) //定时更新,一分钟一次
+}, 60*1000);
+
+setTimeout(async() => { 
+    await set_newest_version(mirror)//打开五秒后更新,避免堵塞
+},5000)
