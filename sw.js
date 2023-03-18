@@ -155,7 +155,7 @@ const handle = async(req)=>{
     const domain = urlObj.hostname;
     //从这里开始
     if(domain === "blog.lvbyte.top"){
-        return lfetch(generate_blog_urls('lvbyte-blog',await db.read('blog_version') || '0.0.2',fullpath(urlPath)))
+        return lfetch(generate_blog_urls('lvbyte-blog',await db.read('blog_version') || 'latest',fullpath(urlPath)))
         .then(res=>res.arrayBuffer())//arrayBuffer最科学也是最快的返回
         .then(buffer=>new Response(buffer,{headers:{"Content-Type":"text/html;charset=utf-8"}}))//重新定义header
 }
