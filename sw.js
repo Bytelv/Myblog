@@ -148,7 +148,7 @@ const lfetch = async (urls, url) => {
 self.addEventListener('fetch', async event => {
     event.respondWith(handle(event.request))
 });
-const handle = async(req)=>{
+const handleback = async(req)=>{
     const urlStr = req.url
     const urlObj = new URL(urlStr);
     const urlPath = urlObj.pathname;
