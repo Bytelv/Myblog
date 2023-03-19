@@ -1,0 +1,1 @@
+hexo cl && hexo g && cd public && vercel --prod --confirm && cd .. 

@@ -5,4 +5,3 @@ https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js
 https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/arrow/064b95430caf4.svg
 https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/arrow/f049bbd4e88ec.svg
 https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp
-
