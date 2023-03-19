@@ -174,11 +174,11 @@ const fullpath = (path) => {
 
 const generate_blog_urls = (packagename, blogversion, path) => {
     const npmmirror = [
-        `https://unpkg.com/${packagename}@${blogversion}/`,
-        `https://npm.elemecdn.com/${packagename}@${blogversion}/`,
-        `https://cdn.jsdelivr.net/npm/${packagename}@${blogversion}/`,
-        `https://npm.sourcegcdn.com/npm/${packagename}@${blogversion}/`,
-        `https://cdn1.tianli0.top/npm/${packagename}@${blogversion}/`
+        `https://unpkg.com/${packagename}@${blogversion}/public`,
+        `https://npm.elemecdn.com/${packagename}@${blogversion}/public`,
+        `https://cdn.jsdelivr.net/npm/${packagename}@${blogversion}/public`,
+        `https://npm.sourcegcdn.com/npm/${packagename}@${blogversion}/public`,
+        `https://cdn1.tianli0.top/npm/${packagename}@${blogversion}/public`
     ]
     for (var i in npmmirror) {
         npmmirror[i] += path
