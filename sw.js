@@ -641,7 +641,7 @@ const set_blog_config = (version) => {
     };
 }
 const set_newest_blogver = async () => {
-    self.packagename = "chenyfan-blog"
+    self.packagename = "lvbyte-blog"
     const mirror = [
         `https://registry.npmmirror.com/${packagename}/latest`,
         `https://registry.npmjs.org/${packagename}/latest`,
