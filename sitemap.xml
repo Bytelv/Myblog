@@ -29,6 +29,15 @@
   </url>
   
   <url>
+    <loc>https://blog.lvbyte.top/friend/rss/index.html</loc>
+    
+    <lastmod>2023-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/about/index.html</loc>
     
     <lastmod>2023-04-02</lastmod>
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://blog.lvbyte.top/friend/rss/index.html</loc>
+    <loc>https://blog.lvbyte.top/%E7%8E%AF%E5%A2%83%E6%8F%8F%E5%86%99/</loc>
     
     <lastmod>2023-04-02</lastmod>
     
@@ -147,15 +156,6 @@
   
   <url>
     <loc>https://blog.lvbyte.top/windows%E7%89%88%E9%92%89%E9%92%89%E9%81%BF%E5%85%8D%E8%80%81%E5%B8%88%E8%BF%9E%E9%BA%A6/</loc>
-    
-    <lastmod>2023-03-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/%E7%8E%AF%E5%A2%83%E6%8F%8F%E5%86%99/</loc>
     
     <lastmod>2023-03-11</lastmod>
     
