@@ -40,15 +40,15 @@ window.addEventListener('load', async () => {
   <title>友链 - 字节君</title>
 
   
-    <meta name="description" content="loadQexoFriends(&quot;friend-content&quot;, &quot;https:&#x2F;&#x2F;qexo.lvbyte.top&quot;)  我的信息1234网站名称:字节君链接地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;头像地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;icon.jpg网站简介:热爱漫无边际,生活自有分寸  友链申请">
+    <meta name="description" content="loadQexoFriends(&quot;friend-content&quot;, &quot;https:&#x2F;&#x2F;qexo.lvbyte.top&quot;)  我的信息1234网站名称:字节君链接地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;头像地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;icon.jpg网站简介:热爱漫无边际,生活自有分寸   添加友链  input.qexo-friend-input {f">
 <meta property="og:type" content="website">
 <meta property="og:title" content="友链">
 <meta property="og:url" content="https://blog.lvbyte.top/friend/index.html">
 <meta property="og:site_name" content="字节君">
-<meta property="og:description" content="loadQexoFriends(&quot;friend-content&quot;, &quot;https:&#x2F;&#x2F;qexo.lvbyte.top&quot;)  我的信息1234网站名称:字节君链接地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;头像地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;icon.jpg网站简介:热爱漫无边际,生活自有分寸  友链申请">
+<meta property="og:description" content="loadQexoFriends(&quot;friend-content&quot;, &quot;https:&#x2F;&#x2F;qexo.lvbyte.top&quot;)  我的信息1234网站名称:字节君链接地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;头像地址:https:&#x2F;&#x2F;blog.lvbyte.top&#x2F;icon.jpg网站简介:热爱漫无边际,生活自有分寸   添加友链  input.qexo-friend-input {f">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-24T14:44:19.000Z">
-<meta property="article:modified_time" content="2023-04-02T01:32:33.000Z">
+<meta property="article:modified_time" content="2023-04-02T01:58:29.000Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">
@@ -120,124 +120,8 @@ window.addEventListener('load', async () => {
 
 <details class="tag-plugin folding" ><summary><span>我的信息</span></summary><div class="body"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">网站名称:字节君</span><br><span class="line">链接地址:https://blog.lvbyte.top/</span><br><span class="line">头像地址:https://blog.lvbyte.top/icon.jpg</span><br><span class="line">网站简介:热爱漫无边际,生活自有分寸</span><br></pre></td></tr></table></figure></div></details>
 
-<h2>友链申请</h2>
-                        <div id=friends-api class=friend-api style=text-align:center>
-                            <p>请正确填写友链,然后点击申请等待核实,请先添加本站友链</p>
-                            <div class=friend-api>
-                                <input type=text id=qexo_friend_name class=input placeholder=网站名>
-                                <br>
-                                <input type=text id="qexo_friend_brief introduction" class=input placeholder=网站简介>
-                                <br>
-                                <input type=text id=qexo_friend_website class=input placeholder=网址>
-                                <br>
-                                <input type=text id=qexo_friend_logo class=input placeholder=头像>
-                                <br>
-                                <button type=button class="btn color-blue-full" onclick=friend_api()>申请</button>
-                            </div>
-                            <br>
-                        </div>
-                        <script>
-                            function friends(e) {
-                                var n = "qfriend_list";
-                                fetch(e + "/pub/friends/").then(function(e) {
-                                    e.ok ? e.json().then(function(e) {
-                                        if (e.status) {
-                                            var t = e.data;
-                                            document.getElementById(n).innerHTML = "";
-                                            for (let e = 0; e < t.length; e++)
-                                                document.getElementById(n).innerHTML += `<a class="user-card" target="_blank" href="${t[e].url}" title="${t[e].description}">
-                                <img class="avatar" lazyload="${t[e].image}" height="60" width="60">
-                                <div class="info"><p class="name">${t[e].name.slice(0, 6)}</p>
-                            <p class="introduction">${t[e].description.slice(0, 8)}</p>
-                        </div>
-                        </a>`;
-                                            document.getElementById(n).innerHTML += "<br>",
-                                            Jian.plugins.lazyload()
-                                        } else
-                                            document.getElementById(n).innerHTML = "友链载入失败!",
-                                            Jian.msg({
-                                                title: "友链",
-                                                text: "友链载入失败!",
-                                                icon: "fa-solid fa-triangle-exclamation",
-                                                icon_color: "#EF4444"
-                                            })
-                                    }) : (document.getElementById(n).innerHTML = "友链获取失败!",
-                                    Jian.msg({
-                                        title: "友链",
-                                        text: "友链获取失败!",
-                                        icon: "fa-solid fa-triangle-exclamation",
-                                        icon_color: "#EF4444"
-                                    }))
-                                })
-                            }
-                            function friend_api() {
-                                function t(e="") {
-                                    var t = document.getElementById("qexo_friend_name").value
-                                      , n = document.getElementById("qexo_friend_brief introduction").value
-                                      , o = document.getElementById("qexo_friend_website").value
-                                      , i = document.getElementById("qexo_friend_logo").value
-                                      , a = qexo_url + "/pub/ask_friend/";
-                                    if (!t || !o || !i)
-                                        return Jian.msg({
-                                            title: "Qexo友链",
-                                            icon_color: "#f5365c",
-                                            icon: "fa-solid fa-triangle-exclamation",
-                                            msg: "请填写内容"
-                                        });
-                                    if (!/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/.test(o) || !/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/.test(i))
-                                        return Jian.msg({
-                                            title: "Qexo友链",
-                                            icon_color: "#f5365c",
-                                            icon: "fa-solid fa-triangle-exclamation",
-                                            msg: "请检查网址是否正确"
-                                        });
-                                    var c, l = {
-                                        name: t,
-                                        url: o,
-                                        image: i,
-                                        description: n
-                                    };
-                                    e && (l.verify = e);
-                                    let r = "";
-                                    for (c in l)
-                                        r += `&${c}=` + encodeURIComponent(l[c]);
-                                    r = r.slice(1),
-                                    fetch(a, {
-                                        method: "post",
-                                        body: r,
-                                        headers: {
-                                            "Content-Type": "application/x-www-form-urlencoded"
-                                        }
-                                    }).then(function(e) {
-                                        e.ok ? e.json().then(function(e) {
-                                            e.status ? Jian.msg({
-                                                title: "Qexo友链",
-                                                icon_color: "#2dce89",
-                                                icon: "fa-solid fa-check",
-                                                msg: "提交成功,请等待博主确认!我们不再提醒你结果,谢谢!"
-                                            }) : Jian.msg({
-                                                title: "Qexo友链",
-                                                icon_color: "#f5365c",
-                                                icon: "fa-solid fa-triangle-exclamation",
-                                                msg: "友链申请失败 提示:" + e.msg
-                                            })
-                                        }) : (document.getElementById("qexo-friend-btn").style.color = "#fff",
-                                        document.getElementById("qexo-friend-btn").style.backgroundColor = "#f5365c",
-                                        document.getElementById("qexo-friend-btn").innerHTML = "网络异常!")
-                                    })
-                                }
-                                Qexo_reCaptcha_Key ? grecaptcha.ready(function() {
-                                    grecaptcha.execute(reCaptcha, {
-                                        action: "submit"
-                                    }).then(function(e) {
-                                        t(e)
-                                    })
-                                }) : t()
-                            }
-                            qexo_url = "https://qexo.lvbyte.top",
-                            Qexo_reCaptcha_Key = "",
-                            friends("https://qexo.lvbyte.top")
-                        </script>
+
+<details class="tag-plugin folding" ><summary><span>添加友链</span></summary><div class="body"><div class="friend-api">  <style>input.qexo-friend-input {flex: 1 1 0%;display: block;width: 100%;height: calc(1.5em + 1.25rem + 2px);font-weight: 400;color: #8898aa;box-shadow: 0 3px 2px rgb(233 236 239 / 5%);transition: all 0.15s cubic-bezier(0.68, -0.55, 0.265, 1.55);overflow: visible;margin: 0;font-family: inherit;font-size: inherit;line-height: inherit;position: relative;display: flex;flex-direction: column;min-width: 0;word-wrap: break-word;background-color: #fff;background-clip: border-box;border: 1px solid rgba(0, 0, 0, 0.05);border-radius: 0.375rem;black;}button.qexo-friend-button {cursor: pointer;position: relative;text-transform: none;transition: all 0.15s ease;letter-spacing: 0.025em;font-size: 0.875rem;will-change: transform;color: #fff;background-color: #5e72e4;border-color: #5e72e4;box-shadow: 0 4px 6px rgb(50 50 93 / 11%), 0 1px 3px rgb(0 0 0 / 8%);vertical-align: middle;cursor: pointer;user-select: none;border: 1px solid transparent;padding: 0.625rem 1.25rem;font-size: 0.875rem;line-height: 1.5;border-radius: 0.25rem;transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;}</style>  <input type="text" id="qexo_friend_name" class="qexo-friend-input" placeholder="网站名">  <br>  <input type="text" id="qexo_friend_brief introduction" class="qexo-friend-input" placeholder="网站简介">  <br>  <input type="text" id="qexo_friend_website" class="qexo-friend-input" placeholder="网址">  <br>  <input type="text" id="qexo_friend_logo" class="qexo-friend-input" placeholder="头像">  <br>  <button type="button" class="qexo-friend-button" onclick="javascript:friend_api()">申请</button></div><script src="https://npm.elemecdn.com/qexo-friends/friends-api.js"></script><script>    qexo_friend_api("friends-api","https://qexo.lvbyte.top")</script></div></details>
 </article>
 
   <div class='related-wrap md-text reveal' id="comments">
