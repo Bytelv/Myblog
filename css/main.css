@@ -197,6 +197,7 @@ a.button.start.gradient {
   background: linear-gradient(to right, #92fe9d 0%, #00c9ff 50%, #92fe9d 100%);
   background-size: 1000%;
   color: #fff;
+  text-shadow: 0 0 1px rgba(0,0,0,0.12);
   animation: glow 60s linear infinite;
 }
 a.button.start.gradient:after {
@@ -2394,15 +2395,9 @@ details.folding[child=iframe] >div.body {
   font-size: 0.85rem;
 }
 .md-text .tag-plugin.link {
-  max-width: 100%;
   margin: 1em auto;
   display: flex;
   justify-content: center;
-}
-@media screen and (max-width: 375px) {
-  .md-text .tag-plugin.link {
-    width: 100%;
-  }
 }
 .md-text .link-card {
   background: var(--card);
@@ -2411,17 +2406,13 @@ details.folding[child=iframe] >div.body {
   align-items: center;
   cursor: pointer;
   width: 320px;
+  max-width: 100%;
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
   border-radius: 6px;
   transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
   -moz-transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
   -webkit-transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
   -o-transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
-}
-@media screen and (max-width: 375px) {
-  .md-text .link-card {
-    width: 100%;
-  }
 }
 .md-text .link-card:hover {
   box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);

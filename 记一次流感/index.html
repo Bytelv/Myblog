@@ -2,6 +2,13 @@
 <html lang='zh-CN'>
 
 <head>
+<script>
+navigator.serviceWorker.getRegistrations().then(function(registrations) {
+ for(let registration of registrations) {
+  registration.unregister()
+} })
+</script>
+
   <meta name="generator" content="Hexo 6.3.0">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
   <meta charset="utf-8">
@@ -84,7 +91,7 @@
 
   
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
 
 <nav class="menu dis-select"><a class="nav-item" href="/">主页</a><a class="nav-item" href="/friend/">友链</a><a class="nav-item" href="/timeline/">动态</a><a class="nav-item" href="/about/">关于</a></nav>
 </header>
@@ -109,6 +116,7 @@
       
 
 
+
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/">生活日常</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-04-06T11:25:36.000Z">2023-04-06</time></div></div>
 
 <article class='md-text content post'>
@@ -116,7 +124,9 @@
 <h1 id="生病经历"><a href="#生病经历" class="headerlink" title="生病经历"></a>生病经历</h1><p><strong>2023年4月2日</strong>晚上,吃了一块方包,吞下去时,感觉好像面包卡在喉咙了</p>
 <p><strong>2023年4月3日</strong>早上起床,喉咙开始不对经,用力呼吸,肺会痛。此时我以为是昨天吃的面包的原因。😭接下来的一整天里,喉咙都极其不舒服</p>
 <p><strong>2023年4月4日</strong>早上起床,TMD😡 病毒搞偷袭,一觉醒来,整个人的声音都变了,开始剧烈咳嗽。随着时间推移,身体越来越虚弱,开始虚冷。此时,我意识到,不对,出问题了!!😬</p>
-<p>中午实在受不了了,就提前叫家长来接我(虽然下午就放清明了😆 )。下午1点多,吃完一碗汤面,就去打吊针,顺便量了个体温:38.8💀 。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/Qexo/2023/4/%E6%89%93%E5%90%8A%E9%92%88.jpg" alt="https://npm.elemecdn.com/lvbyte-cdn/Qexo/2023/4/打吊针.jpg"></p>
+<p>中午实在受不了了,就提前叫家长来接我(虽然下午就放清明了😆 )。下午1点多,吃完一碗汤面,就去打吊针,顺便量了个体温:38.8💀 。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/Qexo/2023/4/打吊针.jpg" alt="https://npm.elemecdn.com/lvbyte-cdn/Qexo/2023/4/打吊针.jpg" fancybox="true"/></div><div class="image-meta"><span class="image-caption center">https://npm.elemecdn.com/lvbyte-cdn/Qexo/2023/4/打吊针.jpg</span></div></div>
+
 <p>打完吊针之后,诶,烧就退了👏 ,接下来的一天清明假期中,除了咳嗽都没有其他症状了。</p>
 <p>(笑死😆 区区流感,就这?)</p>
 <p>于是乎,<strong>2023年4月5日</strong>(星期三),我就重返校园了。</p>
@@ -234,6 +244,9 @@
     // 从 butterfly 和 volantis 获得灵感
     loadScript: (src, opt) => new Promise((resolve, reject) => {
       var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
       script.src = src;
       if (opt) {
         for (let key of Object.keys(opt)) {
@@ -272,11 +285,12 @@
       day: '天前',
       month: '个月前',
     },
+    root : '/',
   };
 
   // required plugins (only load if needs)
   stellar.plugins = {
-    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
   };
 
   if ('local_search') {
@@ -294,19 +308,19 @@
   stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
   // optional plugins
   if ('true' == 'true') {
-    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
   }
   if ('true' == 'true') {
     stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
   }
   if ('' == 'true') {
-    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
   }
   if ('true' == 'true') {
-    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
   }
   if ('true' == 'true') {
-    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
   }
   if ('false' == 'true') {
     stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
@@ -335,6 +349,7 @@
       Waline.init(Object.assign({"js":"https://unpkg.com/@waline/client@v2/dist/waline.js","css":"https://unpkg.com/@waline/client@v2/dist/waline.css","serverURL":"https://waline.lvbyte.top","commentCount":true,"pageview":false,"locale":{"placeholder":"说点什么吧!留下邮箱可以收到回复提醒哦","reactionTitle":null,"reaction0":"爱你哟","reaction1":"oh~~","reaction2":"嘚瑟~","reaction3":"无语"},"reaction":["https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_heart_eyes.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_dog_joy.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_dog_consider.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_sob.png"],"emoji":["https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/","https://unpkg.com/@waline/emojis@1.1.0/alus","https://unpkg.com/@waline/emojis@1.1.0/bilibili","https://unpkg.com/@waline/emojis@1.1.0/tw-emoji"]}, {
         el: '#waline_container',
         path: path,
+        
       }));
     });
   }

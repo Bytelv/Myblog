@@ -2,6 +2,13 @@
 <html lang='zh-CN'>
 
 <head>
+<script>
+navigator.serviceWorker.getRegistrations().then(function(registrations) {
+ for(let registration of registrations) {
+  registration.unregister()
+} })
+</script>
+
   <meta name="generator" content="Hexo 6.3.0">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
   <meta charset="utf-8">
@@ -23,12 +30,12 @@
   <title>极简数字生活 - 字节君</title>
 
   
-    <meta name="description" content="前言在 2023 年的今天,人们生活的方方面面已经被电子产品所覆盖。我们每天从电子产品中获取各种各样的信息。这些信息种类繁多,涉及领域广泛,来源也五花八门。如何正确地选择,管理信息源?如何处理接收到的信息?这将是本文所探讨的问题。 必须直面的问题以下图片是博主于 2023年4月7日 晚上 20:13 分截取的手机使用时间。  该数据有不严谨的地方,实际使用时间要远远大于这个数据! 在博主的日常生活">
+    <meta name="description" content="前言在 2023 年的今天,人们生活的方方面面已经被电子产品所覆盖。我们每天从电子产品中获取各种各样的信息。这些信息种类繁多,涉及领域广泛,来源也五花八门。如何正确地选择,管理信息源?如何处理接收到的信息?这将是本文所探讨的问题。 必须直面的问题以下图片是博主于 2023年4月7日 晚上 20:13 分截取的手机使用时间。 https:&#x2F;&#x2F;npm.elemecdn.com&#x2F;lvbyte-oss1&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="极简数字生活">
 <meta property="og:url" content="https://blog.lvbyte.top/%E6%9E%81%E7%AE%80%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB/index.html">
 <meta property="og:site_name" content="字节君">
-<meta property="og:description" content="前言在 2023 年的今天,人们生活的方方面面已经被电子产品所覆盖。我们每天从电子产品中获取各种各样的信息。这些信息种类繁多,涉及领域广泛,来源也五花八门。如何正确地选择,管理信息源?如何处理接收到的信息?这将是本文所探讨的问题。 必须直面的问题以下图片是博主于 2023年4月7日 晚上 20:13 分截取的手机使用时间。  该数据有不严谨的地方,实际使用时间要远远大于这个数据! 在博主的日常生活">
+<meta property="og:description" content="前言在 2023 年的今天,人们生活的方方面面已经被电子产品所覆盖。我们每天从电子产品中获取各种各样的信息。这些信息种类繁多,涉及领域广泛,来源也五花八门。如何正确地选择,管理信息源?如何处理接收到的信息?这将是本文所探讨的问题。 必须直面的问题以下图片是博主于 2023年4月7日 晚上 20:13 分截取的手机使用时间。 https:&#x2F;&#x2F;npm.elemecdn.com&#x2F;lvbyte-oss1&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_202129.jpg">
 <meta property="og:image" content="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204139.jpg">
@@ -86,7 +93,7 @@
 
   
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
 
 <nav class="menu dis-select"><a class="nav-item" href="/">主页</a><a class="nav-item" href="/friend/">友链</a><a class="nav-item" href="/timeline/">动态</a><a class="nav-item" href="/about/">关于</a></nav>
 </header>
@@ -111,13 +118,15 @@
       
 
 
+
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB/">数字生活</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-04-07T20:00:35.000Z">2023-04-07</time></div></div>
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>极简数字生活</span></h1>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在 2023 年的今天,人们生活的方方面面已经被电子产品所覆盖。我们每天从电子产品中获取各种各样的信息。这些信息种类繁多,涉及领域广泛,来源也五花八门。如何正确地选择,管理信息源?如何处理接收到的信息?这将是本文所探讨的问题。</p>
 <h3 id="必须直面的问题"><a href="#必须直面的问题" class="headerlink" title="必须直面的问题"></a>必须直面的问题</h3><p>以下图片是博主于 2023年4月7日 晚上 20:13 分截取的手机使用时间。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_202129.jpg" alt="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_202129.jpg"></p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_202129.jpg" alt="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_202129.jpg" fancybox="true"/></div><div class="image-meta"><span class="image-caption center">https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_202129.jpg</span></div></div>
+
 <p>该数据有不严谨的地方,实际使用时间要远远大于这个数据!</p>
 <p>在博主的日常生活中,社交媒体的信息流往往是用时最久的!基于媒体的算法,信息流如同无底洞,刺激人们的多巴胺,吸引人不断汲取更多的<strong>无效信息</strong> 。</p>
 <p>作为现代人,我们不可能不接触电子产品,我们不能改变社交媒体,但我们可以改变自己对电子产品的使用方式。</p>
@@ -128,7 +137,9 @@
 <p>相关实验可以参考何同学的视频:</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ev411x7en/?spm_id_from=333.337.search-card.all.click">【何同学】这视频能让你戒手机_哔哩哔哩_bilibili</a>)</p>
 <p>我的手机设置效果如下:(欸,黑白效果似乎截屏不出来,这里纯粹就当作手机桌面展示吧)</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204139.jpg" alt="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204139.jpg"><br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204136.jpg" alt="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204136.jpg"></p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204139.jpg" alt="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204139.jpg" fancybox="true"/></div><div class="image-meta"><span class="image-caption center">https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204139.jpg</span></div></div>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204136.jpg" alt="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204136.jpg" fancybox="true"/></div><div class="image-meta"><span class="image-caption center">https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/4/Screenshot_20230407_204136.jpg</span></div></div>
+
 <h3 id="或许你需要一个锁机软件"><a href="#或许你需要一个锁机软件" class="headerlink" title="或许你需要一个锁机软件"></a>或许你需要一个锁机软件</h3><p>或许你没有足够强大的意志力,看到手机仍想拿起来把玩一下。你也许需要一个好的锁机软件。这里我推荐【番茄锁】,这个软件是完全免费的,界面简洁,支持多种功能。有趣的是,当你想提前放弃锁机时,你需要向官方支付费用(费用可以自己定),这样做大大提高了解锁成本,利用金钱让你放弃锁机。这种软件盈利方式很巧妙o( ̄▽ ̄)d</p>
 <p>下载链接👇:</p>
 <p><a target="_blank" rel="noopener" href="https://cloud.lvbyte.top/api/raw/?path=/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B1%BB/%E5%AE%89%E8%A3%85%E5%8C%85/%E5%AE%89%E5%8D%93%E5%AE%89%E8%A3%85%E5%8C%85/%E7%95%AA%E8%8C%84%E9%94%81.apk">番茄锁</a></p>
@@ -237,6 +248,9 @@
     // 从 butterfly 和 volantis 获得灵感
     loadScript: (src, opt) => new Promise((resolve, reject) => {
       var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
       script.src = src;
       if (opt) {
         for (let key of Object.keys(opt)) {
@@ -275,11 +289,12 @@
       day: '天前',
       month: '个月前',
     },
+    root : '/',
   };
 
   // required plugins (only load if needs)
   stellar.plugins = {
-    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
   };
 
   if ('local_search') {
@@ -297,19 +312,19 @@
   stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
   // optional plugins
   if ('true' == 'true') {
-    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
   }
   if ('true' == 'true') {
     stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
   }
   if ('' == 'true') {
-    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
   }
   if ('true' == 'true') {
-    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
   }
   if ('true' == 'true') {
-    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
   }
   if ('false' == 'true') {
     stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
@@ -338,6 +353,7 @@
       Waline.init(Object.assign({"js":"https://unpkg.com/@waline/client@v2/dist/waline.js","css":"https://unpkg.com/@waline/client@v2/dist/waline.css","serverURL":"https://waline.lvbyte.top","commentCount":true,"pageview":false,"locale":{"placeholder":"说点什么吧!留下邮箱可以收到回复提醒哦","reactionTitle":null,"reaction0":"爱你哟","reaction1":"oh~~","reaction2":"嘚瑟~","reaction3":"无语"},"reaction":["https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_heart_eyes.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_dog_joy.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_dog_consider.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_sob.png"],"emoji":["https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/","https://unpkg.com/@waline/emojis@1.1.0/alus","https://unpkg.com/@waline/emojis@1.1.0/bilibili","https://unpkg.com/@waline/emojis@1.1.0/tw-emoji"]}, {
         el: '#waline_container',
         path: path,
+        
       }));
     });
   }
