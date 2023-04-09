@@ -2,23 +2,6 @@
 <html lang='zh-CN'>
 
 <head>
-<script>
-window.addEventListener('load', async () => {
-    navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)
-        .then(async reg => {
-            //安装成功，建议此处强刷新以立刻执行SW
-            if (window.localStorage.getItem('install') != 'true') {
-                window.localStorage.setItem('install', 'true');
-                setTimeout(() => {
-                    window.location.search = `?time=${new Date().getTime()}`
-                }, 1000)
-            }
-        }).catch(err => {
-            //安装失败，错误信息会由err传参
-        })
-});
-</script>
-
   <meta name="generator" content="Hexo 6.3.0">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.18.5">
   <meta charset="utf-8">
@@ -47,8 +30,8 @@ window.addEventListener('load', async () => {
 <meta property="og:site_name" content="字节君">
 <meta property="og:description" content="loadQexoFriends(&quot;qexo-friends&quot;, &quot;https:&#x2F;&#x2F;qexo.lvbyte.tk&quot;)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-06T12:30:25.171Z">
-<meta property="article:modified_time" content="2023-04-06T12:30:25.171Z">
+<meta property="article:published_time" content="2023-04-09T01:59:58.884Z">
+<meta property="article:modified_time" content="2023-04-09T01:59:58.884Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">
@@ -96,7 +79,7 @@ window.addEventListener('load', async () => {
 
   
 
-<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
 
 <nav class="menu dis-select"><a class="nav-item" href="/">主页</a><a class="nav-item" href="/friend/">友链</a><a class="nav-item" href="/timeline/">动态</a><a class="nav-item" href="/about/">关于</a></nav>
 </header>
@@ -105,19 +88,19 @@ window.addEventListener('load', async () => {
 <div class="widgets">
 
 
-<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%81%E6%84%9F/"><span class="title">记一次流感</span></a><a class="item title" href="/%E7%8E%AF%E5%A2%83%E6%8F%8F%E5%86%99/"><span class="title">环境描写</span></a><a class="item title" href="/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8%E4%B9%8BTemrux%E6%8A%98%E8%85%BE/"><span class="title">小米手表之Temrux折腾</span></a><a class="item title" href="/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E8%AE%A1%E5%88%92/"><span class="title">接下来的计划</span></a><a class="item title" href="/%E5%AE%B6%E5%9B%BD%E6%83%85%E6%80%80/"><span class="title">家国情怀</span></a></div></widget>
+<widget class="widget-wrapper recent"><div class="widget-header cap theme dis-select"><span class="name">最近更新</span></div><div class="widget-body related-posts fs14"><a class="item title" href="/%E6%9E%81%E7%AE%80%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB/"><span class="title">极简数字生活</span></a><a class="item title" href="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%81%E6%84%9F/"><span class="title">记一次流感</span></a><a class="item title" href="/%E7%8E%AF%E5%A2%83%E6%8F%8F%E5%86%99/"><span class="title">环境描写</span></a><a class="item title" href="/%E5%B0%8F%E7%B1%B3%E6%89%8B%E8%A1%A8%E4%B9%8BTemrux%E6%8A%98%E8%85%BE/"><span class="title">小米手表之Temrux折腾</span></a><a class="item title" href="/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E8%AE%A1%E5%88%92/"><span class="title">接下来的计划</span></a></div></widget>
 
 
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" placeholder="站内搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 </div>
-<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Bytelv" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.staticaly.com/gh/Bytelv/lvbyteCdn@main/20230104/github.213d9lnn1c3k.png"/></a><a class="social" href="http://wpa.qq.com/msgrd?v=3&uin=2015078351&site=qq&menu=yes" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.staticaly.com/gh/Bytelv/lvbyteCdn@main/20230104/qq轻聊.52lv7ybhe6ps.png"/></a><a class="social" href="https://steamcommunity.com/id/lvbyte/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.staticaly.com/gh/Bytelv/lvbyteCdn@main/20230104/steam(1).4jcdvazi3tkw.png"/></a><a class="social" href="https://space.bilibili.com/31872009/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.staticaly.com/gh/Bytelv/lvbyteCdn@main/20230104/bilibili.213uznc82pmo.png"/></a><a class="social" href="mailto:lvbyte@lvbyte.top" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.staticaly.com/gh/Bytelv/lvbyteCdn@main/20230104/email.5d1436micpkw.png"/></a><a class="social" href="https://twitter.com/lzhji25163047" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.staticaly.com/gh/Bytelv/lvbyteCdn@main/20230104/推特-twitter.6hkubsf8utts.png"/></a></div></footer>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Bytelv" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/github.213d9lnn1c3k.png"/></a><a class="social" href="http://wpa.qq.com/msgrd?v=3&uin=2015078351&site=qq&menu=yes" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/qq轻聊.52lv7ybhe6ps.png"/></a><a class="social" href="https://steamcommunity.com/id/lvbyte/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/steam(1).4jcdvazi3tkw.png"/></a><a class="social" href="https://space.bilibili.com/31872009/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/bilibili.213uznc82pmo.png"/></a><a class="social" href="mailto:lvbyte@lvbyte.top" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/email.5d1436micpkw.png"/></a><a class="social" href="https://twitter.com/lzhji25163047" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/推特-twitter.6hkubsf8utts.png"/></a></div></footer>
 
     </aside>
     <div class='l_main'>
       
   
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div></header>
+<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div></header>
 
 
 
@@ -222,9 +205,6 @@ window.addEventListener('load', async () => {
     // 从 butterfly 和 volantis 获得灵感
     loadScript: (src, opt) => new Promise((resolve, reject) => {
       var script = document.createElement('script');
-      if (src.startsWith('/')){
-        src = stellar.config.root + src.substring(1);
-      }
       script.src = src;
       if (opt) {
         for (let key of Object.keys(opt)) {
@@ -263,12 +243,11 @@ window.addEventListener('load', async () => {
       day: '天前',
       month: '个月前',
     },
-    root : '/',
   };
 
   // required plugins (only load if needs)
   stellar.plugins = {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
   };
 
   if ('local_search') {
@@ -286,19 +265,19 @@ window.addEventListener('load', async () => {
   stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
   // optional plugins
   if ('true' == 'true') {
-    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
   }
   if ('true' == 'true') {
     stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
   }
   if ('' == 'true') {
-    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
   }
   if ('true' == 'true') {
-    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
   }
   if ('true' == 'true') {
-    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
   }
   if ('false' == 'true') {
     stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
@@ -324,10 +303,9 @@ window.addEventListener('load', async () => {
       if (!path) {
         path = decodeURI(window.location.pathname);
       }
-      Waline.init(Object.assign({"js":"https://unpkg.com/@waline/client@v2/dist/waline.js","css":"https://unpkg.com/@waline/client@v2/dist/waline.css","serverURL":"https://waline.lvbyte.top/","commentCount":true,"pageview":false,"locale":{"placeholder":"说点什么吧!"},"emoji":["https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/","https://unpkg.com/@waline/emojis@1.1.0/alus","https://unpkg.com/@waline/emojis@1.1.0/bilibili","https://unpkg.com/@waline/emojis@1.1.0/tw-emoji"]}, {
+      Waline.init(Object.assign({"js":"https://unpkg.com/@waline/client@v2/dist/waline.js","css":"https://unpkg.com/@waline/client@v2/dist/waline.css","serverURL":"https://waline.lvbyte.top","commentCount":true,"pageview":false,"locale":{"placeholder":"说点什么吧!留下邮箱可以收到回复提醒哦","reactionTitle":null,"reaction0":"爱你哟","reaction1":"oh~~","reaction2":"嘚瑟~","reaction3":"无语"},"reaction":["https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_heart_eyes.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_dog_joy.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_dog_consider.png","https://unpkg.com/@waline/emojis@1.1.0/weibo/weibo_sob.png"],"emoji":["https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/","https://unpkg.com/@waline/emojis@1.1.0/alus","https://unpkg.com/@waline/emojis@1.1.0/bilibili","https://unpkg.com/@waline/emojis@1.1.0/tw-emoji"]}, {
         el: '#waline_container',
         path: path,
-        
       }));
     });
   }
