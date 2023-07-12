@@ -37,8 +37,8 @@
                       setTimeout(() => {
                           window.localStorage.setItem('LvbyteBlog_Set', 2)
                           console.log('准备跳转')
-                          window.location.reload() //刷新,以载入sw
-                      }, 1000)//安装后等待500ms使其激活
+                          window.location.href="http://blog.lvbyte.top" //刷新,以载入sw
+                      }, 500)//安装后等待500ms使其激活
                   }
               })
               .catch(err => console.error(`LvbyteBlogError:${err}`))
