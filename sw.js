@@ -1,4 +1,4 @@
-const CACHE_NAME = 'QYstudioBlogCache';
+const CACHE_NAME = 'lvbyteBlogCache';
 
 let cachelist = [];
 
