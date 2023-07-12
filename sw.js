@@ -60,6 +60,18 @@ let cdn = {
         },
         tianli: {
             "url": "https://cdn1.tianli0.top/gh"
+        },
+        jsdelivr: {
+            "url": "https://cdn.jsdelivr.net/gh"
+        },
+        jsdelivr_fastly: {
+            "url": "https://fastly.jsdelivr.net/gh"
+        },
+        jsdelivr_gcore: {
+            "url": "https://gcore.jsdelivr.net/gh"
+        },
+        cdnn: {
+            "url": "https://cdn2.chuqis.com/gh"
         }
     },
     "combine": {
@@ -68,7 +80,7 @@ let cdn = {
         },
         tianli: {
             "url": "https://cdn1.tianli0.top/combine"
-        }
+        }     
     },
     "npm": {
         eleme: {
@@ -99,7 +111,10 @@ let cdn = {
         },
         sourcegcdn: {
             "url": "https://cdnjs.sourcegcdn.com/ajax/libs"
-        }   
+        },
+        cdnn: {
+            "url": "https://cdn2.chuqis.com/cdnjs"
+        }
     }
 }
 const lfetch = async (urls, url, init) => {
