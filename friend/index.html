@@ -37,7 +37,7 @@
                       setTimeout(() => {
                           window.localStorage.setItem('QYBlogHelper_Set', 2)
                           console.log('准备跳转')
-                          window.location.reload()//刷新,以载入sw
+                          location.reload();//刷新,以载入sw
                       }, 500)//安装后等待500ms使其激活
                   }
               })
