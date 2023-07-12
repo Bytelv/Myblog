@@ -3,9 +3,39 @@
 
 <head>
   <meta name="generator" content="Hexo 6.3.0">
+  <!-- sw前端竞速 -->
+  <script>
+  (async () => {//使用匿名函数确保body已载入
+    /*
+    lvbyteBlogHelper_Set 存储在LocalStorage中,用于指示sw安装状态
+    0 或不存在 未安装
+    1 已打断
+    2 已安装
+    3 已激活,并且已缓存必要的文件(此处未写出,无需理会)
+    */
+    const $ = document.querySelector.bind(document);//语法糖
+    if ('serviceWorker' in navigator) { //如果支持sw
+        if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 1) {
+            window.localStorage.setItem('lvbyteBlogHelper_Set', 1)
+            window.stop()
+            document.body.innerHTML = await (await fetch('https://npm.elemecdn.com/lvbyte-oss1/notice.html')).text()
+        }
+        navigator.serviceWorker.register(`/sw.js?time=${ranN(1, 88888888888888888888)}`)//随机数,强制更新
+            .then(async () => {
+                if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 2) {
+                    setTimeout(() => {
+                        window.localStorage.setItem('lvbyteBlogHelper_Set', 2)
+                        //window.location.search = `?time=${ranN(1, 88888888888888888888)}` //已弃用,在等待500ms安装成功后直接刷新没有问题
+                        window.location.reload()//刷新,以载入sw
+                    }, 500)//安装后等待500ms使其激活
+                }
+            })
+            .catch(err => console.error(`lvbyteBlogHelperError:${err}`))
+    }
+})()
+  </script>
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0">
   <meta charset="utf-8">
-  
   
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
@@ -20,50 +50,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8"> 
   <title>记一次流感 - 字节君</title>
-  <!-- sw前端竞速 -->
-  <script>
-  (async () => {//使用匿名函数确保body已载入
-     /*
-     LvbyteBlog_Set 存储在LocalStorage中,用于指示sw安装状态
-     0 或不存在 未安装
-     1 已打断
-     2 已安装
-     3 已激活,并且已缓存必要的文件(此处未写出,无需理会)
-     */
-      if ('serviceWorker' in navigator) { //如果支持sw
-          if (Number(window.localStorage.getItem('LvbyteBlog_Set')) < 1) {
-              setTimeout(async () => {
-                  console.log('检测到您的浏览器没有安装ServiceWork，开始注册')
-                  window.stop()
-                  window.localStorage.setItem('LvbyteBlog_Set', 1)
-                  const replacehtml = await fetch('https://npm.elemecdn.com/lvbyte-oss1/notice.html')
-                  document.body.innerHTML = await replacehtml.text()
-                  $('#info').innerText = '尝试安装ServiceWork...';
-              }, 0);
-          }
-          const $ = document.querySelector.bind(document);//语法糖
-          navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)//随机数,强制更新
-              .then(async () => {
-                  if (Number(window.localStorage.getItem('LvbyteBlog_Set')) < 2) {
-                      setTimeout(() => {
-                          $('#info').innerText = '安装成功,请手动刷新！';
-                      }, 0);
-                      setTimeout(() => {
-                          window.localStorage.setItem('LvbyteBlog_Set', 2)
-                          console.log('准备跳转')
-                          window.location.href="http://blog.lvbyte.top" //刷新,以载入sw
-                      }, 500)//安装后等待500ms使其激活
-                  }
-              })
-              .catch(err => console.error(`LvbyteBlogError:${err}`))
-      } else {
-          setTimeout(() => {
-              $('#info').innerText = '很抱歉,我们已不再支持您的浏览器.';
-          }, 0);
-      }
-  })()
-  </script>
-
   
     <meta name="description" content="生病经历2023年4月2日晚上,吃了一块方包,吞下去时,感觉好像面包卡在喉咙了 2023年4月3日早上起床,喉咙开始不对经,用力呼吸,肺会痛。此时我以为是昨天吃的面包的原因。😭接下来的一整天里,喉咙都极其不舒服 2023年4月4日早上起床,TMD😡 病毒搞偷袭,一觉醒来,整个人的声音都变了,开始剧烈咳嗽。随着时间推移,身体越来越虚弱,开始虚冷。此时,我意识到,不对,出问题了!!😬 中午实在受">
 <meta property="og:type" content="article">
