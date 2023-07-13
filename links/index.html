@@ -14,46 +14,52 @@
   <link rel='dns-prefetch' href='//unpkg.com'>
   <!-- sw前端竞速 -->
   <script>
-  (async () => {//使用匿名函数确保body已载入
-      /*
-      lvbyteBlogHelper_Set 存储在LocalStorage中,用于指示sw安装状态
-      0 或不存在 未安装
-      1 已打断
-      2 已安装
-      3 已激活,并且已缓存必要的文件(此处未写出,无需理会)
-      */
-      if ('serviceWorker' in navigator) { //如果支持sw
-          if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 1) {
-              setTimeout(async () => {
-                  console.log('检测到您的浏览器没有安装lvbyteBlogHelper，开始注册')
-                  window.stop()
-                  window.localStorage.setItem('lvbyteBlogHelper_Set', 1)
-                  const replacehtml = await fetch('https://npm.elemecdn.com/lvbyte-oss1/notice.html')
-                  document.body.innerHTML = await replacehtml.text()
-                  $('#info').innerText = '尝试安装lvbyteBlogHelper...';
-              }, 0);
-          }
-          const $ = document.querySelector.bind(document);//语法糖
-          navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)//随机数,强制更新
-              .then(async () => {
-                  if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 2) {
-                      setTimeout(() => {
-                          $('#info').innerText = '安装成功,请手动刷新页面';
-                      }, 1000);
-                      setTimeout(() => {
-                          window.localStorage.setItem('lvbyteBlogHelper_Set', 2)
-                          console.log('准备跳转')
-                          window.location.reload()//刷新,以载入sw
-                      }, 2000)//安装后等待2000ms使其激活
-                  }
-              })
-              .catch(err => console.error(`lvbyteBlogHelperError:${err}`))
-      } else {
+  (async () => {
+  // 使用匿名函数确保 body 已载入
+
+  if ('serviceWorker' in navigator) {
+    // 如果浏览器支持 service worker
+
+    if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 1) {
+      // 如果 lvbyteBlogHelper_Set 存储在 localStorage 中的值小于 1
+      setTimeout(async () => {
+        console.log('检测到您的浏览器没有安装 lvbyteBlogHelper，开始注册');
+        window.stop();
+        window.localStorage.setItem('lvbyteBlogHelper_Set', 1);
+        const replacehtml = await fetch('https://npm.elemecdn.com/lvbyte-oss1/notice.html');
+        document.body.innerHTML = await replacehtml.text();
+        $('#info').innerText = '尝试安装 lvbyteBlogHelper...';
+      }, 0);
+    }
+
+    const $ = document.querySelector.bind(document);
+    // 创建 $ 函数，用于获取元素的简便方法
+
+    navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)
+      .then(async () => {
+        if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 2) {
           setTimeout(() => {
-              $('#info').innerText = '很抱歉,我们已不再支持您的浏览器.';
-          }, 0);
-      }
-  })()
+            $('#info').innerText = '安装成功，请手动刷新页面';
+          }, 1000);
+          document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+              window.localStorage.setItem('lvbyteBlogHelper_Set', 2);
+              console.log('准备跳转');
+              window.location.reload();
+            }, 2000);
+          });
+        }
+      })
+      .catch(err => console.error(`lvbyteBlogHelperError:${err}`));
+    // 注册 service worker，并处理安装成功后的逻辑
+
+  } else {
+    setTimeout(() => {
+      $('#info').innerText = '很抱歉，我们已不再支持您的浏览器。';
+    }, 0);
+    // 如果浏览器不支持 service worker，则显示不支持信息
+  }
+})();
   </script>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
@@ -71,8 +77,8 @@
 <meta property="og:site_name" content="字节君">
 <meta property="og:description" content="loadQexoFriends(&quot;qexo-friends&quot;, &quot;https:&#x2F;&#x2F;qexo.lvbyte.tk&quot;)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-13T04:14:58.190Z">
-<meta property="article:modified_time" content="2023-07-13T04:14:58.190Z">
+<meta property="article:published_time" content="2023-07-13T05:34:55.216Z">
+<meta property="article:modified_time" content="2023-07-13T05:34:55.216Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">
