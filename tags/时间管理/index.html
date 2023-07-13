@@ -29,6 +29,10 @@
         const replacehtml = await fetch('https://npm.elemecdn.com/lvbyte-oss1/notice.html');
         document.body.innerHTML = await replacehtml.text();
         $('#info').innerText = '尝试安装 lvbyteBlogHelper...';
+        // 添加代码以在页面内容替换完成后进行刷新
+        setTimeout(() => {
+          location.replace(location.href);
+        }, 2000);
       }, 0);
     }
 
@@ -41,13 +45,11 @@
           setTimeout(() => {
             $('#info').innerText = '安装成功，请手动刷新页面';
           }, 1000);
-          document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-              window.localStorage.setItem('lvbyteBlogHelper_Set', 2);
-              console.log('准备跳转');
-              window.location.reload();
-            }, 2000);
-          });
+          setTimeout(() => {
+            window.localStorage.setItem('lvbyteBlogHelper_Set', 2);
+            console.log('准备跳转');
+            location.replace(location.href);
+          }, 2000);
         }
       })
       .catch(err => console.error(`lvbyteBlogHelperError:${err}`));
@@ -60,6 +62,7 @@
     // 如果浏览器不支持 service worker，则显示不支持信息
   }
 })();
+
   </script>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
