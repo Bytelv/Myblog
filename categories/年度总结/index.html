@@ -47,13 +47,13 @@
           }, 1000);
           setTimeout(() => {
             window.localStorage.setItem('lvbyteBlogHelper_Set', 2);
-            console.log('准备跳转');
-            $('#info').innerText = '准备跳转';
+            console.log('准备跳转...');
+            $('#info').innerText = '准备跳转...';
             location.reload();
           }, 2000);
           setTimeout(() => {
             location.reload();
-          }, 2000);
+          }, 100000);
 
         }
       })
