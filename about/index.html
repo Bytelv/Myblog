@@ -48,8 +48,13 @@
           setTimeout(() => {
             window.localStorage.setItem('lvbyteBlogHelper_Set', 2);
             console.log('准备跳转');
-            location.replace(location.href);
+            $('#info').innerText = '准备跳转';
+            location.reload();
           }, 2000);
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+
         }
       })
       .catch(err => console.error(`lvbyteBlogHelperError:${err}`));
@@ -82,8 +87,8 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.staticaly.com/gh/Bytelv/lvbyteCdn@main/Qexo/2023/1/hello-cubik.png">
 <meta property="og:image" content="https://api.szfx.top/api/zaobao/">
-<meta property="article:published_time" content="2023-07-13T05:43:20.918Z">
-<meta property="article:modified_time" content="2023-07-13T05:43:20.918Z">
+<meta property="article:published_time" content="2023-07-13T08:01:34.647Z">
+<meta property="article:modified_time" content="2023-07-13T08:01:34.647Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">

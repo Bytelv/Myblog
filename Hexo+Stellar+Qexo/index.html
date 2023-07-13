@@ -48,8 +48,13 @@
           setTimeout(() => {
             window.localStorage.setItem('lvbyteBlogHelper_Set', 2);
             console.log('准备跳转');
-            location.replace(location.href);
+            $('#info').innerText = '准备跳转';
+            location.reload();
           }, 2000);
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+
         }
       })
       .catch(err => console.error(`lvbyteBlogHelperError:${err}`));
