@@ -46,14 +46,11 @@
             $('#info').innerText = '安装成功，请手动刷新页面';
           }, 1000);
           setTimeout(() => {
-            window.localStorage.setItem('lvbyteBlogHelper_Set', 2);
+            window.localStorage.setItem('lvbyteBlogHelper_Set', 3);
             console.log('准备跳转...');
             $('#info').innerText = '准备跳转...';
             location.reload();
           }, 2000);
-          setTimeout(() => {
-            location.reload();
-          }, 100000);
 
         }
       })
