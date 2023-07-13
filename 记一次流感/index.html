@@ -44,7 +44,7 @@
                           window.localStorage.setItem('lvbyteBlogHelper_Set', 2)
                           console.log('准备跳转')
                           window.location.reload()//刷新,以载入sw
-                      }, 500)//安装后等待500ms使其激活
+                      }, 2000)//安装后等待2000ms使其激活
                   }
               })
               .catch(err => console.error(`lvbyteBlogHelperError:${err}`))
