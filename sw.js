@@ -147,7 +147,16 @@ const lfetch = async (urls, url, init) => {
         init = init || {}
         init.signal = controller.signal
         return new Promise((resolve, reject) => {
-            
+            fetch(urls, init)
+                .then(PauseProgress)
+                .then(res => {
+                    if (res.status == 200) {
+                        controller.abort();
+                        resolve(res)
+                    } else {
+                        reject(null)
+                    }
+                })
         })
     }))
 }
