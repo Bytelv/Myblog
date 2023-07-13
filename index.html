@@ -38,7 +38,7 @@
               .then(async () => {
                   if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 2) {
                       setTimeout(() => {
-                          $('#info').innerText = '安装成功,稍等片刻...';
+                          $('#info').innerText = '安装成功,请手动刷新页面';
                       }, 0);
                       setTimeout(() => {
                           window.localStorage.setItem('lvbyteBlogHelper_Set', 2)
