@@ -8,6 +8,10 @@
   <meta charset="utf-8">
   <meta name="robots" content="noindex,follow">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
   <!-- sw前端竞速 -->
   <script>
   (async () => {//使用匿名函数确保body已载入
@@ -26,6 +30,7 @@
                   window.localStorage.setItem('lvbyteBlogHelper_Set', 1)
                   const replacehtml = await fetch('https://npm.elemecdn.com/lvbyte-oss1/notice.html')
                   document.body.innerHTML = await replacehtml.text()
+                  $('#info').innerText = '尝试安装lvbyteBlogHelper...';
               }, 0);
           }
           const $ = document.querySelector.bind(document);//语法糖
@@ -33,9 +38,11 @@
               .then(async () => {
                   if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 2) {
                       setTimeout(() => {
+                          $('#info').innerText = '安装成功,稍等片刻...';
+                      }, 0);
+                      setTimeout(() => {
                           window.localStorage.setItem('lvbyteBlogHelper_Set', 2)
                           console.log('准备跳转')
-                          window.stop()
                           window.location.reload()//刷新,以载入sw
                       }, 500)//安装后等待500ms使其激活
                   }
@@ -43,14 +50,11 @@
               .catch(err => console.error(`lvbyteBlogHelperError:${err}`))
       } else {
           setTimeout(() => {
-              console.log('很抱歉,我们已不再支持您的浏览器');
+              $('#info').innerText = '很抱歉,我们已不再支持您的浏览器.';
           }, 0);
       }
   })()
   </script>
-  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
-  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
-  <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
