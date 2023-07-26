@@ -208,7 +208,7 @@ const handle = async function (req) {
     const urlPath = urlObj.pathname;
     let urls = []
 
-    if (req.method == "GET" && (domain == "blog.lvbyte.top" || domain == "localhost")) {
+    if (req.method == "GET" && (domain == "blog.lvbyte.tk" || domain == "localhost")) {
         /* 是 Blog & 且资源为 Get */
         /* 根据 Blog 的路径情况修改了下 fullpath 函数 */
         const fullpath = (path) => {
