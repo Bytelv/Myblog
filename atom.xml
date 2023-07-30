@@ -6,7 +6,7 @@
   <link href="https://blog.lvbyte.top/atom.xml" rel="self"/>
   
   <link href="https://blog.lvbyte.top/"/>
-  <updated>2023-07-30T08:38:36.359Z</updated>
+  <updated>2023-07-30T08:42:30.206Z</updated>
   <id>https://blog.lvbyte.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.lvbyte.top/18R%20%E9%A6%99%E6%B8%AF2h2g%20%E6%B5%8B%E8%AF%95/"/>
     <id>https://blog.lvbyte.top/18R%20%E9%A6%99%E6%B8%AF2h2g%20%E6%B5%8B%E8%AF%95/</id>
     <published>2023-07-23T12:34:16.610Z</published>
-    <updated>2023-07-30T08:38:36.359Z</updated>
+    <updated>2023-07-30T08:42:30.206Z</updated>
     
     <content type="html"><![CDATA[<h1 id="小🐥配置-老鬼大佬的SuperBench测试脚本"><a href="#小🐥配置-老鬼大佬的SuperBench测试脚本" class="headerlink" title="小🐥配置(老鬼大佬的SuperBench测试脚本)"></a>小🐥配置(老鬼大佬的SuperBench测试脚本)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | bash</span><br></pre></td></tr></table></figure><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/78b8e08b9ff188c856df0e4152eac97.png" fancybox="true"/></div></div><p>emmmm，中规中矩</p><p>配置(2h2g)在这个价位已经可以了（仅有的一个优点），带宽也小 上下行带宽只有3Mbps</p><p>没有线路优化。</p><h1 id="流媒体解锁测试-MediaUnlockTest"><a href="#流媒体解锁测试-MediaUnlockTest" class="headerlink" title="流媒体解锁测试(MediaUnlockTest)"></a>流媒体解锁测试(MediaUnlockTest)</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls unlock.moe)</span><br></pre></td></tr></table></figure><div class="tag-plugin image"><div class="image-bg"><img src="https://cdn.chuqis.com/npm/lvbyte-oss1/Qexo/2023/7/78c2ba792ea6139db23bda83c2d6f7a.png" fancybox="true"/></div></div><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>该小🐥不适合用来搭建大型网站或🪜。可以搭建青龙面板来做定时任务</p><p>如果想购买该服务器的，可以在底下评论</p>]]></content>
     
@@ -49,7 +49,7 @@
     <link href="https://blog.lvbyte.top/%E4%B8%AD%E8%80%83%E5%A4%B1%E5%88%A9%E5%90%8E%E7%9A%84%E6%80%9D%E8%80%83/"/>
     <id>https://blog.lvbyte.top/%E4%B8%AD%E8%80%83%E5%A4%B1%E5%88%A9%E5%90%8E%E7%9A%84%E6%80%9D%E8%80%83/</id>
     <published>2023-07-18T13:56:30.675Z</published>
-    <updated>2023-07-30T08:38:36.359Z</updated>
+    <updated>2023-07-30T08:42:30.206Z</updated>
     
     <content type="html"><![CDATA[<p>很不幸，中考失利真的发生在我的身上</p><p>查分的那一天，我同样在焦急地等待。</p><p>教育局公布成绩的时间是10点</p><p>可9点半，成绩短信便发在我妈的手机上。</p><p>她没有说话，过了几分钟后才告诉我成绩</p><p>没错，我中考失利了。</p><p>数学狠狠地背刺了我，满分120，我却考了93.</p><p>忽然间，对前方失去了希望。</p><p>我不停地刷新微信，同学群里地聊天记录</p><p>他们真的聊的很开心啊！！</p><p>而我只能隔着屏幕看着他们的喜悦。</p><p>内心有说不出的无助感。。。</p><p>回想起曾经努力的三年。</p><p>回想起过去，我也是被老师看好的好苗子。</p><p>从普通班一步步爬到尖子班</p><p>我也曾在深夜中哭泣，看着月考时并不出彩的成绩</p><p>怎么会这样呢。。。</p><p>我应该扪心自问。。。</p><p>听不懂的数学题，下课没有及时请教老师而草草了事，相信中考不会出现这道题目</p><p>古诗词到临考前，才突击背诵</p><p>偶尔的背后一定有无数次偷工减料</p><p>所以，我不失利，谁失利呢？</p><p>录取分数线公布的那一天，看着朋友圈里，同学们频频报喜</p><p>就连很多平常成绩不如我的同学，也都上了一中</p><p>现在颓废已经没有用了！</p><p>不必再传递负能量给我的读者了。</p><p>就算失利，又怎样呢？</p><p>不如收拾行李，整装待发！</p><p>是时候对过去的自己说再见了！</p><p>很抱歉，马拉松还有三年，乾坤未定</p><p>我不会再像以前那样清醒的堕落了！我会奔赴美好，去发现更好的自己！</p><h3 id="反思后的出发"><a href="#反思后的出发" class="headerlink" title="反思后的出发"></a>反思后的出发</h3><p>暑假已经过去蛮长时间了，在等分数的这几天，已经在放松身心很多天了</p><p>现在是时候该出发了！</p><ul><li><input disabled="" type="checkbox"> 预习高中数理化知识</li><li><input disabled="" type="checkbox"> 每天坚持背高中英语单词</li><li><input disabled="" type="checkbox"> 每天坚持背语文古诗</li><li><input disabled="" type="checkbox"> 刷高中英语模卷</li><li><input disabled="" type="checkbox"> 阅读高中语文名著</li><li><input disabled="" type="checkbox"> 开始学习网络安全技术</li><li><input disabled="" type="checkbox"> 掌握一门编程语言的基本使用方法</li><li><input disabled="" type="checkbox"> 学习linux系统</li><li><input disabled="" type="checkbox"> 尝试做一个自己的web项目</li><li><input disabled="" type="checkbox"> …..</li></ul>]]></content>
     
@@ -82,7 +82,7 @@
     <link href="https://blog.lvbyte.top/%E5%88%9D%E4%B8%AD%E4%B8%89%E5%B9%B4%EF%BC%8C%E8%8A%B1%E7%BB%88%E8%90%BD%E4%B8%8B/"/>
     <id>https://blog.lvbyte.top/%E5%88%9D%E4%B8%AD%E4%B8%89%E5%B9%B4%EF%BC%8C%E8%8A%B1%E7%BB%88%E8%90%BD%E4%B8%8B/</id>
     <published>2023-07-05T04:05:15.271Z</published>
-    <updated>2023-07-30T08:38:36.359Z</updated>
+    <updated>2023-07-30T08:42:30.206Z</updated>
     
     <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="https://music.163.com/outchain/player?type=2&id=1436709403&auto=1&height=66"></iframe><p>于花落季节相逢，于花开盛夏告别。</p><p>当按下相机快门的一瞬间，青春便永远定格在那个夏天。</p><p>倘若说初中三年，留给我印象最深刻的只有初三。</p><p>中考给我真正带来的不是最后的结果，而是在为自己理想高中奋斗的过程。</p><p>青春本来就是马不停蹄的错过和相遇，而好看的日落总在燥热的晚自习出现。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230627_184933.jpg" fancybox="true"/></div></div><p>随着中考倒计时逐渐减少，初中的生活也终将画上句号。。。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230314_183149.jpg" fancybox="true"/></div></div><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230328_165152.jpg" fancybox="true"/></div></div><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230426_093353.jpg" fancybox="true"/></div></div><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230509_215614.jpg" fancybox="true"/></div></div><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230615_192057.jpg" fancybox="true"/></div></div><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230627_183043.jpg" fancybox="true"/></div></div><p>考完历史最后一科，回到教室。阳光剪影，洒下碎碎金黄。</p><p>中考似乎便结束了。。。</p><p>迎着仲夏晚风，播放着音乐《夏天的风》，告别这陪伴2年半（bushi）的学校。</p><p>现在坐在电脑前，，回看从平板导出的照片。</p><p>忽然间，意识到原来这100多天过的是如此之快。</p><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230627_193332.jpg" fancybox="true"/></div></div><div class="tag-plugin image"><div class="image-bg"><img src="https://npm.elemecdn.com/lvbyte-oss1/Qexo/2023/7/IMG_20230622_171808.jpg" fancybox="true"/></div></div><p>倘若说初中有什么遗憾，那便是没有迈出那一步:被打:</p><p>倘若说初中有什么庆幸，那便是遇到你们和你:放鞭炮:</p><div class="tag-plugin quot"><p class="content" type="text">故事的开头总是这样，适逢其会，猝不及防。故事的结局总是这样，花开两朵，天各一方。 -- 张嘉佳 《从你的全世界路过》</p></div><p>祝愿所有2023届中考生去往理想的高中，去追梦，去看更广阔的世界，成为更好的自己！:嘿哈:</p>]]></content>
     
