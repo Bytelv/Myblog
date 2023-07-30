@@ -14,57 +14,10 @@
   <link rel='dns-prefetch' href='//unpkg.com'>
   <!-- sw前端竞速 -->
   <script>
-  (async () => {
-  // 使用匿名函数确保 body 已载入
-
-  if ('serviceWorker' in navigator) {
-    // 如果浏览器支持 service worker
-
-    if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 1) {
-      // 如果 lvbyteBlogHelper_Set 存储在 localStorage 中的值小于 1
-      setTimeout(async () => {
-        console.log('检测到您的浏览器没有安装 lvbyteBlogHelper，开始注册');
-        window.stop();
-        window.localStorage.setItem('lvbyteBlogHelper_Set', 1);
-        const replacehtml = await fetch('https://npm.elemecdn.com/lvbyte-oss1/notice.html');
-        document.body.innerHTML = await replacehtml.text();
-        $('#info').innerText = '正在与主机建立通讯...';
-        // 添加代码以在页面内容替换完成后进行刷新
-        setTimeout(() => {
-          location.replace(location.href);
-        }, 2000);
-      }, 0);
-    }
-
-    const $ = document.querySelector.bind(document);
-    // 创建 $ 函数，用于获取元素的简便方法
-
-    navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)
-      .then(async () => {
-        if (Number(window.localStorage.getItem('lvbyteBlogHelper_Set')) < 2) {
-          setTimeout(() => {
-            $('#info').innerText = '连接成功🎉，请稍等...';
-          }, 1000);
-          setTimeout(() => {
-            window.localStorage.setItem('lvbyteBlogHelper_Set', 3);
-            console.log('准备跳转...');
-            $('#info').innerText = '准备跳转...';
-            location.reload();
-          }, 2000);
-          setTimeout(() => {window.location.reload();}, 6000);
-
-        }
-      })
-      .catch(err => console.error(`lvbyteBlogHelperError:${err}`));
-    // 注册 service worker，并处理安装成功后的逻辑
-
-  } else {
-    setTimeout(() => {
-      $('#info').innerText = '很抱歉，我们已不再支持您的浏览器。';
-    }, 0);
-    // 如果浏览器不支持 service worker，则显示不支持信息
-  }
-})();
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+ for(let registration of registrations) {
+  registration.unregister()
+} })
 
   </script>
   <meta name="renderer" content="webkit">
