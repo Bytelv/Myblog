@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+  <!-- sw前端竞速 -->
+  <script>
+  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+ for(let registration of registrations) {
+  registration.unregister()
+} })
+
+  </script>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8"> 
+  <title>Cloudflare为你的网站保驾护航 - 字节君</title>
+  
+    <meta name="description" content="关于CloudflareCloudflare 是一个全球网络，旨在让您连接到互联网的一切都安全、私密、快速和可靠。，提供了免费和付费的网站加速和保护服务。  为您的网络提供一个全球性免疫系统。 合规性和隐私保护均内置于我们的网络中。 您的互联网专用快车道。  Cloudflare都有什么好处？(Free计划) 免费CDN，全球有多个边缘节点（中国访问速度较慢） 免费不限量DNS解析，不支持多线路解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cloudflare为你的网站保驾护航">
+<meta property="og:url" content="https://blog.lvbyte.top/Cloudflare%E4%B8%BA%E4%BD%A0%E7%9A%84%E7%BD%91%E7%AB%99%E4%BF%9D%E9%A9%BE%E6%8A%A4%E8%88%AA/index.html">
+<meta property="og:site_name" content="字节君">
+<meta property="og:description" content="关于CloudflareCloudflare 是一个全球网络，旨在让您连接到互联网的一切都安全、私密、快速和可靠。，提供了免费和付费的网站加速和保护服务。  为您的网络提供一个全球性免疫系统。 合规性和隐私保护均内置于我们的网络中。 您的互联网专用快车道。  Cloudflare都有什么好处？(Free计划) 免费CDN，全球有多个边缘节点（中国访问速度较慢） 免费不限量DNS解析，不支持多线路解">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-39e1f430d79a8bb34eb5d9f4be5e67e3_720w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-30a43112444392f0a6f6c12ce83d69cb_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-c6215b3be8391fde02283dec02f90664_720w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-99ca29e7819f36482ebe8cabe58855c3_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-3e9649dad0318fad8f9541c9f34c45e4_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-27aff5526a7bc79995506a1d33ff0180_720w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-21cd55056131e0f231aa4f40e83cf42d_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-87e5244f1659db4e5adca40836eb98fc_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-cf57040810b8336a2ce202da4660df24_720w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-cbdd48b949f12fe7e6bc7a7d00b27cb7_720w.webp">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-3aba87e46ad92331d03af56f25b35521_720w.webp">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-1edf0a5c789e23d17561100072346dfb_720w.webp">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-ba4d4c737864a09f64c4f0e79a17a404_720w.webp">
+<meta property="og:image" content="https://cdn.xcnya.cn/imgs/20230803/2.webp">
+<meta property="og:image" content="https://cdn.xcnya.cn/imgs/20230803/3.webp">
+<meta property="og:image" content="https://cdn.xcnya.cn/imgs/20230803/5.webp">
+<meta property="og:image" content="https://cdn.xcnya.cn/imgs/20230803/6.webp">
+<meta property="og:image" content="https://cdn.xcnya.cn/imgs/20230803/7.webp">
+<meta property="og:image" content="https://worker.lvbyte.top/Qexo/2023/8/black.PNG">
+<meta property="og:image" content="https://worker.lvbyte.top/Qexo/2023/8/speed.PNG">
+<meta property="og:image" content="https://img.8b5.cn/2022/11/10/636cb1b07e0b3.png">
+<meta property="og:image" content="https://img.8b5.cn/2022/11/10/636cb1d5a25c7.png">
+<meta property="og:image" content="https://img.8b5.cn/2022/11/10/636cb1f118cb5.png">
+<meta property="article:published_time" content="2023-08-25T11:45:54.392Z">
+<meta property="article:modified_time" content="2023-08-25T11:48:24.716Z">
+<meta property="article:author" content="lvbyte">
+<meta property="article:tag" content="cloudflare">
+<meta property="article:tag" content="网站安全">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-39e1f430d79a8bb34eb5d9f4be5e67e3_720w.webp">
+  
+  
+  
+  <meta name="keywords" content="cloudflare,网站安全">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="字节君" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg">
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="preconnect" href="https://s1.hdslb.com/" />
+    
+      <meta name="baidu-site-verification" content="codeva-PolTe1ZwAJ" />
+    
+      <link rel="stylesheet" href="/Code.css">
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item" href="/">主页</a><a class="nav-item" href="/friend/">友链</a><a class="nav-item" href="/timeline/">动态</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Cloudflare为你的网站保驾护航</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%8F%90"><span class="toc-text">前提</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%85%A5Cloudflare"><span class="toc-text">接入Cloudflare</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NS%E6%8E%A5%E5%85%A5Cloudflare"><span class="toc-text">NS接入Cloudflare</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E4%BD%A0%E7%9A%84Cloudflare%E8%B4%A6%E5%8F%B7%EF%BC%8C%E5%9C%A8%E7%AE%A1%E7%90%86HOME%E9%A1%B5%E9%9D%A2%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%AB%99%E7%82%B9"><span class="toc-text">登录你的Cloudflare账号，在管理HOME页面中添加站点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9Namesilo%E4%B8%AD%E5%AF%B9%E5%BA%94%E5%9F%9F%E5%90%8D%E7%9A%84DNS%E8%AE%B0%E5%BD%95"><span class="toc-text">修改Namesilo中对应域名的DNS记录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8Cloudflare%E4%B8%AD%E6%A3%80%E6%B5%8BDNS%E4%BF%AE%E6%94%B9%E6%98%AF%E5%90%A6%E7%94%9F%E6%95%88"><span class="toc-text">在Cloudflare中检测DNS修改是否生效</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cloudflare-for-Saas%E6%8E%A5%E5%85%A5"><span class="toc-text">Cloudflare for Saas接入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E5%90%A7%EF%BC%81"><span class="toc-text">开始吧！~</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A5%E4%BD%BF%E7%94%A8Cloudflare%E4%BC%98%E9%80%89ip%E5%90%A7%EF%BC%81"><span class="toc-text">来使用Cloudflare优选ip吧！</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%BE%E8%A1%8C%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%9C%BA%E5%99%A8%E4%BA%BA"><span class="toc-text">放行搜索引擎机器人</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#black"><span class="toc-text">black</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E9%94%81%E5%B8%B8%E8%A7%81%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%8E%82%E5%95%86%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">封锁常见云服务厂商的服务器</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Bytelv" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/github.213d9lnn1c3k.png"/></a><a class="social" href="http://wpa.qq.com/msgrd?v=3&uin=2015078351&site=qq&menu=yes" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/qq轻聊.52lv7ybhe6ps.png"/></a><a class="social" href="https://steamcommunity.com/id/lvbyte/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/steam(1).4jcdvazi3tkw.png"/></a><a class="social" href="https://space.bilibili.com/31872009/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/bilibili.213uznc82pmo.png"/></a><a class="social" href="mailto:2015078351@qq.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/email.5d1436micpkw.png"/></a><a class="social" href="https://twitter.com/lzhji25163047" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/推特-twitter.6hkubsf8utts.png"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%8D%9A%E5%AE%A2/">博客</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-08-25T11:45:54.392Z">2023-08-25</time></div></div>
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>Cloudflare为你的网站保驾护航</span></h1>
+<h1 id="关于Cloudflare"><a href="#关于Cloudflare" class="headerlink" title="关于Cloudflare"></a>关于Cloudflare</h1><p>Cloudflare 是一个全球网络，旨在让您连接到互联网的一切都安全、私密、快速和可靠。，提供了免费和付费的网站加速和保护服务。</p>
+<ul>
+<li>为您的网络提供一个全球性免疫系统。</li>
+<li>合规性和隐私保护均内置于我们的网络中。</li>
+<li>您的互联网专用快车道。</li>
+</ul>
+<h1 id="Cloudflare都有什么好处？-Free计划"><a href="#Cloudflare都有什么好处？-Free计划" class="headerlink" title="Cloudflare都有什么好处？(Free计划)"></a>Cloudflare都有什么好处？(Free计划)</h1><ul>
+<li>免费CDN，全球有多个边缘节点（中国访问速度较慢）</li>
+<li>免费不限量DNS解析，不支持多线路解析</li>
+<li>免费抗DDos,CC攻击，无限、不计量 DDoS 攻击缓解</li>
+<li>。。。。。。。</li>
+</ul>
+<h1 id="Cloudflare的产品"><a href="#Cloudflare的产品" class="headerlink" title="Cloudflare的产品"></a>Cloudflare的产品</h1><ul>
+<li>Cloudflare WAF产品（通过私人定制化，满足不同需求）</li>
+<li>Cloudflare Pages（运行在Cloudflare多个边缘节点的静态网站）</li>
+<li>Cloudflare Workers（构建和部署无服务器功能、站点和全栈应用程序）</li>
+<li>Cloudflare R2 （高性能存储，无输出费用，类似图床）<br>灵活运用Cloudflare产品，可以做到许多骚操作，如富强，部署个人博客，反向代理其他网站</li>
+</ul>
+<h1 id="来为你的服务器接入Cloudflare服务"><a href="#来为你的服务器接入Cloudflare服务" class="headerlink" title="来为你的服务器接入Cloudflare服务"></a>来为你的服务器接入Cloudflare服务</h1><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>你拥有一个(或多个)属于你自己的域名AND服务器</p>
+<h2 id="接入Cloudflare"><a href="#接入Cloudflare" class="headerlink" title="接入Cloudflare"></a>接入Cloudflare</h2><p>你有两种方式接入Cloudflare</p>
+<ol>
+<li>全域名NS接入Cloudflare</li>
+<li>Cloudflare for Saas接入</li>
+</ol>
+<p>这两种方式有什么不同呢？<br>对于第一种方式适用于 不在乎网站国内访问速度，追求网站安全，主要面向外国客户<br>（全域名NS接入Cloudflare，使用Free计划，不需要用到信用卡）<br>第二种方式需要两个域名，一张信用卡 or Paypal,可以使用Cloudflare优选ip操作（下文会介绍该操作），搭配上国内DNS服务（AliDns,Dnspod），可以实现多线路解析，让Cloudflare为你抵抗境外流量<br>（对于未成年的笔者来说，由于没有属于自己的信用卡，只能选择方式一）<br><strong>有没有好心人给我提供一张料卡？求求了</strong></p>
+<h3 id="NS接入Cloudflare"><a href="#NS接入Cloudflare" class="headerlink" title="NS接入Cloudflare"></a>NS接入Cloudflare</h3><p>对于不同的域名服务商，操作可能不一样。但大体上是相通的。<br>NS接入，相当于将整个域名的归属全部迁移到Cloudflare</p>
+<h4 id="登录你的Cloudflare账号，在管理HOME页面中添加站点"><a href="#登录你的Cloudflare账号，在管理HOME页面中添加站点" class="headerlink" title="登录你的Cloudflare账号，在管理HOME页面中添加站点"></a>登录你的Cloudflare账号，在管理HOME页面中添加站点</h4><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-39e1f430d79a8bb34eb5d9f4be5e67e3_720w.webp" fancybox="true"/></div></div>
+
+<p>输入你要迁移的域名，点击添加站点</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-30a43112444392f0a6f6c12ce83d69cb_720w.webp" fancybox="true"/></div></div>
+
+<p>选择免费版本，并点击继续按钮</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-c6215b3be8391fde02283dec02f90664_720w.webp" fancybox="true"/></div></div>
+
+<p>Cloudflare会检测到你域名解析记录，这里解析记录你需要和原来的解析核对，如果正确，可以点击继续，如果不正确你可以在这里修改和之前一样之后，点击继续。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-99ca29e7819f36482ebe8cabe58855c3_720w.webp" fancybox="true"/></div></div>
+
+<p>之后Cloudflare将提示你将原有DNS删除，并添加Cloudflare提供的DNS记录。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-3e9649dad0318fad8f9541c9f34c45e4_720w.webp" fancybox="true"/></div></div>
+
+<h4 id="修改Namesilo中对应域名的DNS记录"><a href="#修改Namesilo中对应域名的DNS记录" class="headerlink" title="修改Namesilo中对应域名的DNS记录"></a>修改Namesilo中对应域名的DNS记录</h4><p>接下来需要登录Namesilo修改对应域名的DNS记录。</p>
+<p>在Namesilo的域名管理中，勾选你要迁移的域名，并点击上方的【Change NameServers】按钮</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-27aff5526a7bc79995506a1d33ff0180_720w.webp" fancybox="true"/></div></div>
+
+<p>删除原有的三个DNS解析记录</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic2.zhimg.com/80/v2-21cd55056131e0f231aa4f40e83cf42d_720w.webp" fancybox="true"/></div></div>
+
+<p>复制粘贴刚刚Cloudflare提供的DSN记录，并点击【Submit】按钮。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-87e5244f1659db4e5adca40836eb98fc_720w.webp" fancybox="true"/></div></div>
+
+<p>修改完成之后自动跳转返回Namesilo域名管理列表页面，可以看到对应域名的NameServers已经变成Cloudflare的DNS</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-cf57040810b8336a2ce202da4660df24_720w.webp" fancybox="true"/></div></div>
+
+<h4 id="在Cloudflare中检测DNS修改是否生效"><a href="#在Cloudflare中检测DNS修改是否生效" class="headerlink" title="在Cloudflare中检测DNS修改是否生效"></a>在Cloudflare中检测DNS修改是否生效</h4><p>这时，我们返回Cloudflare，在修改解析提示页面点击【Done，Check nameservers】，来检查DNS是否生效。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-cbdd48b949f12fe7e6bc7a7d00b27cb7_720w.webp" fancybox="true"/></div></div>
+
+<p>这时，会进入Cloudflare一个快速想到，是用来配置CDN服务的，你可以先跳过，点击【Finish Later】</p>
+<p>如果你<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0cloudflare%E7%9A%84cdn%E6%9C%8D%E5%8A%A1">阅读文章了解Cloudflare免费CDN配置的详细步骤</a>。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic2.zhimg.com/80/v2-3aba87e46ad92331d03af56f25b35521_720w.webp" fancybox="true"/></div></div>
+
+<p>你不会立马看到结果，更换DNS需要一点时间，大概几分钟，也可以过一会刷新查看结果。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-1edf0a5c789e23d17561100072346dfb_720w.webp" fancybox="true"/></div></div>
+
+<p>DNS切换完成，刷新之后你可以看到提示信息：Cloudflare正在保护你的网站。</p>
+<p>代表DNS修改完成。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-ba4d4c737864a09f64c4f0e79a17a404_720w.webp" fancybox="true"/></div></div>
+
+<p>引用该篇文章：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/610756804"># 如何将Namesilo的域名迁移到Cloudflare</a><br>同理，你可以自行百度不同的域名服务商对应的操作</p>
+<h3 id="Cloudflare-for-Saas接入"><a href="#Cloudflare-for-Saas接入" class="headerlink" title="Cloudflare for Saas接入"></a>Cloudflare for Saas接入</h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ol>
+<li>一个闲置的域名(b.com)，可以正常添加进Cloudflare Dashboard，具体操作参考前文</li>
+<li>你要接入的域名(a.com)，NS不在Cloudflare，可以在国内的DNS提供商（如：AliDns,Dnspod）</li>
+<li>一个外币信用卡 or 绑定了银行卡的Paypl</li>
+</ol>
+<h4 id="开始吧！"><a href="#开始吧！" class="headerlink" title="开始吧！~"></a>开始吧！~</h4><ol>
+<li>进入闲置域名(b.com)的控制面板</li>
+<li>在左边栏选择 [SSL&#x2F;TL] -&gt; [自定义主机名] -&gt; 启用 Cloudflare for Saas</li>
+<li>依据提示完成信用卡认证</li>
+<li>完成认证后，回退到 [DNS] 中 添加一条解析：<br>类型：A   名称：saas (自定义)  IPv4地址：0.0.0.0.  (你vps的ip)<br>此记录是回源到你的vps的ip上<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.xcnya.cn/imgs/20230803/2.webp" fancybox="true"/></div></div></li>
+<li>回到Cloudflare for Saas，添加刚刚配置的回退源(saas.b.com)<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.xcnya.cn/imgs/20230803/3.webp" fancybox="true"/></div></div></li>
+<li>点击上面的自定义主机名，输入你要 CNAME 接入的域名(a.com)，TLS 建议选 1.1，选择TXT验证</li>
+<li>然后去你的 DNS 服务商先将你要 CNAME 接入的域名 CNAME 解析到你的回退源(saas.b.com)，然后再解析好以下内容(TXT)<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.xcnya.cn/imgs/20230803/5.webp" fancybox="true"/></div></div>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.xcnya.cn/imgs/20230803/6.webp" fancybox="true"/></div></div></li>
+<li>大功告成<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.xcnya.cn/imgs/20230803/7.webp" fancybox="true"/></div></div>
+打开你要接入的域名，发现已经完成了 Cloudflare for SaaS 实现的 CNAME 接入 Cloudflare CDN<br>完成接入后，你可以在你的DNS服务商，在不同的线路选择不同的服务（如：国内解析到国内的CDN，境外选择CNAME【saas.b.com】到Cloudflare）</li>
+</ol>
+<p>Tips:通过 Cloudflare for SaaS 接入的域名的所有 Cloudflare 服务都继承于你在 Dashboard 中的闲置域名(b.com)（包括 WAF 规则，自定义页面，UnderAttack）</p>
+<p>引用该篇文章：<a target="_blank" rel="noopener" href="https://blog.xcnya.cn/archives/34.html">使用 CloudFlare for SaaS 实现 CNAME 接入 CloudFlare &#x2F; 自选 IP - BLxcwg666 の Blog (xcnya.cn)</a></p>
+<h4 id="来使用Cloudflare优选ip吧！"><a href="#来使用Cloudflare优选ip吧！" class="headerlink" title="来使用Cloudflare优选ip吧！"></a>来使用Cloudflare优选ip吧！</h4><p>这里推荐 【风之遐想】 的Cloudflare 加速解析服务<br>服务的官网是: <a target="_blank" rel="noopener" href="https://cf.515188.xyz/">https://cf.515188.xyz</a><br>由于有毒瘤使用该服务进行 富强 活动。目前需要前往<a target="_blank" rel="noopener" href="https://t.me/+CAanw5nrJng4MTll">官方TG群</a>获取最新地址<br><strong>Tips: 请不要使用该服务进行富强活动！！珍惜公益服务！！</strong><br>当然你也可以选择 自己测速，使用适合你的Cloudflare ip<br>这里提供2个仓库</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/ip-scanner/cloudflare">中转ip</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/XIU2/CloudflareSpeedTest">ip速度测试</a></li>
+</ol>
+<h1 id="Cloudflare-WAF规则分享"><a href="#Cloudflare-WAF规则分享" class="headerlink" title="Cloudflare WAF规则分享"></a>Cloudflare WAF规则分享</h1><p>灵活运用Cloudflare工具，可以实现强大的网络安全保护<br>接下来，我分享一下我的Cloudflare WAF规则<br><strong>目前，我的网站主要面向中国区用户，封锁境外流量。</strong><br>Cloudflare WAF页面在 你的域名控制面板-&gt;[安全性]-&gt;[WAF]</p>
+<h2 id="放行搜索引擎机器人"><a href="#放行搜索引擎机器人" class="headerlink" title="放行搜索引擎机器人"></a>放行搜索引擎机器人</h2><p>网站的SEO数据重要程度不言而喻<br>表达式：</p>
+<p>(cf.client.bot)<br>执行操作： 放行</p>
+<h2 id="black"><a href="#black" class="headerlink" title="black"></a>black</h2><div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://worker.lvbyte.top/Qexo/2023/8/black.PNG" fancybox="true"/></div></div>
+<p>表达式预览：</p>
+<p>(not ip.geoip.country in {“CN” “HK” “TW” “MO”} and not cf.client.bot) or (cf.threat_score ge 5) or (not http.user_agent contains “Mozilla&#x2F;“) or (not http.request.version in {“HTTP&#x2F;2” “HTTP&#x2F;3” “SPDY&#x2F;3.1”})<br>意思是：封锁除了中国，香港，澳门，台湾其他流量，检查浏览器完整性。。。。</p>
+<h2 id="封锁常见云服务厂商的服务器"><a href="#封锁常见云服务厂商的服务器" class="headerlink" title="封锁常见云服务厂商的服务器"></a>封锁常见云服务厂商的服务器</h2><p>表达式如下：</p>
+<p>(ip.geoip.asnum in {174 195 209 577 792 793 794 1215 1216 1217 2497 2914 3223 3255 3269 3326 3329 3457 3462 3598 4184 4190 4637 4694 4755 4785 4788 4816 4826 4835 5056 5610 5617 6471 6584 6830 6876 6877 6939 7029 7224 7303 7489 7552 7684 8068 8069 8070 8071 8074 8075 8100 8220 8560 8881 8987 9009 9299 9312 9370 9534 9678 9952 9984 10026 10453 11351 11426 11691 12076 12271 12334 12367 12874 12876 12989 14061 14117 14140 14576 14618 15169 16276 16509 16591 16629 17043 17428 17707 17788 17789 17790 17791 18013 18228 18403 18450 18599 18734 18978 19527 19740 20207 20473 20552 20554 20860 21704 21769 21859 21887 22773 22884 23468 23724 23885 23959 23969 24088 24192 24424 24429 24940 25429 25697 25820 25935 25961 26160 26496 26818 27715 28429 28431 28438 28725 29066 29286 29287 29802 30083 30823 31122 31235 31400 31898 32097 32098 32505 32613 34081 34248 34549 34947 35070 35212 35320 35540 35593 35804 35816 35908 35916 36351 36352 36384 36385 36444 36492 36806 37963 37969 38001 38197 38283 38365 38538 38587 38588 38627 39284 40065 40676 40788 41009 41096 41264 41378 42652 42905 43289 43624 43989 45011 45012 45062 45076 45085 45090 45102 45102 45102 45103 45104 45139 45458 45566 45576 45629 45753 45899 45932 46484 46844 47232 47285 47927 48024 48024 48337 48905 49327 49588 49981 50297 50340 50837 51852 52000 52228 52341 53089 54463 54538 54574 54600 54854 54994 55158 55330 55720 55799 55924 55933 55960 55967 55990 55992 56005 56011 56109 56222 57613 58073 58199 58461 58466 58519 58543 58563 58593 58772 58773 58774 58775 58776 58844 58854 58862 58879 59019 59028 59048 59050 59051 59052 59053 59054 59055 59067 59077 59374 60068 60592 60631 60798 61154 61317 61348 61577 61853 62044 62240 62468 62785 62904 63018 63023 63075 63288 63314 63545 63612 63620 63631 63655 63677 63678 63679 63727 63728 63729 63835 63838 63888 63916 63949 64050 131090 131106 131138 131139 131140 131141 131293 131428 131444 131477 131486 131495 132196 132203 132509 132510 132513 132591 132839 133024 133199 133380 133478 133492 133746 133752 133774 133775 133776 133905 133929 134238 134327 134760 134761 134763 134764 134769 134770 134771 134835 134963 135061 135290 135300 135330 135377 135629 137693 137697 137699 137753 137784 137785 137787 137788 137876 137969 138366 138407 138607 138915 138949 138950 138952 138982 138994 139007 139018 139124 139144 139201 139203 139220 139316 139327 139726 139887 140096 140596 140701 140716 140717 140720 140723 140979 141157 141180 142570 149167 177453 177549 197099 197540 198047 198651 199490 199506 199524 199883 200756 201094 201978 202053 202675 203087 204601 204720 206092 206204 206791 206798 207319 207400 207590 208425 208556 211914 212708 213251 213375 262187 263022 263196 263639 263693 264344 264509 265443 265537 266706 267784 269939 270110 328608 394699 395003 395936 395954 395973 398101 })<br>该表达式的意思是封锁云服务厂商服务器的访问请求<br>由于某些毒瘤喜欢用云服务厂商的机器来进行DDos攻击。故出此下策<br>当然你也可以根据你的需要删除一些封锁，看你自己</p>
+<hr>
+<p>未完待续。。。。</p>
+<h1 id="Cloudflare-速率限制"><a href="#Cloudflare-速率限制" class="headerlink" title="Cloudflare 速率限制"></a>Cloudflare 速率限制</h1><p>该界面位于 [WAF页面]-&gt; [速率限制规则]<br>该功能主要防CC攻击<br>我的速率限制如下：</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://worker.lvbyte.top/Qexo/2023/8/speed.PNG" fancybox="true"/></div></div>
+<p>根据你不同的网站类型来进行设置，你可以使用F12工具[网络]，查看你的网站访问需要多少请求，我的请求数量是36<br>建议速率请求不要低于20.否则正常用户的访问也会受到影响</p>
+<h1 id="Cloudflare其他设置"><a href="#Cloudflare其他设置" class="headerlink" title="Cloudflare其他设置"></a>Cloudflare其他设置</h1><p>这些设置是为你抗CC和DDos攻击</p>
+<p>CF→安全性→设置→安全级别设置为：高（可以打开I’m Under Attack!我受到攻击，任何人访问都会等待5秒钟进行检查，也就是常说的CF五秒盾！这里慎重打开I’m Under Attack!，因为会影响到网站收录、API、正常用户访问！）<br>质询通过期设置成：15分钟或者30分钟，严重可以设置5分钟（这里慎重设置，不要太低，不要太高！）<br>浏览器完整性检查：打开</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.8b5.cn/2022/11/10/636cb1b07e0b3.png" fancybox="true"/></div></div>
+
+<p>第二步：</p>
+<p>CF→安全性→DDOS→HTTP DDoS 攻击防护，点右边的配置进入</p>
+<p>规则集操作（必填）设置为：托管质询或者直接阻止<br>规则集敏感度（必填）设置为：高</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.8b5.cn/2022/11/10/636cb1d5a25c7.png" fancybox="true"/></div></div>
+
+<p>第三步：</p>
+<p>CF→安全性→自动程序：打开自动程序攻击模式</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img.8b5.cn/2022/11/10/636cb1f118cb5.png" fancybox="true"/></div></div>
+<p>参考文章： <a target="_blank" rel="noopener" href="https://www.corvk.com/archives/824.html">免费版CloudFlare如何防CC攻击？不需要动手写规则！</a><br>其实好像这个原文是出自Hostloc论坛里的吧。。。。</p>
+
+
+  
+  <script>
+    let tianliGPT_postSelector = '.md-text.content.post';
+    let tianliGPT_key = 'x0LdwLe32lb21mgKNSVK';
+  </script>
+  <script defer src="https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.9/tianli_gpt.js"></script>
+
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/%E9%9B%A8%E4%BA%91%E7%BE%8E%E5%9B%BD1%E5%8C%BA%202h2g%20vps%E8%AF%84%E6%B5%8B/">雨云美国1区 2h2g vps评测</a></div></section></div>
+
+
+<div class="related-wrap reveal" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/hello-world/" title="Hello World"><span class="title">Hello World</span></a></div></section></div>
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/index.html">分类</a><a href="/tags/index.html">标签</a><a href="/archives/index.html">归档</a></div><div class="sitemap-group"><span class="fs14">网站</span><a target="_blank" rel="noopener" href="https://www.lvbyte.top">个人主页</a><a target="_blank" rel="noopener" href="https://sport.lvbyte.top">运动网站</a><a target="_blank" rel="noopener" href="https://cloud.lvbyte.top">个人云盘</a><a target="_blank" rel="noopener" href="https://Kuma.lvbyte.top">网站探针</a><a target="_blank" rel="noopener" href="https://music.lvbyte.top">音乐网站</a><a target="_blank" rel="noopener" href="https://bit.lvbyte.top">小米手表</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friend/">友链</a><a href="/friend/rss/">朋友圈</a><a href="/about/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a href="/atom.xml">rss</a><a target="_blank" rel="noopener" href="https://github.com/Bytelv">GitHub</a></div></div><div class="text"><p><span id="busuanzi_container_site_uv">本宇宙共有<span id="busuanzi_value_site_uv"></span>艘飞船🛸探索过👋</span><br> <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力"> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120"> </a></p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.19.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"20px","duration":700,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":true,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://unpkg.com/@waline/client@v2/dist/waline.css');
+    stellar.loadScript('https://unpkg.com/@waline/client@v2/dist/waline.js', {defer:true}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      Waline.init(Object.assign({"js":"https://unpkg.com/@waline/client@v2/dist/waline.js","css":"https://unpkg.com/@waline/client@v2/dist/waline.css","serverURL":"https://waline.lvbyte.tk","commentCount":true,"pageview":false,"locale":{"placeholder":"说点什么吧!留下邮箱可以收到回复提醒哦","reactionTitle":null,"reaction0":"喜欢本文","reaction1":"吃瓜","reaction2":"狗头","reaction3":"鬼脸"},"reaction":["https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/%E5%96%9C%E6%AC%A2.png","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/%E6%BB%91%E7%A8%BD%E5%90%83%E7%93%9C.png","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/%E7%8B%97%E5%A4%B4.png","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/%E9%AC%BC%E8%84%B8.png"],"emoji":["https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs","https://cdn.jsdelivr.net/npm/sticker-heo@2022.7.5/Sticker-100/","https://unpkg.com/@waline/emojis@1.1.0/alus","https://unpkg.com/@waline/emojis@1.1.0/bilibili","https://unpkg.com/@waline/emojis@1.1.0/tw-emoji"]}, {
+        el: '#waline_container',
+        path: path,
+        
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <script> loadStatistic("https://qexo.lvbyte.top") </script>
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bytelv/lvbyteCdn@main/Code.js"></script>
+  
+
+
+  </div>
+</body>
+</html>
