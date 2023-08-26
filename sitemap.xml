@@ -263,6 +263,13 @@
 
   
   <url>
+    <loc>https://blog.lvbyte.top/tags/%E9%A6%99%E6%B8%AFvps/</loc>
+    <lastmod>2023-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/tags/%E4%B8%AD%E8%80%83/</loc>
     <lastmod>2023-08-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -292,13 +299,6 @@
   
   <url>
     <loc>https://blog.lvbyte.top/tags/%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2023-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/tags/%E9%A6%99%E6%B8%AFvps/</loc>
     <lastmod>2023-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -510,6 +510,13 @@
 
   
   <url>
+    <loc>https://blog.lvbyte.top/categories/VPS%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2023-08-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.lvbyte.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-08-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -518,13 +525,6 @@
   
   <url>
     <loc>https://blog.lvbyte.top/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%B8%B8/</loc>
-    <lastmod>2023-08-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.lvbyte.top/categories/VPS%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2023-08-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
