@@ -1,295 +1,123 @@
-const CACHE_NAME = 'lvbyteBlogCache';
-
-let cachelist = [];
-
-const cachetime = 86400000;
-
-self.CACHE_NAME = 'SWHelperCache';
-self.db = {
-    read: (key, config) => {
-        if (!config) { config = { type: "text" } }
-        return new Promise((resolve, reject) => {
-            caches.open(CACHE_NAME).then(cache => {
-                cache.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
-                    if (!res) resolve(null)
-                    res.text().then(text => resolve(text))
-                }).catch(() => {
-                    resolve(null)
-                })
-            })
-        })
-    },
-    write: (key, value) => {
-        return new Promise((resolve, reject) => {
-            caches.open(CACHE_NAME).then(function (cache) {
-                cache.put(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`), new Response(value));
-                resolve()
-            }).catch(() => {
-                reject()
-            })
-        })
+importScripts("https://cdn.chuqis.com/npm/workbox-sw/build/workbox-sw.js"),
+importScripts("https://cdn.webpushr.com/sw-server.min.js"),
+workbox ? console.log("Workbox 加载成功🎉") : console.log("Workbox 加载失败😬"),
+self.addEventListener("install", async()=>{
+    await self.skipWaiting(),
+    console.log("Service Worker 开始安装🎊")
+}
+),
+self.addEventListener("activate", async()=>{
+    await self.clients.claim(),
+    console.log("Service Worker 安装完成，开始启动✨"),
+    self.clients.matchAll().then(e=>{
+        e.forEach(e=>e.postMessage({
+            type: "refresh"
+        }))
     }
+    )
 }
-
-self.addEventListener('install', async function (installEvent) {
-    self.skipWaiting();
-    installEvent.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function (cache) {
-                console.log('Opened cache');
-                return cache.addAll(cachelist);
-            })
-    );
-});
-
-self.addEventListener('fetch', async event => {
-    try {
-        event.respondWith(handle(event.request))
-    } catch (msg) {
-        event.respondWith(handleerr(event.request, msg))
-    }
-});
-const handleerr = async (req, msg) => {
-    return new Response(`<h1>Service Worker 遇到致命错误</h1>
-    <b>${msg}</b>`, { headers: { "content-type": "text/html; charset=utf-8" } })
+);
+const fallbackCdnUrls = ["https://cdn.chuqis.com", "https://cdn2.chuqis.com", "https://jsd.onmicrosoft.cn", "https://jsd.cdn.zzko.cn", "https://jsdelivr.goodboyboy.top"]
+  , invalidCdnUrls = ["https://cdn.jsdelivr.ren", "https://cdn1.tianli0.top"]
+  , referrerDomains = ["cdn.nlark.com", "pic1.afdiancdn.com", "f.video.weibocdn.com", "api.icodeq.com"]
+  , MIN = 60
+  , HOUR = 60 * MIN
+  , DAY = 24 * HOUR
+  , WEEK = 7 * DAY
+  , MONTH = 30 * DAY
+  , YEAR = 365 * DAY;
+function isFallbackCdnUrl(r) {
+    return fallbackCdnUrls.some(e=>r.startsWith(e))
 }
-let cdn = {
-    "gh": {
-        ftft: {
-            "url": "https://jsd.iftft.com/gh"
-        },
-        tianli: {
-            "url": "https://cdn1.tianli0.top/gh"
-        },
-        jsdelivr: {
-            "url": "https://cdn.jsdelivr.net/gh"
-        },
-        jsdelivr_fastly: {
-            "url": "https://fastly.jsdelivr.net/gh"
-        },
-        jsdelivr_gcore: {
-            "url": "https://gcore.jsdelivr.net/gh"
-        },
-        cdnn: {
-            "url": "https://cdn2.chuqis.com/gh"
-        }
-    },
-    "combine": {
-        ftft: {
-            "url": "https://jsd.iftft.com/combine"
-        },
-        tianli: {
-            "url": "https://cdn1.tianli0.top/combine"
-        }     
-    },
-    "npm": {
-        eleme: {
-            "url": "https://npm.elemecdn.com"
-        },
-        ftft: {
-            "url": "https://jsd.iftft.com/npm"
-        },
-        sourcegcdn: {
-            "url": "https://npm.sourcegcdn.com"
-        },
-        tianli: {
-            "url": "https://cdn1.tianli0.top/npm"
-        }
-    },
-    "cdnjs": {
-        bootcdn: {
-            "url": "https://cdn.bootcdn.net/ajax/libs"
-        },
-        baomitu: {
-            "url": "https://lib.baomitu.com"
-        },
-        staticfile: {
-            "url": "https://cdn.staticfile.org"
-        },
-        sustech: {
-            "url": "https://mirrors.sustech.edu.cn/cdnjs/ajax/libs"
-        },
-        sourcegcdn: {
-            "url": "https://cdnjs.sourcegcdn.com/ajax/libs"
-        },
-        cdnn: {
-            "url": "https://cdn2.chuqis.com/cdnjs"
-        }
-    }
+function isInvalidCdnUrl(r) {
+    return invalidCdnUrls.some(e=>r.startsWith(e))
 }
-const lfetch = async (urls, url, init) => {
-    let controller = new AbortController();
-    const PauseProgress = async (res) => {
-        return new Response(await (res).arrayBuffer(), { status: res.status, headers: res.headers });
-    };
-    if (!Promise.any) {
-        Promise.any = function (promises) {
-            return new Promise((resolve, reject) => {
-                promises = Array.isArray(promises) ? promises : []
-                let len = promises.length
-                let errs = []
-                if (len === 0) return reject(new AggregateError('All promises were rejected'))
-                promises.forEach((promise) => {
-                    promise.then(value => {
-                        resolve(value)
-                    }, err => {
-                        len--
-                        errs.push(err)
-                        if (len === 0) {
-                            reject(new AggregateError(errs))
-                        }
-                    })
-                })
-            })
-        }
-    }
-    return Promise.any(urls.map(urls => {
-        init = init || {}
-        init.signal = controller.signal
-        return new Promise((resolve, reject) => {
-            fetch(urls, init)
-                .then(PauseProgress)
-                .then(res => {
-                    if (res.status == 200) {
-                        controller.abort();
-                        resolve(res)
-                    } else {
-                        reject(null)
-                    }
-                })
-        })
-    }))
-}
-
-let gdt = {
-
-}
-const mirror = [
-    `https://registry.npmmirror.com/lvbyte-blog/latest`,
-    `https://registry.npmjs.org/lvbyte-blog/latest`,
-    `https://mirrors.cloud.tencent.com/npm/lvbyte-blog/latest`
-]
-const broadcast = (channel, data) => {
-    let broadcast = new BroadcastChannel(channel);
-    return broadcast.postMessage({ type: data })
-}
-const set_newest_version = async (mirror) => { 
-    // 改为最新版本写入数据库
-    console.log("[LOG] 开始检查更新.");
-    return lfetch(mirror, mirror[0])
-        .then(res => res.json())
-        .then(async res => {
-            let thisVersion = await db.read("blog_version");
-            console.info("[INFO] 当前版本: "+ thisVersion);
-            console.info("[INFO] 最新版本: "+res.version);
-            if (thisVersion != res.version) {
-                // 版本有更新 向页面展示
-                broadcast("Blog Update", "REFRESH");
-            }
-            await db.write('blog_version', res.version);
-            return;
-        });
-}
-
-setInterval(async() => {
-    await set_newest_version(mirror);
-}, 30*1000);
-
-setTimeout(async() => { 
-    await set_newest_version(mirror);
-}, 5000)
-
-
-const handle = async function (req) {
-    const urlStr = req.url
-    const urlObj = new URL(urlStr)
-    const port = urlObj.port
-    const domain = urlObj.hostname;
-    const urlPath = urlObj.pathname;
-    let urls = []
-
-    if (req.method == "GET" && (domain == "blog.lvbyte.tk" || domain == "localhost")) {
-        /* 是 Blog & 且资源为 Get */
-        /* 根据 Blog 的路径情况修改了下 fullpath 函数 */
-        const fullpath = (path) => {
-            path = path.split('?')[0].split('#')[0]
-            if (path.match(/\/$/)) {
-                path += 'index.html'
-            }
-            if (!path.match(/\.[a-zA-Z]+$/)) {
-                path += '/index.html'
-            }
-            return path
-        }
-        const generate_blog_urls = (packagename, blogversion, path, static) => {
-            var npmmirror;
-            if (static == 0) {
-                // HTML 文件
-                npmmirror = [
-                    `https://npm.elemecdn.com/${packagename}@${blogversion}/public`,
-                    `https://cdn.tianli0.top/npm/${packagename}@${blogversion}/public`,
-                    `https://jsd.iftft.com/npm/${packagename}@${blogversion}/public`
-                ]
-            } else {
-                // 其他资源文件
-                npmmirror = [
-                    `https://npm.elemecdn.com/${packagename}@${blogversion}/public`,
-                    `https://cdn.tianli0.top/npm/${packagename}@${blogversion}/public`,
-                    `https://jsd.iftft.com/npm/${packagename}@${blogversion}/public`
-                ]
-            }
-            for (var i in npmmirror) {
-                npmmirror[i] += path
-            }
-            return npmmirror
-        }
-        if (fullpath(urlPath).match(/\.[a-zA-Z]+$/)[0] == ".html") {
-            /* 只拦截 HTML 文件 */
-            return lfetch(generate_blog_urls('lvbyte-blog',await db.read('blog_version') || '1.0.7',fullpath(urlPath),0))
-            .then(res=>res.arrayBuffer())
-            .then(buffer=>new Response(buffer,{headers:{"Content-Type":"text/html;charset=utf-8"}})
-            )// rewrite header
-        } else {
-            /* 拦截其他文件，不用处理 Headers */
-            return lfetch(generate_blog_urls('lvbyte-blog',await db.read('blog_version') || '1.0.7',fullpath(urlPath), 0))
-            // .then(res=>res.arrayBuffer())
-            // .then(buffer=>new Response(buffer,{headers:{"Content-Type":"text/html;charset=utf-8"}})
-            // )// rewrite header
-        }
-    }
-
-    for (let i in cdn) {
-        for (let j in cdn[i]) {
-            if (domain == cdn[i][j].url.split('https://')[1].split('/')[0] && urlStr.match(cdn[i][j].url)) {
-                urls = []
-                for (let k in cdn[i]) {
-                    urls.push(urlStr.replace(cdn[i][j].url, cdn[i][k].url))
-                }
-                if (urlStr.indexOf('@latest/') > -1) {
-                    return lfetch(urls, urlStr)
-                } else {
-                    return caches.match(req).then(function (resp) {
-                        return resp || lfetch(urls, urlStr).then(function (res) {
-                            return caches.open(CACHE_NAME).then(function (cache) {
-                                cache.put(req, res.clone());
-                                return res;
-                            });
-                        });
-                    })
+function handleFallbackCdn(o) {
+    let t = [];
+    return fallbackCdnUrls.reduce((e,r)=>{
+        if (!t.includes(r)) {
+            const n = new Request(r + o.url.substring(o.url.indexOf("/", 8)));
+            e = e.catch(async()=>{
+                try {
+                    var e = await fetch(n, {
+                        cache: "reload"
+                    });
+                    if (e.ok)
+                        return e;
+                    throw t.push(r),
+                    new Error("请求资源失败")
+                } catch (e) {
+                    throw t.push(r),
+                    new Error("所有备用 CDN 镜像请求失败")
                 }
             }
+            )
         }
+        return e
     }
-    return fetch(req).then(function (res) {
-        if (!res) { throw 'error' } //1
-        return caches.open(CACHE_NAME).then(function (cache) {
-            cache.delete(req);
-            cache.put(req, res.clone());
-            return res;
-        });
-    }).catch(function (err) {
-        return caches.match(req).then(function (resp) {
-            return resp || caches.match(new Request('/offline/')) //2
-        })
+    , Promise.reject())
+}
+function requiresEmptyReferrerDomain(e) {
+    return referrerDomains.includes(e)
+}
+function handleEmptyReferrer(e) {
+    return fetch(e, {
+        referrerPolicy: "no-referrer"
     })
 }
+workbox.precaching.cleanupOutdatedCaches(),
+fallbackCdnUrls.forEach(e=>{
+    workbox.routing.registerRoute(new RegExp("^" + e + ".*\\.(?:js|css|woff|woff2)$"), new workbox.strategies.StaleWhileRevalidate({
+        cacheName: "备用CDN资源",
+        plugins: [new workbox.expiration.ExpirationPlugin({
+            maxEntries: 50,
+            maxAgeSeconds: WEEK,
+            purgeOnQuotaError: !0
+        }), new workbox.cacheableResponse.CacheableResponsePlugin({
+            statuses: [200]
+        })]
+    }))
+}
+),
+self.addEventListener("fetch", e=>{
+    var r = e.request
+      , n = new URL(r.url)
+      , o = n.hostname;
+    (isInvalidCdnUrl(n.href) || isFallbackCdnUrl(n.href)) && e.respondWith(handleFallbackCdn(r)),
+    requiresEmptyReferrerDomain(o) && e.respondWith(handleEmptyReferrer(r))
+}
+),
+workbox.core.setCacheNameDetails({
+    prefix: "字节君",
+    suffix: "缓存",
+    precache: "预先",
+    runtime: "运行时",
+    googleAnalytics: "离线谷歌分析"
+}),
+workbox.precaching.precacheAndRoute([{
+    revision: "60321e9cc7139a9f5f57abe91eb57f78",
+    url: "./offline"
+}], {
+    ignoreUrlParametersMatching: [/.*/],
+    directoryIndex: null
+}),
+workbox.navigationPreload.enable();
+const Offline = new workbox.routing.Route(({request: e})=>"navigate" === e.mode,new workbox.strategies.NetworkOnly({
+    plugins: [new workbox.precaching.PrecacheFallbackPlugin({
+        fallbackURL: "/offline"
+    }), new workbox.cacheableResponse.CacheableResponsePlugin({
+        statuses: [200]
+    })]
+}));
+workbox.routing.registerRoute(Offline),
+workbox.routing.registerRoute(({url: e})=>String(e).includes("busuanzi?") || String(e).includes("busuanzi="), new workbox.strategies.NetworkOnly),
+workbox.routing.registerRoute(({request: e})=>"style" === e.destination || "script" === e.destination || "font" === e.destination || "worker" === e.destination || e.url.endsWith("/favicon.ico"), new workbox.strategies.StaleWhileRevalidate({
+    cacheName: "静态资源",
+    plugins: [new workbox.expiration.ExpirationPlugin({
+        maxEntries: 20,
+        maxAgeSeconds: WEEK,
+        purgeOnQuotaError: !0
+    }), new workbox.cacheableResponse.CacheableResponsePlugin({
+        statuses: [200]
+    })]
+}));
