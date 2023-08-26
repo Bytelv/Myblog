@@ -75,6 +75,8 @@
     
       <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
     
+      <script>window.addEventListener('load',async()=>{navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`).then(async reg=>{if(window.localStorage.getItem('install')!='true'){window.localStorage.setItem('install','true');setTimeout(()=>{window.location.search=`?time=${new Date().getTime()}`},1000)}}).catch(err=>{})});</script>
+    
       <script>LA.init({id:"3FdgouIefFaCalOp",ck:"3FdgouIefFaCalOp",autoTrack:true})</script>
     
       <meta name="baidu-site-verification" content="codeva-PolTe1ZwAJ" />
@@ -168,7 +170,7 @@
       <div class='title cap theme'>您可能感兴趣的文章</div>
     </section>
     <section class='body'>
-    <div class="related-posts"><a class="item" href="/中考失利后的思考/" title="中考失利后的思考"><span class="title">中考失利后的思考</span></a><a class="item" href="/我与计算机的羁绊.md/" title="我与计算机的羁绊"><span class="title">我与计算机的羁绊</span></a><a class="item" href="/Cloudflare为你的网站保驾护航/" title="Cloudflare为你的网站保驾护航"><span class="title">Cloudflare为你的网站保驾护航</span></a></div></section></div>
+    <div class="related-posts"><a class="item" href="/中考失利后的思考/" title="中考失利后的思考"><span class="title">中考失利后的思考</span></a><a class="item" href="/我与计算机的羁绊.md/" title="我与计算机的羁绊"><span class="title">我与计算机的羁绊</span></a><a class="item" href="/hello-world/" title="Hello World"><span class="title">Hello World</span></a></div></section></div>
 
 
 
