@@ -15,6 +15,6 @@ Disallow: /vendors/
 Disallow: /fancybox/
 
 # 记得替换成你的域名
-Sitemap: http://space.lvbyte.tk/sitemap.xml
-Sitemap: http://space.lvbyte.tk/baidusitemap.xml
+Sitemap: http://blog.lvbyte.top/sitemap.xml
+Sitemap: http://blog.lvbyte.top/baidusitemap.xml
 ————————————————
