@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <script>
+if (!!navigator.serviceWorker) {
+    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+            const conf = () => {
+                console.log('[CW] Installing Success,Configuring...');
+                fetch('/cw-cgi/api?type=config')
+                    .then(res => res.text())
+                    .then(text => {
+                        if (text === 'ok') {
+                            console.log('[CW] Installing Success,Configuring Success,Starting...');
+                            localStorage.setItem('cw_installed', 'true');
+                            //如果你不希望重载页面，请移除下面七行
+                            //重载标识 - 开始
+                            fetch(window.location.href).then(res => res.text()).then(text => {
+                                document.open()
+                                document.write(text);
+                                document.close();
+                            });
+                            //重载标识 - 结束
+                        } else {
+                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                            setTimeout(() => {
+                                conf()
+                            }, 200);
+                        }
+                    }).catch(err => {
+                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                    });
+            }
+            setTimeout(() => {
+                conf()
+            }, 50);
+        }
+    }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+    });
+} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+</script>
+
+  
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8"> 
+  <title>环境描写 - 字节君</title>
+  
+    <meta name="description" content="一、自然环境描写  1.季节、天气以及动植物等  窗外夏虫鸣声不断,烈日炙烤着大地,热得路旁的树木似乎也流下了津津汗液。   七月阳光明媚,轻薄的云雾缭绕在山腰,五彩的格桑花遍布于整个山谷,山涧的溪水在怪石缝隙中跳跃、翻飞,咕咚咕咚地奔向山下的村庄。   暮色西沉,湖边更添静谧,在天色沉下来前,湖面的晚风与天边的云霞同样温柔,余晖带着绚烂的色彩落下,还未散去的热气升腾为一层轻薄的白纱。夜幕降临后,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="环境描写">
+<meta property="og:url" content="https://blog.lvbyte.top/%E7%8E%AF%E5%A2%83%E6%8F%8F%E5%86%99/index.html">
+<meta property="og:site_name" content="字节君">
+<meta property="og:description" content="一、自然环境描写  1.季节、天气以及动植物等  窗外夏虫鸣声不断,烈日炙烤着大地,热得路旁的树木似乎也流下了津津汗液。   七月阳光明媚,轻薄的云雾缭绕在山腰,五彩的格桑花遍布于整个山谷,山涧的溪水在怪石缝隙中跳跃、翻飞,咕咚咕咚地奔向山下的村庄。   暮色西沉,湖边更添静谧,在天色沉下来前,湖面的晚风与天边的云霞同样温柔,余晖带着绚烂的色彩落下,还未散去的热气升腾为一层轻薄的白纱。夜幕降临后,">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-25T16:39:08.000Z">
+<meta property="article:modified_time" content="2023-04-02T08:01:00.000Z">
+<meta property="article:author" content="lvbyte">
+<meta property="article:tag" content="初中,极客,编程,计算机">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <meta name="keywords" content="初中,极客,编程,计算机">
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="字节君" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg">
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="stylesheet" href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css" media="all" onload="this.media='all'" />
+    
+      <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    
+      <script>LA.init({id:"3FdgouIefFaCalOp",ck:"3FdgouIefFaCalOp",autoTrack:true})</script>
+    
+      <script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script>
+    
+      <script src="https://sdk.51.la/perf/js-sdk-perf.min.js"crossorigin="anonymous"></script><script>new LingQue.Monitor().init({id:"3G0VvisZ3ih6idxE"});</script>
+    
+      <meta name="baidu-site-verification" content="codeva-PolTe1ZwAJ" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://npm.elemecdn.com/lvbyte-cdn/20230104/%E8%8B%B9%E6%9E%9C.156l7bksen40.jpg" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.4/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">字节君</div><div class="sub cap">热爱漫无边际,生活自有分寸</div></a></div>
+
+<nav class="menu dis-select"><a class="nav-item" href="/">主页</a><a class="nav-item" href="/friend/">友链</a><a class="nav-item" href="/timeline/">动态</a><a class="nav-item" href="/about/">关于</a></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">环境描写</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%87%AA%E7%84%B6%E7%8E%AF%E5%A2%83%E6%8F%8F%E5%86%99"><span class="toc-text">一、自然环境描写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AD%A3%E8%8A%82%E3%80%81%E5%A4%A9%E6%B0%94%E4%BB%A5%E5%8F%8A%E5%8A%A8%E6%A4%8D%E7%89%A9%E7%AD%89"><span class="toc-text">1.季节、天气以及动植物等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%BF%9E%E4%B8%B2%E5%BC%8F%E6%8F%8F%E5%86%99-%E5%B1%95%E5%BC%80%E6%95%85%E4%BA%8B%E7%9A%84%E6%83%85%E8%8A%82%E3%80%82"><span class="toc-text">2.连串式描写,展开故事的情节。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%83%85%E6%99%AF%E5%BC%8F%E6%8F%8F%E5%86%99-%E6%AD%A3%E9%9D%A2%E8%A1%AC%E6%89%98%E4%BA%BA%E7%89%A9%E7%9A%84%E6%83%85%E6%84%9F%E3%80%82"><span class="toc-text">3.情景式描写,正面衬托人物的情感。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%83%85%E6%99%AF%E5%BC%8F%E6%8F%8F%E5%86%99-%E5%8F%8D%E9%9D%A2%E8%A1%AC%E6%89%98%E4%BA%BA%E7%89%A9%E6%83%85%E6%84%9F%E4%B8%8E%E5%BD%A2%E8%B1%A1%E3%80%82"><span class="toc-text">4.情景式描写,反面衬托人物情感与形象。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A4%BE%E4%BC%9A%E7%8E%AF%E5%A2%83%E6%8F%8F%E5%86%99"><span class="toc-text">二、社会环境描写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83-%E6%95%99%E5%AE%A4%E3%80%81%E5%AD%A6%E6%A0%A1%E7%AD%89"><span class="toc-text">1.学习环境:教室、学校等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%94%9F%E6%B4%BB%E7%8E%AF%E5%A2%83-%E5%AE%B6%E5%BA%AD%E3%80%81%E5%AE%B6%E4%B9%A1%E7%AD%89"><span class="toc-text">2.生活环境:家庭、家乡等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A0%A1%E5%A4%96%E7%9A%84%E6%9F%90%E4%B8%AA%E5%9C%B0%E7%82%B9%E3%80%81%E6%9F%90%E4%B8%AA%E5%A4%84%E6%89%80"><span class="toc-text">3.校外的某个地点、某个处所</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%B1%80%E9%83%A8%E7%8E%AF%E5%A2%83-%E5%AE%A4%E5%86%85%E9%99%88%E8%AE%BE"><span class="toc-text">4.局部环境:室内陈设</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%AE%8F%E8%A7%82%E7%8E%AF%E5%A2%83%E3%80%81%E6%97%B6%E4%BB%A3%E8%83%8C%E6%99%AF"><span class="toc-text">5.宏观环境、时代背景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%B8%80%E4%BA%9B%E6%9B%BF%E4%BB%A3%E8%AF%8D%E6%B1%87"><span class="toc-text">三、一些替代词汇</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%94%E2%80%94%E6%8F%8F%E5%86%99%E5%B1%B1%E6%B0%B4"><span class="toc-text">——描写山水</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%94%E2%80%94%E6%8F%8F%E5%86%99%E8%8A%B1%E6%9C%A8"><span class="toc-text">——描写花木</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%94%E2%80%94%E6%8F%8F%E5%86%99%E5%9B%AD%E6%9E%97"><span class="toc-text">——描写园林</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%94%E2%80%94%E6%8F%8F%E5%86%99%E5%BA%9C%E9%82%B8"><span class="toc-text">——描写府邸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%94%E2%80%94%E6%8F%8F%E5%86%99%E6%9D%91%E8%88%8D"><span class="toc-text">——描写村舍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%80%94%E2%80%94%E6%8F%8F%E5%86%99%E8%A1%97%E5%B8%82"><span class="toc-text">——描写街市</span></a></li></ol></li></ol></div></div></widget>
+
+
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/Bytelv" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/github.213d9lnn1c3k.png"/></a><a class="social" href="http://wpa.qq.com/msgrd?v=3&uin=2015078351&site=qq&menu=yes" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/qq轻聊.52lv7ybhe6ps.png"/></a><a class="social" href="https://steamcommunity.com/id/lvbyte/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/steam(1).4jcdvazi3tkw.png"/></a><a class="social" href="https://space.bilibili.com/31872009/" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/bilibili.213uznc82pmo.png"/></a><a class="social" href="mailto:2015078351@qq.com" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/email.5d1436micpkw.png"/></a><a class="social" href="https://twitter.com/lzhji25163047" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://npm.elemecdn.com/lvbyte-cdn/20230104/推特-twitter.6hkubsf8utts.png"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-02-25T16:39:08.000Z">2023-02-25</time></div></div>
+
+<article class='md-text content post reveal'>
+<h1 class="article-title"><span>环境描写</span></h1>
+<div class="tag-plugin quot"><h3 class="content" id="一、自然环境描写" type="text"><a href="#一、自然环境描写" class="headerlink" title="一、自然环境描写"></a>一、自然环境描写</h3></div>
+
+<h4 id="1-季节、天气以及动植物等"><a href="#1-季节、天气以及动植物等" class="headerlink" title="1.季节、天气以及动植物等"></a>1.季节、天气以及动植物等</h4><p>  窗外夏虫鸣声不断,烈日炙烤着大地,热得路旁的树木似乎也流下了津津汗液。</p>
+<p>  七月阳光明媚,轻薄的云雾缭绕在山腰,五彩的格桑花遍布于整个山谷,山涧的溪水在怪石缝隙中跳跃、翻飞,咕咚咕咚地奔向山下的村庄。</p>
+<p>  暮色西沉,湖边更添静谧,在天色沉下来前,湖面的晚风与天边的云霞同样温柔,余晖带着绚烂的色彩落下,还未散去的热气升腾为一层轻薄的白纱。夜幕降临后,细听水声潺潺,晚风窸窣轻掠,天上的繁星扑腾闪烁,湖面漾起粼粼波光,整个湖区变成一片神秘与宁静的海洋。</p>
+<p>清晨伸出两手,迅速地拉开了蓝色的天幕,</p>
+<p>苍白的月亮悄悄退到了山上。正在消退的潮水浪峰上闪着灿灿金光。红树丛已经摆脱了模糊的背景,清清楚楚地显露出来。岛上一片葱绿,清晨带着浓郁的花香来临了。</p>
+<h4 id="2-连串式描写-展开故事的情节。"><a href="#2-连串式描写-展开故事的情节。" class="headerlink" title="2.连串式描写,展开故事的情节。"></a>2.连串式描写,展开故事的情节。</h4><p>  盛夏,此起彼伏的蝉声不断从窗外袭来,惹得我心烦不已。不一会儿,** **我便寻了根长棍子跑到树下,对着繁茂的树叶一阵捣腾敲打,几只黑色的蝉掉在了地上。</p>
+<p>(图像)</p>
+<p>例(从早上到晚上):</p>
+<p>  1晨光划破了天际,山的那头一张粉粉的小圆脸露出来了,给天上的白云染上了金灿的颜色。李伯伯挑起担子,向着县城出发。 (日出之时)</p>
+<p>  2暮色之下,远处是影影绰绰的一片青黛,月亮毫不吝啬地将它的光芒洒向山坡。夜色笼罩下,星光照耀着李伯伯归来的路。(暮色之下)</p>
+<p>例(依照季节的变换):</p>
+<p>冬日遗落的梅花还悬在枝头,光秃秃的树梢转眼涂上了翠色的颜料,那不知名的小花,匿于绿色的枝丫间,羞涩地迎着风起舞。</p>
+<h4 id="3-情景式描写-正面衬托人物的情感。"><a href="#3-情景式描写-正面衬托人物的情感。" class="headerlink" title="3.情景式描写,正面衬托人物的情感。"></a>3.情景式描写,正面衬托人物的情感。</h4><p>  与第一次的表现截然不同,我知道我成功了。风在耳畔拥吻祝贺,柳枝在狂舞伴奏,落日余晖铺满石子路,前方一片金光。</p>
+<h4 id="4-情景式描写-反面衬托人物情感与形象。"><a href="#4-情景式描写-反面衬托人物情感与形象。" class="headerlink" title="4.情景式描写,反面衬托人物情感与形象。"></a>4.情景式描写,反面衬托人物情感与形象。</h4><p>  在李伯伯的陈旧的庭院里,只有那月季是唯一的亮色,风雨吹不倒,它用鲜艳的颜色驱走了周遭的黑,虽然渺小,却毫不畏惧地展现着自己。</p>
+<div class="tag-plugin quot"><h3 class="content" id="二、社会环境描写" type="text"><a href="#二、社会环境描写" class="headerlink" title="二、社会环境描写"></a>二、社会环境描写</h3></div>
+
+<h4 id="1-学习环境-教室、学校等"><a href="#1-学习环境-教室、学校等" class="headerlink" title="1.学习环境:教室、学校等"></a>1.学习环境:教室、学校等</h4><p>(1)楼道里挑灯夜读</p>
+<p>簌簌风声,盏盏明灯,楼道里的学子身披星光,潜心阅读。他们坚定的身影,伴着明光烁亮,他们正提灯寻梦,在学海中尽情徜徉。</p>
+<p>(2)宿舍暖灯</p>
+<p>宿舍里橘黄的灯光下,同学们欢畅地说起白天的趣事,欢声笑语中灯光交织成梦幻一片。</p>
+<p>(3)小径幽灯</p>
+<p>蜿蜒的小径间,点点星光伴着黄晕的路灯,照亮了学生们渐行渐远的影子。</p>
+<p>(4)镁光灯下翩翩起舞</p>
+<p>绚烂的聚光灯下,姑娘们踮起脚尖旋转跳跃,起舞弄清影,沉浸在星星点点的闪光中,尽情享受着这流光溢彩的舞台。</p>
+<p>(5)大课间</p>
+<p>上午大课间,同学们在操场上排成方阵,阳光从密密层层的枝叶透射下来,地上印满铜钱大小的粼粼光斑,同学们说笑间,跑操开始了。“一、二、三四”的口号和有节奏的鼓点,是我们跑步的音乐,和着音乐的鼓点,地下传来沙沙沙的整齐的脚步声。我夹在队伍中间,看着女同学的马尾左右摇摆,男同学总爱蹦的高高的,一上一下的人群似乎也有节奏呢。再看脚下,同学们的脚在跑道上点着,如蜻蜓点水]般轻盈,影子也跟着我们跑,地上一块儿明一块儿暗,同学们迎着阳光在操场上跑操,这是团结奋进的校园剪影。</p>
+<h4 id="2-生活环境-家庭、家乡等"><a href="#2-生活环境-家庭、家乡等" class="headerlink" title="2.生活环境:家庭、家乡等"></a>2.生活环境:家庭、家乡等</h4><p>  车窗外景色匆匆而过,微闭双眸,我随着歌声,回到了那浪漫的水乡,那生我养我的家乡。那蜿蜒的河道,汩汩的流水声,那青青的稻田,古老的榕树,那和蔼的邻居,淘气的孩子……睁开双眼,呀!浅绿的河水,翠绿的风车草,淡绿的水芹,深绿的青苔,一河清凉扑面而来,这么多星星点点的“绿”,真是让人心旷神怡。</p>
+<h4 id="3-校外的某个地点、某个处所"><a href="#3-校外的某个地点、某个处所" class="headerlink" title="3.校外的某个地点、某个处所"></a>3.校外的某个地点、某个处所</h4><p>我不在市中心,感受不到那广厦千万间的气魄,甚至很少能见到车水马龙的壮丽。可是后来呀,我在人行道上又骑了一次自行车。我听着“滴”的一声解锁,感慨着共享单车的便利;我听着橡胶车胎与地面摩擦的声音,感叹着路的宽敞与平整;我迎着夏日呼啸的风,追逐着翩飞的几片绿叶;我听着学校钟楼整点敲响的声音,回溯着自己九年的深圳时光;我看着夕阳洒在刚翻新的学校屋顶上,红瓦泛着金光。</p>
+<h4 id="4-局部环境-室内陈设"><a href="#4-局部环境-室内陈设" class="headerlink" title="4.局部环境:室内陈设"></a>4.局部环境:室内陈设</h4><p>我房的窗子正对着春天的西晒。暗绿漆布的遮阳拉起了一半,风把它吹得高高地,摇晃着绳端的小木坠子。败了色的淡赭红的窗帘,紧紧吸在金色的铁栅栏上,横的一棱一棱,像蚌壳又像帆,朱红在日影里,赤紫在阴影里。唿!又飘了开来,露出淡淡的蓝天白云。可以是法国或是义大利。太美丽的日子,可以觉得它在窗外澌澌流过,河流似的,轻吻着窗台,吻着船舷。太阳暗下去,船过了桥洞,又亮了起来。</p>
+<h4 id="5-宏观环境、时代背景"><a href="#5-宏观环境、时代背景" class="headerlink" title="5.宏观环境、时代背景"></a>5.宏观环境、时代背景</h4><p>巷子里灰濛濛的一片,一个人影也没有,四周沉静,只有雨点洒在远远近近那些矮屋的瓦檐上,发出一阵沙沙的微响。他在冷雨中,撑着他那把破纸伞,伫立了片刻,终于又踅回到他巷子里的家中去。右腿跛瘸,穿着木屐,走一步,拐一下,十分蹒跚。</p>
+<div class="tag-plugin quot"><h3 class="content" id="三、一些替代词汇" type="text"><a href="#三、一些替代词汇" class="headerlink" title="三、一些替代词汇"></a>三、一些替代词汇</h3></div>
+
+<h4 id="——描写山水"><a href="#——描写山水" class="headerlink" title="——描写山水"></a><strong>——描写山水</strong></h4><p>青山隐隐。山翠扑帘。山水灵逸。水秀山明。岳立川行。山色苍苍。山林相映。烟柳万家。平畴千里。</p>
+<h4 id="——描写花木"><a href="#——描写花木" class="headerlink" title="——描写花木"></a><strong>——描写花木</strong></h4><p>禾稼果木。树阴匝地。佳木浓阴。佳木葱茏叶稠荫翠。枫林晚叶。枫叶流丹。阴阴翠润。古木苍苍。碧桃花影。嫩蕊香英。临风落英。飞絮落花。灼灼其华。花间风骨。花影缤纷。花鲜叶茂。花影转阶。</p>
+<h4 id="——描写园林"><a href="#——描写园林" class="headerlink" title="——描写园林"></a><strong>——描写园林</strong></h4><p>花下瑶台。轩峻壮丽。殿宇巍巍。峥嵘轩峻。叠石凿池,筑亭辟馆。竹树山石。烟柳画桥。楼台亭轩。亭榭栏杆。朱楼雕栏。朱阁绮户。朱户绣窗。红粉朱楼。重宇别院。崇阁巍峨。层楼高起。</p>
+<h4 id="——描写府邸"><a href="#——描写府邸" class="headerlink" title="——描写府邸"></a><strong>——描写府邸</strong></h4><p>高门大第。兽头大门。朱楼雕栏。朱阁绮户。朱户绣窗。红粉朱楼。重宇别院。崇阁巍峨。层楼高起。院落屋宇。朱门深院。静室高斋。前厅后舍。</p>
+<h4 id="——描写村舍"><a href="#——描写村舍" class="headerlink" title="——描写村舍"></a><strong>——描写村舍</strong></h4><p>门外垂杨。村庄人家。寒烟小院。斜阳小院。小院春寒。矮墙浅屋。茅檐土壁。竹蓠茅舍。松窗竹户。茅檐草舍。蓬牗茅椽。绳床瓦灶。雨夕灯窗。幽窗青灯。灯火村落。幽径柴门。苍苔屐齿。青山当户。曙光薄户。豆棚菜圃。村花路柳。晚村人语。</p>
+<h4 id="——描写街市"><a href="#——描写街市" class="headerlink" title="——描写街市"></a><strong>——描写街市</strong></h4><p>街市繁华,人烟阜盛。熙攘市集。店肆林立。园墅遍布。齐整宽阔。旧时巷陌。闹市嚣尘。通衢越巷。市井尘嚣。花径风寒。五都市中。纷嚣扰攘。妓舍酒馆。晓市花声。</p>
+
+
+  
+  <script>
+    let tianliGPT_postSelector = '.md-text.content.post';
+    let tianliGPT_key = 'x0LdwLe32lb21mgKNSVK';
+  </script>
+  <script defer src="https://cdn1.tianli0.top/gh/zhheo/Post-Abstract-AI@0.9/tianli_gpt.js"></script>
+
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%81%E6%84%9F/">记一次流感</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/%E5%AE%B6%E5%9B%BD%E6%83%85%E6%80%80/">家国情怀</a></div></section></div>
+
+
+<div class="related-wrap reveal" id="related-posts">
+    <section class='header'>
+      <div class='title cap theme'>您可能感兴趣的文章</div>
+    </section>
+    <section class='body'>
+    <div class="related-posts"><a class="item" href="/出售一台美国雨云2H2G/" title="出售一台美国雨云2H2G"><span class="title">出售一台美国雨云2H2G</span></a></div></section></div>
+
+
+
+  <div class='related-wrap md-text reveal' id="comments">
+    <section class='header cmt-title cap theme'>
+      快来参与讨论吧
+    </section>
+    <section class='body cmt-body waline'>
+      
+
+<div id="waline_container" class="waline_thread"><svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+
+    </section>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/categories/index.html">分类</a><a href="/tags/index.html">标签</a><a href="/archives/index.html">归档</a></div><div class="sitemap-group"><span class="fs14">网站</span><a target="_blank" rel="noopener" href="https://www.lvbyte.top">个人主页</a><a target="_blank" rel="noopener" href="https://sport.lvbyte.top">运动网站</a><a target="_blank" rel="noopener" href="https://cloud.lvbyte.top">个人云盘</a><a target="_blank" rel="noopener" href="https://Kuma.lvbyte.top">网站探针</a><a target="_blank" rel="noopener" href="https://music.lvbyte.top">音乐网站</a><a target="_blank" rel="noopener" href="https://bit.lvbyte.top">小米手表</a></div><div class="sitemap-group"><span class="fs14">社交</span><a href="/friend/">友链</a><a href="/friend/rss/">朋友圈</a><a href="/about/#comments">留言板</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于本站</a><a href="/atom.xml">rss</a><a target="_blank" rel="noopener" href="https://github.com/Bytelv">GitHub</a></div></div><div class="text"><p><a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener" title="开往-友链接力"> <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://www.travellings.cn/assets/logo.gif" alt="开往-友链接力" width="120"> </a><br> <script id="LA-DATA-WIDGET" crossorigin="anonymous" charset="UTF-8" src="https://v6-widget.51.la/v6/3FdgouIefFaCalOp/quote.js?theme=0&f=12"></script><br> <a href="https://icp.gov.moe/?keyword=20239949" target="_blank">萌ICP备20239949号</a></p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.19.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://npm.elemecdn.com/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://npm.elemecdn.com/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://npm.elemecdn.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":true,"js":"https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js","distance":"20px","duration":700,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://npm.elemecdn.com/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":true,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function load_comment(){
+    if(!document.getElementById("waline_container"))return;
+    stellar.loadCSS('https://npm.elemecdn.com/@waline/client@v2/dist/waline.css');
+    stellar.loadScript('https://npm.elemecdn.com/@waline/client@v2/dist/waline.js', {defer:true}).then(function () {
+      const el = document.getElementById("waline_container");
+      var path = el.getAttribute('comment_id');
+      if (!path) {
+        path = decodeURI(window.location.pathname);
+      }
+      Waline.init(Object.assign({"js":"https://npm.elemecdn.com/@waline/client@v2/dist/waline.js","css":"https://npm.elemecdn.com/@waline/client@v2/dist/waline.css","serverURL":"https://waline.lvbyte.top","commentCount":true,"pageview":false,"locale":{"placeholder":"说点什么吧!留下邮箱可以收到回复提醒哦","reactionTitle":null,"reaction0":"喜欢本文","reaction1":"吃瓜","reaction2":"狗头","reaction3":"鬼脸"},"reaction":["https://npm.elemecdn.com/sticker-heo@2022.7.5/Sticker-100/%E5%96%9C%E6%AC%A2.png","https://npm.elemecdn.com/sticker-heo@2022.7.5/Sticker-100/%E6%BB%91%E7%A8%BD%E5%90%83%E7%93%9C.png","https://npm.elemecdn.com/sticker-heo@2022.7.5/Sticker-100/%E7%8B%97%E5%A4%B4.png","https://npm.elemecdn.com/sticker-heo@2022.7.5/Sticker-100/%E9%AC%BC%E8%84%B8.png"],"emoji":["https://gcore.jsdelivr.net/gh/norevi/waline-blobcatemojis@1.0/blobs","https://github.elemecdn.com/sticker-heo@2022.7.5/Sticker-100","https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili"]}, {
+        el: '#waline_container',
+        path: path,
+        
+      }));
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    load_comment();
+  });
+
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+<script>(function (w, d, s, id) {
+            if (typeof (w.webpushr) !== 'undefined') return; w.webpushr = w.webpushr || function () { (w.webpushr.q = w.webpushr.q || []).push(arguments) }; var js, fjs = d.getElementsByTagName(s)[0]; js = d.createElement(s); js.id = id; js.async = 1; js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window, document, 'script', 'webpushr-jssdk'));webpushr('setup', { 'key': 'BIVk4y3eO5C9PPgSdkpnjQA-VmY1XJRove-w3et-sdAqEpb4r8bcKeoOKvUX6bX3p904uj1myUPA--Y6TAYCA_E' });</script><script>(function (w, d, s, id) {
+            if (typeof (w.webpushr) !== 'undefined') return; w.webpushr = w.webpushr || function () { (w.webpushr.q = w.webpushr.q || []).push(arguments) }; var js, fjs = d.getElementsByTagName(s)[0]; js = d.createElement(s); js.id = id; js.async = 1; js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window, document, 'script', 'webpushr-jssdk'));webpushr('setup', { 'key': 'BIVk4y3eO5C9PPgSdkpnjQA-VmY1XJRove-w3et-sdAqEpb4r8bcKeoOKvUX6bX3p904uj1myUPA--Y6TAYCA_E' });</script></body>
+</html>
