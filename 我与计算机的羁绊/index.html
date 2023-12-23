@@ -15,45 +15,53 @@
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
+  <script>
+if (!!navigator.serviceWorker) {
+    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+            const conf = () => {
+                console.log('[CW] Installing Success,Configuring...');
+                fetch('/cw-cgi/api?type=config')
+                    .then(res => res.text())
+                    .then(text => {
+                        if (text === 'ok') {
+                            console.log('[CW] Installing Success,Configuring Success,Starting...');
+                            localStorage.setItem('cw_installed', 'true');
+                            //如果你不希望重载页面，请移除下面七行
+                            //重载标识 - 开始
+                            fetch(window.location.href).then(res => res.text()).then(text => {
+                                document.open()
+                                document.write(text);
+                                document.close();
+                            });
+                            //重载标识 - 结束
+                        } else {
+                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                            setTimeout(() => {
+                                conf()
+                            }, 200);
+                        }
+                    }).catch(err => {
+                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                    });
+            }
+            setTimeout(() => {
+                conf()
+            }, 50);
+        }
+    }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+    });
+} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+</script>
+
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8"> 
-  <script>
-  if (!!navigator.serviceWorker) {
-      if (localStorage.getItem('cw_installed') !== 'true') {window.stop();}
-      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-          if (localStorage.getItem('cw_installed') !== 'true') {
-              const conf = () => {
-                  console.log('[CW] Installing Success,Configuring...');
-                  fetch('/cw-cgi/api?type=config')
-                      .then(res => res.text())
-                      .then(text => {
-                          if (text === 'ok') {
-                              console.log('[CW] Installing Success,Configuring Success,Starting...');
-                              localStorage.setItem('cw_installed', 'true');
-                              window.location.reload();
-                          } else {
-                              console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                              setTimeout(() => {
-                                  conf()
-                              }, 200);
-                          }
-                      }).catch(err => {
-                          console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                      });
-              }
-              setTimeout(() => {
-                  conf()
-              }, 50);
-          }
-      }).catch(err => {
-          console.error('[CW] Installing Failed,Error: ' + err.message);
-      })
-  } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-  </script>
+  
   <title>我与计算机的羁绊 - 字节君</title>
   
     <meta name="description" content="今天是2023年8月17日。闲来无事，写一篇文章，记载一下还未曾遗忘的记忆。 起源倘若说，第一次是在哪里对计算机技术产生兴趣。那得从一部电视剧说起。那是2年级的时候（2016年）在自家的电视上，发现一部“偶像剧”，名字叫做：《微微一笑很倾城》  以现在的价值观来说，很不解当时为什么会喜欢这部电视剧。。。两位主演的呢，额。。好像都不同程度的出事了。。从历史学的角度来说，我们不应该从现在的视角，去评判">
@@ -67,7 +75,7 @@
 <meta property="og:image" content="https://image.lvbyte.top/file/7a602deb8d6b9b9fc5198.png">
 <meta property="og:image" content="https://image.lvbyte.top/file/10a4dbad08450043a006b.png">
 <meta property="article:published_time" content="2023-08-25T00:55:19.601Z">
-<meta property="article:modified_time" content="2023-12-16T05:57:06.003Z">
+<meta property="article:modified_time" content="2023-12-23T23:09:07.539Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="心声">
 <meta name="twitter:card" content="summary_large_image">

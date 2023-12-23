@@ -15,45 +15,53 @@
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
+  <script>
+if (!!navigator.serviceWorker) {
+    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+            const conf = () => {
+                console.log('[CW] Installing Success,Configuring...');
+                fetch('/cw-cgi/api?type=config')
+                    .then(res => res.text())
+                    .then(text => {
+                        if (text === 'ok') {
+                            console.log('[CW] Installing Success,Configuring Success,Starting...');
+                            localStorage.setItem('cw_installed', 'true');
+                            //如果你不希望重载页面，请移除下面七行
+                            //重载标识 - 开始
+                            fetch(window.location.href).then(res => res.text()).then(text => {
+                                document.open()
+                                document.write(text);
+                                document.close();
+                            });
+                            //重载标识 - 结束
+                        } else {
+                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                            setTimeout(() => {
+                                conf()
+                            }, 200);
+                        }
+                    }).catch(err => {
+                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                    });
+            }
+            setTimeout(() => {
+                conf()
+            }, 50);
+        }
+    }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+    });
+} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+</script>
+
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8"> 
-  <script>
-  if (!!navigator.serviceWorker) {
-      if (localStorage.getItem('cw_installed') !== 'true') {window.stop();}
-      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-          if (localStorage.getItem('cw_installed') !== 'true') {
-              const conf = () => {
-                  console.log('[CW] Installing Success,Configuring...');
-                  fetch('/cw-cgi/api?type=config')
-                      .then(res => res.text())
-                      .then(text => {
-                          if (text === 'ok') {
-                              console.log('[CW] Installing Success,Configuring Success,Starting...');
-                              localStorage.setItem('cw_installed', 'true');
-                              window.location.reload();
-                          } else {
-                              console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                              setTimeout(() => {
-                                  conf()
-                              }, 200);
-                          }
-                      }).catch(err => {
-                          console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                      });
-              }
-              setTimeout(() => {
-                  conf()
-              }, 50);
-          }
-      }).catch(err => {
-          console.error('[CW] Installing Failed,Error: ' + err.message);
-      })
-  } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-  </script>
+  
   <title>Hexo Stellar主题+Qexo后台管理 - 字节君</title>
   
     <meta name="description" content="hexo stellar主题实现Qexo后台管理">
@@ -66,7 +74,7 @@
 <meta property="og:image" content="https://pic.hipyt.cn/pic/2023/01/03/e1b3ca7b101fa.png">
 <meta property="og:image" content="https://vercel.com/button">
 <meta property="article:published_time" content="2023-01-22T13:05:22.000Z">
-<meta property="article:modified_time" content="2023-12-16T05:57:06.003Z">
+<meta property="article:modified_time" content="2023-12-23T23:09:07.539Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Stellar">

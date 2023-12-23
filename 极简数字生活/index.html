@@ -15,45 +15,53 @@
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
+  <script>
+if (!!navigator.serviceWorker) {
+    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+            const conf = () => {
+                console.log('[CW] Installing Success,Configuring...');
+                fetch('/cw-cgi/api?type=config')
+                    .then(res => res.text())
+                    .then(text => {
+                        if (text === 'ok') {
+                            console.log('[CW] Installing Success,Configuring Success,Starting...');
+                            localStorage.setItem('cw_installed', 'true');
+                            //如果你不希望重载页面，请移除下面七行
+                            //重载标识 - 开始
+                            fetch(window.location.href).then(res => res.text()).then(text => {
+                                document.open()
+                                document.write(text);
+                                document.close();
+                            });
+                            //重载标识 - 结束
+                        } else {
+                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                            setTimeout(() => {
+                                conf()
+                            }, 200);
+                        }
+                    }).catch(err => {
+                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                    });
+            }
+            setTimeout(() => {
+                conf()
+            }, 50);
+        }
+    }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+    });
+} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+</script>
+
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8"> 
-  <script>
-  if (!!navigator.serviceWorker) {
-      if (localStorage.getItem('cw_installed') !== 'true') {window.stop();}
-      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-          if (localStorage.getItem('cw_installed') !== 'true') {
-              const conf = () => {
-                  console.log('[CW] Installing Success,Configuring...');
-                  fetch('/cw-cgi/api?type=config')
-                      .then(res => res.text())
-                      .then(text => {
-                          if (text === 'ok') {
-                              console.log('[CW] Installing Success,Configuring Success,Starting...');
-                              localStorage.setItem('cw_installed', 'true');
-                              window.location.reload();
-                          } else {
-                              console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                              setTimeout(() => {
-                                  conf()
-                              }, 200);
-                          }
-                      }).catch(err => {
-                          console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                      });
-              }
-              setTimeout(() => {
-                  conf()
-              }, 50);
-          }
-      }).catch(err => {
-          console.error('[CW] Installing Failed,Error: ' + err.message);
-      })
-  } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-  </script>
+  
   <title>极简数字生活 - 字节君</title>
   
     <meta name="description" content="前言在 2023 年的今天,人们生活的方方面面已经被电子产品所覆盖。我们每天从电子产品中获取各种各样的信息。这些信息种类繁多,涉及领域广泛,来源也五花八门。如何正确地选择,管理信息源?如何处理接收到的信息?这将是本文所探讨的问题。 必须直面的问题以下图片是博主于 2023年4月7日 晚上 20:13 分截取的手机使用时间。   该数据有不严谨的地方,实际使用时间要远远大于这个数据! 在博主的日常生">

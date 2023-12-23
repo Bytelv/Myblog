@@ -15,45 +15,53 @@
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
+  <script>
+if (!!navigator.serviceWorker) {
+    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+            const conf = () => {
+                console.log('[CW] Installing Success,Configuring...');
+                fetch('/cw-cgi/api?type=config')
+                    .then(res => res.text())
+                    .then(text => {
+                        if (text === 'ok') {
+                            console.log('[CW] Installing Success,Configuring Success,Starting...');
+                            localStorage.setItem('cw_installed', 'true');
+                            //如果你不希望重载页面，请移除下面七行
+                            //重载标识 - 开始
+                            fetch(window.location.href).then(res => res.text()).then(text => {
+                                document.open()
+                                document.write(text);
+                                document.close();
+                            });
+                            //重载标识 - 结束
+                        } else {
+                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                            setTimeout(() => {
+                                conf()
+                            }, 200);
+                        }
+                    }).catch(err => {
+                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                    });
+            }
+            setTimeout(() => {
+                conf()
+            }, 50);
+        }
+    }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+    });
+} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+</script>
+
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8"> 
-  <script>
-  if (!!navigator.serviceWorker) {
-      if (localStorage.getItem('cw_installed') !== 'true') {window.stop();}
-      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-          if (localStorage.getItem('cw_installed') !== 'true') {
-              const conf = () => {
-                  console.log('[CW] Installing Success,Configuring...');
-                  fetch('/cw-cgi/api?type=config')
-                      .then(res => res.text())
-                      .then(text => {
-                          if (text === 'ok') {
-                              console.log('[CW] Installing Success,Configuring Success,Starting...');
-                              localStorage.setItem('cw_installed', 'true');
-                              window.location.reload();
-                          } else {
-                              console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                              setTimeout(() => {
-                                  conf()
-                              }, 200);
-                          }
-                      }).catch(err => {
-                          console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                      });
-              }
-              setTimeout(() => {
-                  conf()
-              }, 50);
-          }
-      }).catch(err => {
-          console.error('[CW] Installing Failed,Error: ' + err.message);
-      })
-  } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-  </script>
+  
   <title>初中历史知识点归纳 - 字节君</title>
   
     <meta name="description" content="标志类八年级上册  1.标志着中国近代史的开端的事件——鸦片战争(1840—1842) 2.标志着中国开始沦为半殖民地半封建社会的事件——鸦片战争 3.标志着洋务运动破产的事件是——甲午中日战争中北洋舰队的全军覆没 4.为中国的近代化开辟道路的标志性事件——洋务运动 5.戊戌变法失败的标志性事件是——戊戌政变 6.结束了我国两千多年来封建帝制的标志性事件是——辛亥革命 7.清朝统治结束的标志——辛">

@@ -15,45 +15,53 @@
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
+  <script>
+if (!!navigator.serviceWorker) {
+    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+            const conf = () => {
+                console.log('[CW] Installing Success,Configuring...');
+                fetch('/cw-cgi/api?type=config')
+                    .then(res => res.text())
+                    .then(text => {
+                        if (text === 'ok') {
+                            console.log('[CW] Installing Success,Configuring Success,Starting...');
+                            localStorage.setItem('cw_installed', 'true');
+                            //如果你不希望重载页面，请移除下面七行
+                            //重载标识 - 开始
+                            fetch(window.location.href).then(res => res.text()).then(text => {
+                                document.open()
+                                document.write(text);
+                                document.close();
+                            });
+                            //重载标识 - 结束
+                        } else {
+                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                            setTimeout(() => {
+                                conf()
+                            }, 200);
+                        }
+                    }).catch(err => {
+                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                    });
+            }
+            setTimeout(() => {
+                conf()
+            }, 50);
+        }
+    }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+    });
+} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+</script>
+
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" content="#f8f8f8"> 
-  <script>
-  if (!!navigator.serviceWorker) {
-      if (localStorage.getItem('cw_installed') !== 'true') {window.stop();}
-      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-          if (localStorage.getItem('cw_installed') !== 'true') {
-              const conf = () => {
-                  console.log('[CW] Installing Success,Configuring...');
-                  fetch('/cw-cgi/api?type=config')
-                      .then(res => res.text())
-                      .then(text => {
-                          if (text === 'ok') {
-                              console.log('[CW] Installing Success,Configuring Success,Starting...');
-                              localStorage.setItem('cw_installed', 'true');
-                              window.location.reload();
-                          } else {
-                              console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                              setTimeout(() => {
-                                  conf()
-                              }, 200);
-                          }
-                      }).catch(err => {
-                          console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                      });
-              }
-              setTimeout(() => {
-                  conf()
-              }, 50);
-          }
-      }).catch(err => {
-          console.error('[CW] Installing Failed,Error: ' + err.message);
-      })
-  } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-  </script>
+  
   <title>环境描写 - 字节君</title>
   
     <meta name="description" content="一、自然环境描写  1.季节、天气以及动植物等  窗外夏虫鸣声不断,烈日炙烤着大地,热得路旁的树木似乎也流下了津津汗液。   七月阳光明媚,轻薄的云雾缭绕在山腰,五彩的格桑花遍布于整个山谷,山涧的溪水在怪石缝隙中跳跃、翻飞,咕咚咕咚地奔向山下的村庄。   暮色西沉,湖边更添静谧,在天色沉下来前,湖面的晚风与天边的云霞同样温柔,余晖带着绚烂的色彩落下,还未散去的热气升腾为一层轻薄的白纱。夜幕降临后,">
