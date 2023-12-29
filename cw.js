@@ -1,4 +1,5 @@
 importScripts('https://unpkg.com/clientworker@2.7.2-beta-2/dist/cw.js')
+importScripts('https://cdn.webpushr.com/sw-server.min.js');
 importScripts('https://npm.sourcegcdn.com/marked@4.0.18/marked.min.js')
 
 const list_post = async (args) =>{
