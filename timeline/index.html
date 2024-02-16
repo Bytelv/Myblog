@@ -64,12 +64,14 @@ if (!!navigator.serviceWorker) {
   
   <title>timeline - 字节君</title>
   
-    <meta property="og:type" content="website">
+    <meta name="description" content="h2 class&#x3D;”section-title”&gt;最新说说 &lt;div class&#x3D;&quot;post-list talk-list&quot; id&#x3D;&quot;taslk_list&quot;&gt;     &lt;article class&#x3D;&quot;article talk-readmore&quot;&gt;&lt;a&gt;加载中...&lt;&#x2F;a&gt;&amp;">
+<meta property="og:type" content="website">
 <meta property="og:title" content="timeline">
 <meta property="og:url" content="https://blog.lvbyte.top/timeline/index.html">
 <meta property="og:site_name" content="字节君">
+<meta property="og:description" content="h2 class&#x3D;”section-title”&gt;最新说说 &lt;div class&#x3D;&quot;post-list talk-list&quot; id&#x3D;&quot;taslk_list&quot;&gt;     &lt;article class&#x3D;&quot;article talk-readmore&quot;&gt;&lt;a&gt;加载中...&lt;&#x2F;a&gt;&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-02-16T14:59:32.318Z">
+<meta property="article:published_time" content="2024-02-16T15:54:47.159Z">
 <meta property="article:modified_time" content="2024-02-16T14:50:39.117Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
@@ -158,6 +160,91 @@ if (!!navigator.serviceWorker) {
 
 <div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/timeline/index.html">timeline</a></div></div>
 <article class="md-text content page reveal"><h1 class="article-title"><span>timeline</span></h1><div class="tag-plugin timeline stellar-timeline-api" api="https://api.github.com/repos/Bytelv/-/issues"></div>
+<p>h2 class&#x3D;”section-title”&gt;最新说说</h2></p>
+<pre><code>&lt;div class=&quot;post-list talk-list&quot; id=&quot;taslk_list&quot;&gt;
+    &lt;article class=&quot;article talk-readmore&quot;&gt;&lt;a&gt;加载中...&lt;/a&gt;&lt;/article&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    const $ = document.getElementById(&#39;taslk_list&#39;);
+        const lyrics = [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico&quot;, &quot;mi&quot;, &quot;dubi&quot;, &quot;dubi\n&quot;, &quot;boom&quot;, &quot;boom&quot;, &quot;boom&quot;, &quot;boom\n&quot;, &quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico&quot;, &quot;mi&quot;, &quot;dubi&quot;, &quot;dubi\n&quot;, &quot;booooooooooooooom\n&quot;];
+        let Chip = 0
+        const Chipy = setInterval(() =&gt; &#123;
+            $.firstElementChild.innerText += lyrics[Chip].replace(/$/, &#39;,&#39;).replace(/\n,/g, &#39;.\n&#39;);
+            Chip++
+            if (Chip &gt;= lyrics.length) Chip = 0
+        &#125;, 400);
+        window.toggleText = (e) =&gt; &#123;
+            e.parentElement.querySelector(&#39;.talk-content&#39;).classList.toggle(&#39;expanded&#39;);
+            e.innerText = e.innerText === &#39;展开&#39; ? &#39;收起&#39; : &#39;展开&#39;;
+        &#125;
+        const tgsvg = `&lt;svg t=&quot;1707826572067&quot; class=&quot;icon&quot; viewBox=&quot;0 0 1024 1024&quot; version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; p-id=&quot;4214&quot; width=&quot;20&quot; height=&quot;20&quot;&gt;&lt;path d=&quot;M679.424 746.862l84.005-395.996c7.424-34.852-12.581-48.567-35.438-40.009L234.277 501.138c-33.72 13.13-33.134 32-5.706 40.558l126.282 39.424 293.156-184.576c13.714-9.143 26.295-3.986 16.018 5.157L426.898 615.973l-9.143 130.304c13.13 0 18.871-5.706 25.71-12.581l61.696-59.429 128 94.282c23.442 13.129 40.01 6.29 46.3-21.724zM1024 512c0 282.843-229.157 512-512 512S0 794.843 0 512 229.157 0 512 0s512 229.157 512 512z&quot; fill=&quot;#1296DB&quot; p-id=&quot;4215&quot;&gt;&lt;/path&gt;&lt;/svg&gt;`
+        setTimeout(async () =&gt; &#123;
+            const insertTalk = async (talk) =&gt; &#123;
+                const apiurl = new URL(&#39;https://tgtalk.lvbyte.top/&#39;)
+                if (!!talk) apiurl.searchParams.append(&#39;startbefore&#39;, talk)
+                await fetch(apiurl)
+                    .then(res =&gt; res.json())
+                    .then(data =&gt; &#123;
+                        clearInterval(Chipy)
+                        $.lastElementChild.remove();
+                        const list = document.getElementById(&#39;taslk_list&#39;);
+                        const ChannelMessages = data.ChannelMessageData
+                        Object.keys(ChannelMessages).reverse().forEach(index =&gt; &#123;
+                            const item = ChannelMessages[index];
+                            const article = document.createElement(&#39;article&#39;);
+                            article.className = &#39;post-list-item talk-list-item&#39;;
+                            article.innerHTML = `
+  
+                                &lt;div class=&quot;content talk-content&quot;&gt;
+                                    &lt;a target=&quot;_blank&quot; rel=&quot;noopener&quot; href=&quot;https://t.me/Cyanwoof/$&#123;index&#125;&quot;&gt;&lt;div class=&quot;title&quot;&gt;
+                                        #$&#123;index&#125; &lt;span style=&quot;float:right&quot;&gt;$&#123;tgsvg&#125; &lt;/span&gt;
+                                    &lt;span style=&quot;float:right&quot;&gt;Views:$&#123;item.views || &quot;无&quot;&#125;&lt;/span&gt;
+                                    &lt;/div&gt;&lt;/a&gt;
+                                    &lt;div class=&quot;time&quot;&gt;
+                                    &lt;span&gt;$&#123;[&#39;January&#39;, &#39;February&#39;, &#39;March&#39;, &#39;April&#39;, &#39;May&#39;, &#39;June&#39;, &#39;July&#39;, &#39;August&#39;, &#39;September&#39;, &#39;October&#39;, &#39;November&#39;, &#39;December&#39;][new Date(item.time).getMonth()]&#125;&lt;/span&gt;
+                                    &lt;span&gt; $&#123;new Date(item.time).getDate()&#125;, &lt;/span&gt;
+                                    &lt;span&gt;$&#123;new Date(item.time).getFullYear()&#125;&lt;/span&gt;
+                                    &lt;span&gt; $&#123;new Date(item.time).toLocaleTimeString()&#125; &lt;/span&gt;
+          
+                                    &lt;/div&gt;
+                                    &lt;div class=&quot;excerpt&quot;&gt;&lt;p class=&quot;talk-excerpt&quot;&gt;
+                                $&#123;item.text.replace(/\&lt;(\/?br\/?)\&gt;/g, &#39;\n&#39;).replace(/\&lt;(\/?[^\&gt;]+)\&gt;/g, &#39;&#39;).replace(/\n/g, &#39;&lt;br&gt;&#39;)&#125;
+                                $&#123;(() =&gt; &#123;
+                                    let medialist = ``;
+                                    item.image.forEach((image) =&gt; &#123;
+                                        if (data.Region === &quot;CN&quot;) image = apiurl.origin + &quot;/?proxy=&quot; + encodeURIComponent(image);
+                                        if (!image.match(/emoji/)) medialist += `&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img class=&quot;lazy&quot; src=&quot;$&#123;image&#125;&quot; class=&quot;lazy&quot; data-srcset=&quot;$&#123;image&#125;&quot; srcset=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEXMzMyWlpYU2uzLAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNgAAAAAgAB9HFkpgAAAABJRU5ErkJggg==&quot; style=&quot;max-width: 50%; height: auto;&quot;&gt;&lt;/p&gt;`;
+                                    &#125;);
+                                    return medialist;
+                                &#125;)()&#125;
+                                        &lt;/p&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;div style=&quot;width:100%;height:36px;justify-content:center;align-items:center;display:-webkit-flex;background-color: #88888816&quot; onclick=&quot;toggleText(this)&quot;&gt;展开&lt;/div&gt;
+                        `;
+
+                            $.appendChild(article);
+                            if (article.querySelector(&#39;.talk-excerpt&#39;).offsetHeight &lt; 30 &amp;&amp; item.image.length === 0) &#123;
+                                article.lastElementChild.remove();
+                                article.querySelector(&#39;.talk-content&#39;).classList.add(&#39;expanded&#39;);
+                            &#125;
+
+                        &#125;);
+                        $.innerHTML += `&lt;article class=&quot;article talk-readmore&quot;&gt;&lt;a style=&quot;color: var(--link)&quot;&gt;从#$&#123;data.nextBefore&#125;消息起查看更多&lt;/a&gt;&lt;/article&gt;`;
+                        $.lastElementChild.onclick = () =&gt; &#123;
+                            $.lastElementChild.innerText = &#39;加载中...&#39;;
+                            insertTalk(data.nextBefore);
+                        &#125;
+                    &#125;).catch(err =&gt; &#123;
+                        console.error(err);
+                        clearInterval(Chipy)
+                        $.lastElementChild.innerText = &#39;加载失败&#39;;
+                    &#125;);
+            &#125;;
+            insertTalk();
+        &#125;, 500);
+&lt;/script&gt;
+</code></pre>
 </article>
 
   <div class='related-wrap md-text reveal' id="comments">
