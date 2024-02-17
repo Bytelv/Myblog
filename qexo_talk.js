@@ -64,27 +64,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     // 给定JSON数据，展示信息到指定的DOM元素中
+// 给定JSON数据，展示信息到指定的DOM元素中
     function showChannelMessages(jsonData, domId) {
       var channelMessageData = jsonData.ChannelMessageData;
       var html = '<div class="qexot-list">';
-    
+
       var messageArray = Object.values(channelMessageData).filter(function(messageData) {
         return messageData.text.includes('#SFCN'); // 只包含含有#SFCN标签的消息
       });
-    
+
       messageArray.sort(function(a, b) {
         // 降序排序
         return b['time'] - a['time'];
       });
-    
+
       // 遍历已过滤并排序后的数组
       messageArray.forEach(function(messageData) {
+        // 移除#SFCN标签
+        var messageText = messageData['text'].replace(/#SFCN/g, '');
+
         var formattedTime = qexoFormatTime("YYYY-mm-dd HH:MM:SS", Number(messageData['time']));
         var messageImages = messageData['image'] || [];
-        // 生成HTML包含图片信息（如果有）
-        html += generateChannelMessageItem(messageData['id'], messageData['text'], formattedTime, messageData['views'] || 0, messageImages);
+        // 生成HTML包含图片信息（如果有）和去除了#SFCN标签的文本
+        html += generateChannelMessageItem(messageData['id'], messageText, formattedTime, messageData['views'] || 0, messageImages);
       });
-    
+
       html += '</div>';
       document.getElementById(domId).innerHTML = html;
     }
