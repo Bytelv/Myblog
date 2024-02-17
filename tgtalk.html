@@ -72,8 +72,8 @@ if (!!navigator.serviceWorker) {
 <meta property="og:description" content="最新说说               加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);             const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.lvbyte.top/$%7Bimage%7D">
-<meta property="article:published_time" content="2024-02-17T03:31:16.486Z">
-<meta property="article:modified_time" content="2024-02-17T03:31:16.486Z">
+<meta property="article:published_time" content="2024-02-17T03:37:31.375Z">
+<meta property="article:modified_time" content="2024-02-17T03:37:31.375Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">
@@ -435,22 +435,28 @@ img.lazy {
 }
 .post-list-item,
 .talk-list-item {
-    width: 390px; /* 设置宽度为390像素 */
-    /* 其余样式保持不变 */
-    border: 1px solid var(--item-border-color);
-    margin: 20px auto;
+    /* 其他样式保持不变 */
+    width: 100%; /* 宽度设为100%，使其自适应 */
+    max-width: 800px; /* 可以设置一个最大宽度，比如800px */
+    margin: 20px auto; /* 水平居中对齐 */
     padding: 20px;
     border-radius: 8px;
     box-shadow: var(--item-shadow);
     transition: box-shadow 0.3s ease-in-out;
 }
 
-.post-list-item:hover,
-.talk-list-item:hover {
-    box-shadow: var(--item-hover-shadow);
+/* 响应式设计 - 根据不同屏幕宽度进行调整 */
+@media screen and (max-width: 767px) {
+    .post-list-item,
+    .talk-list-item {
+        width: auto; /* 对于更小的屏幕，可以设宽度为auto */
+        margin: 10px; /* 根据需要，可以减小边距以更好的适应屏幕 */
+        padding: 10px; /* 根据需要可以调整边距 */
+    }
 }
 
-/* ... 省略了其他未修改的CSS代码 ... */
+/* 继续添加其他媒体查询以适配不同屏幕尺寸 */
+
 </style>
 
     </article>
