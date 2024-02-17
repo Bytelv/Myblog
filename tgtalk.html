@@ -72,8 +72,8 @@ if (!!navigator.serviceWorker) {
 <meta property="og:description" content="最新说说               加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);             const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.lvbyte.top/$%7Bimage%7D">
-<meta property="article:published_time" content="2024-02-17T03:26:37.282Z">
-<meta property="article:modified_time" content="2024-02-17T03:26:37.282Z">
+<meta property="article:published_time" content="2024-02-17T03:31:16.486Z">
+<meta property="article:modified_time" content="2024-02-17T03:31:16.486Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">
@@ -231,7 +231,7 @@ if (!!navigator.serviceWorker) {
                                 article.innerHTML = `
       
                                     <div class="content talk-content">
-                                        <a target="_blank" rel="noopener" href="https://t.me/Cyanwoof/${index}"><div class="title">
+                                        <a target="_blank" rel="noopener" href="https://t.me/lvbytespace/${index}"><div class="title">
                                             #${index} <span style="float:right">${tgsvg} </span>
                                         <span style="float:right">Views:${item.views || "无"}</span>
                                         </div></a>
@@ -433,6 +433,24 @@ img.lazy {
 .expanded-btn {
     color: var(--main-text-color); /* 确保使用了正确的文本颜色变量 */
 }
+.post-list-item,
+.talk-list-item {
+    width: 390px; /* 设置宽度为390像素 */
+    /* 其余样式保持不变 */
+    border: 1px solid var(--item-border-color);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--item-shadow);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.post-list-item:hover,
+.talk-list-item:hover {
+    box-shadow: var(--item-hover-shadow);
+}
+
+/* ... 省略了其他未修改的CSS代码 ... */
 </style>
 
     </article>
