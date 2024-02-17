@@ -138,3 +138,10 @@
     font-size: .9375rem;
     user-select: none;
 }
+.message-images img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+}
