@@ -66,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // 给定JSON数据，展示信息到指定的DOM元素中
 // 给定JSON数据，展示信息到指定的DOM元素中
     function showChannelMessages(jsonData, domId) {
+        // Remove or hide loading animation
+      if(document.querySelector('.qexo_loading')) {
+        document.querySelector('.qexo_loading').style.display = 'none'; // Option 1: Hide
+        // document.querySelector('.qexo_loading').remove(); // Option 2: Remove
+      }
       var channelMessageData = jsonData.ChannelMessageData;
       var html = '<div class="qexot-list">';
 
@@ -95,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Ajax请求获取JSON数据
     function fetchAndShowChannelMessages(domId, url) {
+      document.getElementById(domId).innerHTML = '<div class="qexo_loading"><div class="qexo_part"><div style="display: flex; justify-content: center"><div class="qexo_loader"><div class="qexo_inner one"></div><div class="qexo_inner two"></div><div class="qexo_inner three"></div></div></div></div><p style="text-align: center; display: block">消息加载中...</p></div>';
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
