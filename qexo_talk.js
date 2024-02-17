@@ -65,14 +65,20 @@ document.addEventListener("DOMContentLoaded", function() {
       var channelMessageData = jsonData.ChannelMessageData;
       var html = '<div class="qexot-list">';
     
-      var messageArray = Object.values(channelMessageData);
-      messageArray.sort(function(a, b) {
-        return b['time'] - a['time']; // 降序排序
+      var messageArray = Object.values(channelMessageData).filter(function(messageData) {
+        return messageData.text.includes('#SFCN'); // 只包含含有#SFCN标签的消息
       });
     
+      messageArray.sort(function(a, b) {
+        // 降序排序
+        return b['time'] - a['time'];
+      });
+    
+      // 遍历已过滤并排序后的数组
       messageArray.forEach(function(messageData) {
         var formattedTime = qexoFormatTime("YYYY-mm-dd HH:MM:SS", Number(messageData['time']));
         var messageImages = messageData['image'] || [];
+        // 生成HTML包含图片信息（如果有）
         html += generateChannelMessageItem(messageData['id'], messageData['text'], formattedTime, messageData['views'] || 0, messageImages);
       });
     
