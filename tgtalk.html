@@ -15,46 +15,6 @@
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
-  <script>
-if (!!navigator.serviceWorker) {
-    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-        if (localStorage.getItem('cw_installed') !== 'true') {
-            const conf = () => {
-                console.log('[CW] Installing Success,Configuring...');
-                fetch('/cw-cgi/api?type=config')
-                    .then(res => res.text())
-                    .then(text => {
-                        if (text === 'ok') {
-                            console.log('[CW] Installing Success,Configuring Success,Starting...');
-                            localStorage.setItem('cw_installed', 'true');
-                            //如果你不希望重载页面，请移除下面七行
-                            //重载标识 - 开始
-                            fetch(window.location.href).then(res => res.text()).then(text => {
-                                document.open()
-                                document.write(text);
-                                document.close();
-                            });
-                            //重载标识 - 结束
-                        } else {
-                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                            setTimeout(() => {
-                                conf()
-                            }, 200);
-                        }
-                    }).catch(err => {
-                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                    });
-            }
-            setTimeout(() => {
-                conf()
-            }, 50);
-        }
-    }).catch(err => {
-        console.error('[CW] Installing Failed,Error: ' + err.message);
-    });
-} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-</script>
-
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
@@ -64,16 +24,16 @@ if (!!navigator.serviceWorker) {
   
   <title>字节君</title>
   
-    <meta name="description" content="最新说说               加载中...                        const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);         const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágic">
+    <meta name="description" content="最新说说               加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);         const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico&quot;, &quot;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="字节君">
 <meta property="og:url" content="https://blog.lvbyte.top/tgtalk.html">
 <meta property="og:site_name" content="字节君">
-<meta property="og:description" content="最新说说               加载中...                        const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);         const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágic">
+<meta property="og:description" content="最新说说               加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);         const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico&quot;, &quot;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.lvbyte.top/$%7Bimage%7D">
-<meta property="article:published_time" content="2024-02-17T04:37:22.622Z">
-<meta property="article:modified_time" content="2024-02-17T04:37:22.622Z">
+<meta property="article:published_time" content="2024-02-17T05:34:15.575Z">
+<meta property="article:modified_time" content="2024-02-17T05:34:15.575Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">
@@ -167,7 +127,6 @@ if (!!navigator.serviceWorker) {
     <div class="post-list talk-list" id="taslk_list">
         <article class="article talk-readmore"><a>加载中...</a></article>
     </div>
-    <script src="https://npm.elemecdn.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
     <script>
         const $ = document.getElementById('taslk_list');
         const lyrics = ["Chipi", "chipi", "chapa", "chapa\n", "Dubi", "dubi", "daba", "daba\n", "Mágico", "mi", "dubi", "dubi\n", "boom", "boom", "boom", "boom\n", "Chipi", "chipi", "chapa", "chapa\n", "Dubi", "dubi", "daba", "daba\n", "Mágico", "mi", "dubi", "dubi\n", "booooooooooooooom\n"];
@@ -188,7 +147,9 @@ if (!!navigator.serviceWorker) {
                     .then(res => res.json())
                     .then(data => {
                         clearInterval(Chipy);
-                        $.lastElementChild.remove();
+                        if ($.lastElementChild) {
+                            $.lastElementChild.remove();
+                        }
                         const ChannelMessages = data.ChannelMessageData;
                         Object.keys(ChannelMessages).reverse().forEach(index => {
                             const item = ChannelMessages[index];
@@ -219,24 +180,13 @@ if (!!navigator.serviceWorker) {
                                 </div>
                             `;
                             $.appendChild(article);
-                            ScrollReveal().reveal('.talk-excerpt', {
-                                distance: '8px',
-                                duration: 500,
-                                interval: 100,
-                                scale: 1
-                            });
-
                         });
-                        
-                        $.innerHTML += `<article class="article talk-readmore"><a style="color: var(--link)">从#${data.nextBefore}消息起查看更多</a></article>`;
-                        $.lastElementChild.onclick = () => {
-                            $.lastElementChild.innerText = '加载中...';
-                            insertTalk(data.nextBefore);
-                        }
                     }).catch(err => {
                         console.error(err);
                         clearInterval(Chipy);
-                        $.lastElementChild.innerText = '加载失败';
+                        if ($.lastElementChild) {
+                            $.lastElementChild.innerText = '加载失败';
+                        }
                     });
             };
             insertTalk();
@@ -392,7 +342,7 @@ img.lazy {
     color: var(--main-text-color); /* 确保使用了正确的文本颜色变量 */
 }
 .post-list-item,
-.talk-readmore,
+.article .talk-readmore,
 .talk-list-item {
     /* 其他样式保持不变 */
     width: 100%; /* 宽度设为100%，使其自适应 */

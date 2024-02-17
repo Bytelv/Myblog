@@ -15,46 +15,6 @@
   <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
   <link rel='dns-prefetch' href='//unpkg.com'>
   <meta name="renderer" content="webkit">
-  <script>
-if (!!navigator.serviceWorker) {
-    navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-        if (localStorage.getItem('cw_installed') !== 'true') {
-            const conf = () => {
-                console.log('[CW] Installing Success,Configuring...');
-                fetch('/cw-cgi/api?type=config')
-                    .then(res => res.text())
-                    .then(text => {
-                        if (text === 'ok') {
-                            console.log('[CW] Installing Success,Configuring Success,Starting...');
-                            localStorage.setItem('cw_installed', 'true');
-                            //如果你不希望重载页面，请移除下面七行
-                            //重载标识 - 开始
-                            fetch(window.location.href).then(res => res.text()).then(text => {
-                                document.open()
-                                document.write(text);
-                                document.close();
-                            });
-                            //重载标识 - 结束
-                        } else {
-                            console.warn('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                            setTimeout(() => {
-                                conf()
-                            }, 200);
-                        }
-                    }).catch(err => {
-                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                    });
-            }
-            setTimeout(() => {
-                conf()
-            }, 50);
-        }
-    }).catch(err => {
-        console.error('[CW] Installing Failed,Error: ' + err.message);
-    });
-} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-</script>
-
   <meta name="force-rendering" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
@@ -95,7 +55,7 @@ if (!!navigator.serviceWorker) {
 <meta property="og:image" content="https://img.8b5.cn/2022/11/10/636cb1d5a25c7.png">
 <meta property="og:image" content="https://img.8b5.cn/2022/11/10/636cb1f118cb5.png">
 <meta property="article:published_time" content="2023-08-25T11:45:54.392Z">
-<meta property="article:modified_time" content="2024-02-17T04:37:22.562Z">
+<meta property="article:modified_time" content="2024-02-17T05:34:15.527Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="cloudflare">
 <meta property="article:tag" content="网站安全">
