@@ -64,16 +64,16 @@ if (!!navigator.serviceWorker) {
   
   <title>字节君</title>
   
-    <meta name="description" content="最新说说              加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);             const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico&quot;">
+    <meta name="description" content="最新说说               加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);             const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico">
 <meta property="og:type" content="website">
 <meta property="og:title" content="字节君">
 <meta property="og:url" content="https://blog.lvbyte.top/tgtalk.html">
 <meta property="og:site_name" content="字节君">
-<meta property="og:description" content="最新说说              加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);             const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico&quot;">
+<meta property="og:description" content="最新说说               加载中...                   const $ &#x3D; document.getElementById(&#39;taslk_list&#39;);             const lyrics &#x3D; [&quot;Chipi&quot;, &quot;chipi&quot;, &quot;chapa&quot;, &quot;chapa\n&quot;, &quot;Dubi&quot;, &quot;dubi&quot;, &quot;daba&quot;, &quot;daba\n&quot;, &quot;Mágico">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.lvbyte.top/$%7Bimage%7D">
-<meta property="article:published_time" content="2024-02-16T17:03:12.225Z">
-<meta property="article:modified_time" content="2024-02-16T17:03:12.225Z">
+<meta property="article:published_time" content="2024-02-17T03:07:20.195Z">
+<meta property="article:modified_time" content="2024-02-17T03:07:20.195Z">
 <meta property="article:author" content="lvbyte">
 <meta property="article:tag" content="初中,极客,编程,计算机">
 <meta name="twitter:card" content="summary">
@@ -163,6 +163,7 @@ if (!!navigator.serviceWorker) {
 
 
 <article class="md-text content page reveal"><h2 class="section-title">最新说说</h2>
+
     <div class="post-list talk-list" id="taslk_list">
         <article class="article talk-readmore"><a>加载中...</a></article>
     </div>
@@ -176,9 +177,41 @@ if (!!navigator.serviceWorker) {
                 if (Chip >= lyrics.length) Chip = 0
             }, 400);
             window.toggleText = (e) => {
-                e.parentElement.querySelector('.talk-content').classList.toggle('expanded');
-                e.innerText = e.innerText === '展开' ? '收起' : '展开';
-            }
+                const content = e.previousElementSibling; // 获取按钮前面的兄弟元素，即文章内容
+                const excerpt = content.querySelector('.excerpt'); // 获取文章摘要部分
+                const images = content.querySelectorAll('img'); // 获取所有图片元素
+                
+                images.forEach((image) => {
+                    if (excerpt.classList.contains('expanded')) {
+                        // 如果已经展开，需要将文本和图片都折叠起来
+                        image.classList.add('hidden-image');
+                    } else {
+                        // 如果未展开，则尝试展开文本和显示图片
+                        if (image.hasAttribute('data-src') && !image.src) {
+                            // 如果图片有data-src属性且src为空，进行加载
+                            image.src = image.getAttribute('data-src');
+                            image.onload = () => {
+                                image.classList.remove('lazy', 'hidden-image');
+                            };
+                            image.onerror = () => {
+                                console.error('图片无法加载:', image.getAttribute('data-src'));
+                            };
+                            image.removeAttribute('data-src');
+                        } else {
+                            // 如果图片已经加载，只需要移除hidden-image类来显示图片
+                            image.classList.remove('hidden-image');
+                        }
+                    }
+                });
+
+                if (excerpt.classList.contains('expanded')) {
+                    excerpt.classList.remove('expanded');
+                    e.innerText = '展开';
+                } else {
+                    excerpt.classList.add('expanded');
+                    e.innerText = '收起';
+                }
+            };
             const tgsvg = `<svg t="1707826572067" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4214" width="20" height="20"><path d="M679.424 746.862l84.005-395.996c7.424-34.852-12.581-48.567-35.438-40.009L234.277 501.138c-33.72 13.13-33.134 32-5.706 40.558l126.282 39.424 293.156-184.576c13.714-9.143 26.295-3.986 16.018 5.157L426.898 615.973l-9.143 130.304c13.13 0 18.871-5.706 25.71-12.581l61.696-59.429 128 94.282c23.442 13.129 40.01 6.29 46.3-21.724zM1024 512c0 282.843-229.157 512-512 512S0 794.843 0 512 229.157 0 512 0s512 229.157 512 512z" fill="#1296DB" p-id="4215"></path></svg>`
             setTimeout(async () => {
                 const insertTalk = async (talk) => {
@@ -196,6 +229,7 @@ if (!!navigator.serviceWorker) {
                                 const article = document.createElement('article');
                                 article.className = 'post-list-item talk-list-item';
                                 article.innerHTML = `
+      
                                     <div class="content talk-content">
                                         <a target="_blank" rel="noopener" href="https://t.me/Cyanwoof/${index}"><div class="title">
                                             #${index} <span style="float:right">${tgsvg} </span>
@@ -206,6 +240,7 @@ if (!!navigator.serviceWorker) {
                                         <span> ${new Date(item.time).getDate()}, </span>
                                         <span>${new Date(item.time).getFullYear()}</span>
                                         <span> ${new Date(item.time).toLocaleTimeString()} </span>
+              
                                         </div>
                                         <div class="excerpt"><p class="talk-excerpt">
                                     ${item.text.replace(/\<(\/?br\/?)\>/g, '\n').replace(/\<(\/?[^\>]+)\>/g, '').replace(/\n/g, '<br>')}
@@ -215,7 +250,10 @@ if (!!navigator.serviceWorker) {
                                             if (data.Region === "CN") {
                                                 image = apiurl.origin + "/?proxy=" + encodeURIComponent(image);
                                             }
-                                            medialist += `<p style="text-align:center;"><img class="lazy lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="${image}" style="max-width: 100%; height: auto;"></p>`;
+                                            medialist += `
+                                                <p style="text-align:center;">
+                                                    <img class="lazy lazy" data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="${image}" style="max-width: 100%; height: auto;">
+                                                </p>`;
                                         });
                                         return medialist;
                                     })()}
@@ -224,11 +262,13 @@ if (!!navigator.serviceWorker) {
                                     </div>
                                 <div style="width:100%;height:36px;justify-content:center;align-items:center;display:-webkit-flex;background-color: #88888816" onclick="toggleText(this)">展开</div>
                             `;
+
                                 $.appendChild(article);
                                 if (article.querySelector('.talk-excerpt').offsetHeight < 30 && item.image.length === 0) {
                                     article.lastElementChild.remove();
                                     article.querySelector('.talk-content').classList.add('expanded');
                                 }
+
                             });
                             $.innerHTML += `<article class="article talk-readmore"><a style="color: var(--link)">从#${data.nextBefore}消息起查看更多</a></article>`;
                             $.lastElementChild.onclick = () => {
@@ -245,96 +285,148 @@ if (!!navigator.serviceWorker) {
             }, 500);
     </script>
     <style>
-        body {
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* 主题变量定义 */
+:root {
+  --main-bg-color: #ffffff;
+  --main-text-color: #333;
+  --link-color: #2980b9;
+  --link-hover-color: #2471a3;
+  --item-border-color: #eaeaea;
+  --item-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+  --item-hover-shadow: 0 15px 40px -15px rgba(0, 0, 0, 0.3);
+  --button-bg-color: #f8f9fa;
+  --button-text-color: #2d3e50;
+  --button-border-color: #dae1e7;
+  --button-hover-bg-color: #e2e6ea;
+  --button-hover-border-color: #c8ced3;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
-    color: #333;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
 }
+
+img.lazy {
+    display: block; /* 确保图片显示正确 */
+    max-width: 100%; /* 限制图片的最大宽度 */
+    height: auto; /* 图片高度自动 */
+}
+
 .section-title {
     text-align: center;
-    margin: 20px 0;
-    font-size: 24px;
-    color: #1296DB;
+    margin: 40px 0;
+    font-size: 28px;
+    color: var(--main-text-color);
 }
+
 .talk-list {
-    list-style: none; /* 去除列表默认的项目符号 */
+    list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%;
-    max-width: 800px; /* 最大宽度，可根据需要调整 */
+    width: calc(100% - 40px);
+    max-width: 800px;
     margin: auto;
 }
+
 .post-list-item {
-    background: #fff;
-    margin-bottom: 10px; /* 每个项目间隔10px */
+    background: var(--main-bg-color);
+    border: 1px solid var(--item-border-color);
+    margin: 20px auto;
     padding: 20px;
-    border-radius: 5px; /* 圆角边框 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 盒子阴影效果 */
-    transition: box-shadow 0.3s;
+    border-radius: 8px;
+    box-shadow: var(--item-shadow);
+    transition: box-shadow 0.3s ease-in-out;
 }
+
 .post-list-item:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* 鼠标悬停时的阴影效果 */
+    box-shadow: var(--item-hover-shadow);
 }
+
 .talk-content {
     margin-bottom: 15px;
 }
+
 .talk-content a {
-    text-decoration: none; /* 去除链接下划线 */
-    color: #1296DB;
+    text-decoration: none;
+    color: var(--link-color);
 }
+
 .talk-content .title {
-    font-weight: bold; /* 标题粗体 */
+    font-weight: 700;
     margin-bottom: 5px;
+    display: inline-block;
 }
+
 .talk-content .time {
     font-size: 0.85em;
-    color: #888;
+    color: var(--main-text-color);
+    display: block; /* 确保时间在新行显示 */
 }
+
 .talk-content .excerpt {
-    padding: 10px 0; /* 摘要部分的上下内边距 */
+    overflow: hidden;
+    padding: 10px 0;
+    transition: max-height 0.3s ease-in-out;
 }
+
 .talk-content .excerpt p {
-    margin: 0; /* p标签的默认外边距去除 */
-    line-height: 1.5; /* 行间距 */
+    margin: 0;
+    line-height: 1.5;
+    color: var(--main-text-color);
 }
+
+.expanded {
+    max-height: 2000px;
+}
+
 .talk-readmore {
     text-align: center;
     padding: 10px 0;
     font-size: 0.9em;
-    background-color: #1296DB;
-    color: white;
+    background-color: var(--link-color);
+    color: var(--main-bg-color);
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
 .talk-readmore:hover {
-    background-color: #0b7dba;
+    background-color: var(--link-hover-color);
 }
-img.lazy {
-    width: auto; /* Align image size to content */
-}
-/* 展开/收起样式 */
-.expanded {
-    max-height: none;
-}
-/* 如果需要特定于展开收起按钮的样式，请在这里添加 */
+
 .expanded-btn {
     width: 100%;
-    height: 36px;
+    height: auto;
+    padding: 10px 20px;
     justify-content: center;
     align-items: center;
     display: flex;
-    background-color: #88888816;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: 1px solid var(--button-border-color);
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
+
 .expanded-btn:hover {
-    background-color: #aaaaaa30;
+    background-color: var(--button-hover-bg-color);
+    border-color: var(--button-hover-border-color);
+}
+
+.hidden-image {
+    display: none;
 }
     </style>
-</article>
+    </article>
 
   <div class='related-wrap md-text reveal' id="comments">
     <section class='header cmt-title cap theme'>
