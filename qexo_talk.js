@@ -33,32 +33,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // 根据消息数据生成HTML元素
-  function generateChannelMessageItem(id, text, time, views, images) {
-    var viewsDisplay = views ? "<div class=\"flex left\">" + views + " views</div>" : "";
-    var imagesHtml = "";
-    
-    if(images && images.length > 0) {
-      imagesHtml = "<div class='message-images'>";
-      images.forEach(function(imageUrl) {
-        imagesHtml += "<img src='" + imageUrl + "' alt='Message Image' />";
-      });
-      imagesHtml += "</div>";
+// 根据消息数据生成HTML元素
+    function generateChannelMessageItem(id, text, time, views, images) {
+      var viewsDisplay = views ? "<div class=\"flex left\">" + views + " views</div>" : "";
+      var imagesHtml = "";
+
+      if(images && images.length > 0) {
+        imagesHtml = "<div class='message-images'>";
+        images.forEach(function(imageUrl) {
+          // 将原始图片链接替换为反向代理的链接
+          var proxiedImageUrl = 'https://tgtalk.lvbyte.top/?proxy=' + encodeURIComponent(imageUrl);
+          imagesHtml += "<img src='" + proxiedImageUrl + "' alt='Message Image' />";
+        });
+        imagesHtml += "</div>";
+      }
+      
+      var html = `
+        <div class="timenode">
+          <div class="header">
+            <time class="qexot-datetime" datetime="${time}">${time}</time>
+          </div>
+          <div class="body">
+            ${text}
+            ${imagesHtml}
+          </div>
+          <div class="footer">${viewsDisplay}</div>
+        </div>
+      `;
+      return html;
     }
-    
-    var html = `
-      <div class="timenode">
-        <div class="header">
-          <time class="qexot-datetime" datetime="${time}">${time}</time>
-        </div>
-        <div class="body">
-          ${text}
-          ${imagesHtml}
-        </div>
-        <div class="footer">${viewsDisplay}</div>
-      </div>
-    `;
-    return html;
-  }
     
     // 给定JSON数据，展示信息到指定的DOM元素中
     function showChannelMessages(jsonData, domId) {
