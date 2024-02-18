@@ -1,3 +1,5 @@
+// 直接在JS文件开始时，提取代理基础URL并存储在变量中
+var proxyBaseUrl = document.getElementById('qexot').getAttribute('data-proxy-base-url');
 document.addEventListener("DOMContentLoaded", function() {
   
     // 时间格式化函数，此处应替换为您的实际代码
@@ -41,12 +43,12 @@ document.addEventListener("DOMContentLoaded", function() {
       if(images && images.length > 0) {
         imagesHtml = "<div class='message-images'>";
         images.forEach(function(imageUrl) {
-          // 将原始图片链接替换为反向代理的链接
-          var proxiedImageUrl = 'https://tgtalk.lvbyte.top/?proxy=' + encodeURIComponent(imageUrl);
-          imagesHtml += "<img src='" + proxiedImageUrl + "' alt='Message Image' />";
+            // 使用保存的代理基础URL来替换原来硬编码的部分
+            var proxiedImageUrl = proxyBaseUrl + encodeURIComponent(imageUrl);
+            imagesHtml += "<img src='" + proxiedImageUrl + "' alt='Message Image' />";
         });
         imagesHtml += "</div>";
-      }
+    }
       
       var html = `
         <div class="timenode">
@@ -100,6 +102,8 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Ajax请求获取JSON数据
     function fetchAndShowChannelMessages(domId, url) {
+      var element = document.getElementById(domId);
+      var url = element.getAttribute('data-url'); // 从HTML元素读取数据URL
       document.getElementById(domId).innerHTML = '<div class="qexo_loading"><div class="qexo_part"><div style="display: flex; justify-content: center"><div class="qexo_loader"><div class="qexo_inner one"></div><div class="qexo_inner two"></div><div class="qexo_inner three"></div></div></div></div><p style="text-align: center; display: block">消息加载中...</p></div>';
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function() {
@@ -121,8 +125,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     // JSON数据链接和DOM元素的id
-    var dataUrl = 'https://tgtalk.lvbyte.top';
     var domId = 'qexot';
+    fetchAndShowChannelMessages(domId);
+
   
     // 获取并展示ChannelMessageData信息
     fetchAndShowChannelMessages(domId, dataUrl);
