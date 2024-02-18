@@ -145,3 +145,11 @@
   margin-bottom: 0.5rem;
   border-radius: 4px;
 }
+.emoji {
+  display: inline-block;
+  width: 20px; /* 根据你的需要调整大小 */
+  height: 20px; /* 根据你的需要调整大小 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

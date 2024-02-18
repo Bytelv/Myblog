@@ -50,19 +50,21 @@ document.addEventListener("DOMContentLoaded", function() {
         imagesHtml += "</div>";
     }
       
+      // 仅保留<b></b>中间的emoji
+      var cleanText = text.replace(/<i class="emoji" style="background-image:url\(\'\/\/telegram.org\/img\/emoji\/40\/[A-Za-z0-9]*.png\'\)">/g, '');
+
       var html = `
         <div class="timenode">
           <div class="header">
-            <time class="qexot-datetime" datetime="${time}">${time}</time>
+            <time class="qexot-datetime" datetime="${time}">${qexoFormatTime("YYYY-mm-dd HH:MM:SS", Number(time))}</time>
           </div>
           <div class="body">
-            ${text}
-            ${imagesHtml}
+            ${cleanText}
           </div>
           <div class="footer">${viewsDisplay}</div>
         </div>
       `;
-      return html;
+  return html;
     }
     
     // 给定JSON数据，展示信息到指定的DOM元素中
