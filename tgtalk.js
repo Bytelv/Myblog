@@ -1,5 +1,7 @@
 // 直接在JS文件开始时，提取代理基础URL并存储在变量中
 var proxyBaseUrl = document.getElementById('qexot').getAttribute('data-proxy-base-url');
+var dataUrl = 'path_to_your_json_data';
+
 document.addEventListener("DOMContentLoaded", function() {
   
     // 时间格式化函数，此处应替换为您的实际代码
@@ -34,29 +36,22 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 
-// 根据消息数据生成HTML元素
-// 根据消息数据生成HTML元素
+    // 根据消息数据生成HTML元素
     function generateChannelMessageItem(id, text, time, views, images) {
       var viewsDisplay = views ? "<div class=\"flex left\">" + views + " views</div>" : "";
-      var imagesHtml = "";
-
-      if(images && images.length > 0) {
-        imagesHtml = "<div class='message-images'>";
-        images.forEach(function(imageUrl) {
-            // 使用保存的代理基础URL来替换原来硬编码的部分
-            var proxiedImageUrl = proxyBaseUrl + encodeURIComponent(imageUrl);
-            imagesHtml += "<img src='" + proxiedImageUrl + "' alt='Message Image' />";
-        });
-        imagesHtml += "</div>";
-    }
+      // 正确地清理<i>标签，只保留<b>标签内的文本
+      var cleanText = text.replace(/<i class="emoji".*?>(.*?)<\/i>/g, '$1');
+    
+      // 检测time是否是数字，如果不是则尝试解析字符串格式日期
+      var timestamp = !isNaN(time) ? Number(time) : new Date(time).getTime();
       
-      // 仅保留<b></b>中间的emoji
-      var cleanText = text.replace(/<i class="emoji" style="background-image:url\(\'\/\/telegram.org\/img\/emoji\/40\/[A-Za-z0-9]*.png\'\)">/g, '');
-
+      // 格式化时间，调用qexoFormatTime函数
+      var formattedTime = qexoFormatTime("YYYY-mm-dd HH:MM:SS", timestamp);
+    
       var html = `
         <div class="timenode">
           <div class="header">
-            <time class="qexot-datetime" datetime="${time}">${qexoFormatTime("YYYY-mm-dd HH:MM:SS", Number(time))}</time>
+            <time class="qexot-datetime" datetime="${new Date(timestamp).toISOString()}">${formattedTime}</time>
           </div>
           <div class="body">
             ${cleanText}
@@ -64,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
           <div class="footer">${viewsDisplay}</div>
         </div>
       `;
-  return html;
+      return html;
     }
     
     // 给定JSON数据，展示信息到指定的DOM元素中
