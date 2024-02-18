@@ -1,60 +1,53 @@
 // 直接在JS文件开始时，提取代理基础URL并存储在变量中
 var proxyBaseUrl = document.getElementById('qexot').getAttribute('data-proxy-base-url');
 var dataUrl = 'path_to_your_json_data';
+// 将qexoFormatTime定义移到全局作用域中
+function qexoFormatTime(format, timestamp) {
+  var format = format || "YYYY-mm-dd HH:MM:SS";
+  var num = typeof timestamp === 'number' ? timestamp : new Date().getTime();
+  var date = new Date(num);
 
+  var opt = {
+    "Y": date.getFullYear().toString(),
+    "m": (date.getMonth() + 1).toString().padStart(2, '0'),
+    "d": date.getDate().toString().padStart(2, '0'),
+    "H": date.getHours().toString().padStart(2, '0'),
+    "M": date.getMinutes().toString().padStart(2, '0'),
+    "S": date.getSeconds().toString().padStart(2, '0')
+  };
+
+  return format.replace(/(YYYY|mm|dd|HH|MM|SS)/g, function(match) { return opt[match[0]]; });
+}
 document.addEventListener("DOMContentLoaded", function() {
   
-    // 时间格式化函数，此处应替换为您的实际代码
-    function qexoFormatTime(format, timestamp) {
-        var format = arguments[0] !== (void 0) ? arguments[0] : "";
-        var num = arguments[1] !== (void 0) ? arguments[1] : new Date().getTime();
-        format = format || "YYYY-mm-dd HH:MM:SS";
-        var ret,
-          date,
-          renum;
-        if (num.toString().length == 10) {
-          date = new Date(parseInt(num) * 1000);
-        } else {
-          date = new Date(parseInt(num));
-        }
-        var opt = {
-          "Y": date.getFullYear().toString(),
-          "m": (date.getMonth() + 1).toString(),
-          "d": date.getDate().toString(),
-          "H": date.getHours().toString(),
-          "M": date.getMinutes().toString(),
-          "S": date.getSeconds().toString()
-        };
-        for (var k in opt) {
-          ret = new RegExp("(" + k + "+)").exec(format);
-          if (ret) {
-            renum = (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0"));
-            format = format.replace(ret[1], renum);
-          };
-        };
-        return format;
-    }
-
 
     // 根据消息数据生成HTML元素
     function generateChannelMessageItem(id, text, time, views, images) {
       var viewsDisplay = views ? "<div class=\"flex left\">" + views + " views</div>" : "";
-      // 正确地清理<i>标签，只保留<b>标签内的文本
-      var cleanText = text.replace(/<i class="emoji".*?>(.*?)<\/i>/g, '$1');
-    
-      // 检测time是否是数字，如果不是则尝试解析字符串格式日期
-      var timestamp = !isNaN(time) ? Number(time) : new Date(time).getTime();
+      var cleanText = text.replace(/<i class="emoji".*?>(.*?)<\/i>/g, '$1').replace(/<b>(.*?)<\/b>/g, '<b>$1</b>');
       
-      // 格式化时间，调用qexoFormatTime函数
-      var formattedTime = qexoFormatTime("YYYY-mm-dd HH:MM:SS", timestamp);
     
+      // 确保传入的时间是一个数字
+      var dateObject = isNaN(time) ? new Date(time) : new Date(parseInt(time));
+      var formattedTime = qexoFormatTime('YYYY-mm-dd HH:MM:SS', dateObject.getTime());
+      
+      // 清理并生成图片的HTML，如果它们是有效的URL
+      var imagesHtml = images.map(function(image) {
+        // 只有当URL是正确的图片链接时才添加<img>标签
+        if (image.startsWith('https://')) {
+          return '<img src="' + image + '" alt="Image" />';
+        }
+        return ''; // 如果不是正确的图片链接，则返回空字符串
+      }).join('');
+      
       var html = `
         <div class="timenode">
           <div class="header">
-            <time class="qexot-datetime" datetime="${new Date(timestamp).toISOString()}">${formattedTime}</time>
+            <time class="qexot-datetime" datetime="${dateObject.toISOString()}">${formattedTime}</time>
           </div>
           <div class="body">
             ${cleanText}
+            ${imagesHtml}
           </div>
           <div class="footer">${viewsDisplay}</div>
         </div>
