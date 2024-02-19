@@ -24,7 +24,7 @@ function qexoFormatTime(format, timestamp) {
     "S": date.getSeconds().toString().padStart(2, '0')
   };
 
-  return format.replace(/(YYYY|mm|dd|HH|MM|SS)/g, function(match) { return opt[match]; });
+  return format.replace(/(YYYY|mm|dd|HH|MM|SS)/g, function(match) { return opt[match[0]]; });
 }
 document.addEventListener("DOMContentLoaded", function() {
   
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ${imagesHtml}
           </div>
           <div class="footer">
-            ${viewsDisplay}
+
             ${telegramIconHTML}
           </div>
         </div>
