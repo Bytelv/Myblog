@@ -162,9 +162,9 @@
 <p>访问便可以得到数据</p>
 <div class="tag-plugin quot"><h3 class="content" id="最后一步：部署到你的网站" type="text"><a href="#最后一步：部署到你的网站" class="headerlink" title="最后一步：部署到你的网站"></a>最后一步：部署到你的网站</h3></div>
 
-<p>修改下方的 data-url 和 data-proxy-base-url 为你刚刚在cloudflare worker绑定的域名</p>
+<p>修改下方的 data-url 和 data-proxy-base-url 为你刚刚在cloudflare worker绑定的域名<br>修改下方data-channel-name为你的telegram频道id</p>
 <p>在你想要部署的页面中(timeline or 你的说说页面)，在markdown文件中插入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;qexot&quot; class=&quot;tag-plugin timeline&quot; data-url=&quot;https://tgtalk.lvbyte.top&quot; data-proxy-base-url=&quot;https://tgtalk.lvbyte.top/?proxy=&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/bytelv/lvbyte-oss1@main/js/tgtalk.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/bytelv/lvbyte-oss1@main/css/tgtalk.css&quot;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;qexot&quot; class=&quot;tag-plugin timeline&quot; data-url=&quot;https://tgtalk.lvbyte.top&quot; data-proxy-base-url=&quot;https://tgtalk.lvbyte.top/?proxy=&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;channelInfo&quot; data-channel-name=&quot;lvbytespace&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.jsdelivr.net/npm/lvbyte-oss1@0.5.3-c413d856369ac36018374e47988b803f/js/tgtalk.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/lvbyte-oss1@0.5.3-c413d856369ac36018374e47988b803f/css/tgtalk.css&quot;&gt;</span><br></pre></td></tr></table></figure>
 
 <p>然后，你便可以得到一个说说</p>
 <p>同时请注意，因为设置了标签筛选，你只有在tg上发说说带上#SFCN 标签，才能成功发布。否则无法显示</p>
