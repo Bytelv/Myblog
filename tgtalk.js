@@ -1,6 +1,14 @@
 // 直接在JS文件开始时，提取代理基础URL并存储在变量中
 var proxyBaseUrl = document.getElementById('qexot').getAttribute('data-proxy-base-url');
 var dataUrl = 'path_to_your_json_data';
+// 通过ID获取元素
+var channelInfoElement = document.getElementById('channelInfo');
+
+// 读取data-channel-name属性值
+var channelName = channelInfoElement.getAttribute('data-channel-name');
+
+// 现在你可以在JavaScript中使用这个channelName的值了
+
 // 将qexoFormatTime定义移到全局作用域中
 function qexoFormatTime(format, timestamp) {
   var format = format || "YYYY-mm-dd HH:MM:SS";
@@ -16,30 +24,46 @@ function qexoFormatTime(format, timestamp) {
     "S": date.getSeconds().toString().padStart(2, '0')
   };
 
-  return format.replace(/(YYYY|mm|dd|HH|MM|SS)/g, function(match) { return opt[match[0]]; });
+  return format.replace(/(YYYY|mm|dd|HH|MM|SS)/g, function(match) { return opt[match]; });
 }
 document.addEventListener("DOMContentLoaded", function() {
   
 
     // 根据消息数据生成HTML元素
-    function generateChannelMessageItem(id, text, time, views, images) {
+    function generateChannelMessageItem(id, text, time, views, images, telegramUrl) {
       var viewsDisplay = views ? "<div class=\"flex left\">" + views + " views</div>" : "";
       var cleanText = text.replace(/<i class="emoji".*?>(.*?)<\/i>/g, '$1').replace(/<b>(.*?)<\/b>/g, '<b>$1</b>');
       
+      // 解析time参数，如果是无效日期则使用当前时间戳
+      var timestamp = new Date(time).getTime();
+      if (isNaN(timestamp)) {
+        timestamp = Date.now(); // 若time无效，使用当前时间戳
+      }
+      var dateObject = new Date(timestamp);
+      var formattedTime = qexoFormatTime('YYYY-mm-dd HH:MM:SS', timestamp);
     
-      // 确保传入的时间是一个数字
-      var dateObject = isNaN(time) ? new Date(time) : new Date(parseInt(time));
-      var formattedTime = qexoFormatTime('YYYY-mm-dd HH:MM:SS', dateObject.getTime());
-      
       // 清理并生成图片的HTML，如果它们是有效的URL
       var imagesHtml = images.map(function(image) {
-        // 只有当URL是正确的图片链接时才添加<img>标签
-        if (image.startsWith('https://')) {
-          return '<img src="' + image + '" alt="Image" />';
-        }
-        return ''; // 如果不是正确的图片链接，则返回空字符串
+        return image.startsWith('https://') ? '<img src="' + image + '" alt="Image" />' : '';
       }).join('');
-      
+    
+      // 创建Telegram的SVG图标和跳转链接HTML
+      var telegramIconHTML = views ? `
+        <a href="${telegramUrl}" target="_blank" class="telegram-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="telegram-icon">
+          <defs>
+          <linearGradient id="telegram-gradient-${id}" x1="160.01" x2="100.01" y1="40.008" y2="180" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#37aee2"></stop>
+            <stop offset="1" stop-color="#1e96c8"></stop>
+          </linearGradient>
+        </defs>
+        <circle cx="120" cy="120" r="120" fill="url(#telegram-gradient-${id})"></circle>
+        <path fill="#fff" d="M44.691 125.87c14.028-7.727 29.687-14.176 44.318-20.658 25.171-10.617 50.442-21.05 75.968-30.763 4.966-1.655 13.89-3.273 14.765 4.087-.48 10.418-2.45 20.775-3.802 31.132-3.431 22.776-7.398 45.474-11.265 68.175-1.333 7.561-10.805 11.476-16.866 6.637-14.566-9.84-29.244-19.582-43.624-29.65-4.71-4.786-.342-11.66 3.864-15.078 11.997-11.823 24.72-21.868 36.09-34.302 3.067-7.406-5.995-1.164-8.984.749-16.424 11.318-32.446 23.327-49.762 33.274-8.845 4.869-19.154.708-27.995-2.01-7.927-3.281-19.543-6.588-12.708-11.592z"></path>
+          </svg>
+          ${views} views
+        </a>
+      ` : "";
+    
       var html = `
         <div class="timenode">
           <div class="header">
@@ -49,7 +73,10 @@ document.addEventListener("DOMContentLoaded", function() {
             ${cleanText}
             ${imagesHtml}
           </div>
-          <div class="footer">${viewsDisplay}</div>
+          <div class="footer">
+            ${viewsDisplay}
+            ${telegramIconHTML}
+          </div>
         </div>
       `;
       return html;
@@ -58,36 +85,41 @@ document.addEventListener("DOMContentLoaded", function() {
     // 给定JSON数据，展示信息到指定的DOM元素中
 // 给定JSON数据，展示信息到指定的DOM元素中
     function showChannelMessages(jsonData, domId) {
-        // Remove or hide loading animation
-      if(document.querySelector('.qexo_loading')) {
-        document.querySelector('.qexo_loading').style.display = 'none'; // Option 1: Hide
-        // document.querySelector('.qexo_loading').remove(); // Option 2: Remove
+      // 移除或隐藏加载动画
+      var loadingAnimation = document.querySelector('.qexo_loading');
+      if (loadingAnimation) {
+        loadingAnimation.style.display = 'none';
       }
-      var channelMessageData = jsonData.ChannelMessageData;
-      var html = '<div class="qexot-list">';
 
-      var messageArray = Object.values(channelMessageData).filter(function(messageData) {
-        return messageData.text.includes('#SFCN'); // 只包含含有#SFCN标签的消息
+      var messagesContainer = document.getElementById(domId);
+      var htmlContent = '<div class="qexot-list">';
+
+      // 获取所有带有 ID 的消息
+      var messageArray = Object.keys(jsonData.ChannelMessageData).map(function(key) {
+        var messageItem = jsonData.ChannelMessageData[key];
+        messageItem.id = key; // 添加索引作为 id
+        return messageItem;
+      }).filter(function(messageItem) {
+        return messageItem.text.includes('#SFCN'); // 过滤包含 #SFCN 标签的消息
       });
 
+      // 降序排序函数，根据时间排序
       messageArray.sort(function(a, b) {
-        // 降序排序
-        return b['time'] - a['time'];
+        return b.time - a.time;
       });
 
-      // 遍历已过滤并排序后的数组
-      messageArray.forEach(function(messageData) {
-        // 移除#SFCN标签
-        var messageText = messageData['text'].replace(/#SFCN/g, '');
-
-        var formattedTime = qexoFormatTime("YYYY-mm-dd HH:MM:SS", Number(messageData['time']));
-        var messageImages = messageData['image'] || [];
-        // 生成HTML包含图片信息（如果有）和去除了#SFCN标签的文本
-        html += generateChannelMessageItem(messageData['id'], messageText, formattedTime, messageData['views'] || 0, messageImages);
+      // 遍历所有过滤并排序后的消息数组
+      messageArray.forEach(function(messageItem) {
+        var messageText = messageItem.text.replace(/#SFCN/g, ''); // 移除 #SFCN 标签
+        var telegramUrl = `https://t.me/${channelName}/${messageItem.id}`; // 使用 messageItem.id 生成正确的 URL
+        var messageImages = messageItem.image || [];
+        var formattedTime = qexoFormatTime("YYYY-mm-dd HH:MM:SS", Number(messageItem.time));
+        // 生成 HTML 包括图片、文本和 Telegram 链接
+        htmlContent += generateChannelMessageItem(messageItem.id, messageText, formattedTime, messageItem.views, messageImages, telegramUrl);
       });
 
-      html += '</div>';
-      document.getElementById(domId).innerHTML = html;
+      htmlContent += '</div>';
+      messagesContainer.innerHTML = htmlContent; // 将生成的 HTML 设置到容器中
     }
   
     // Ajax请求获取JSON数据

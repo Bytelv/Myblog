@@ -153,3 +153,15 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+.telegram-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit; /* 或者您想要的任何颜色 */
+}
+
+.telegram-icon {
+  width: 20px; /* 根据需要调整尺寸 */
+  height: 20px; /* 根据需要调整尺寸 */
+  margin-right: 5px; /* 在图标和视图数之间添加一点间隙 */
+}
