@@ -432,8 +432,8 @@
   window.addEventListener('DOMContentLoaded', (event) => {
     const swiper_api = document.getElementById('swiper-api');
     if (swiper_api != undefined) {
-      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
-      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+      utils.css(`https://npm.onmicrosoft.cn/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://npm.onmicrosoft.cn/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
         const effect = swiper_api.getAttribute('effect') || '';
         var swiper = new Swiper('.swiper#swiper-api', {
           slidesPerView: 'auto',
@@ -473,7 +473,7 @@ MathJax.Hub.Queue(function() {
   }
 });
 </script>
-<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script defer type="text/javascript" src="https://npm.onmicrosoft.cn/mermaid@v9/dist/mermaid.min.js"></script>
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
     var mermaid_config = {
