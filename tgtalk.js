@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
       // 清理并生成图片的HTML，如果它们是有效的URL
       var imagesHtml = images.map(function(image) {
-        return image.startsWith('https://') ? '<img src="' + image + '" alt="Image" />' : '';
+        return image.startsWith('https://') ? '<img src="' + proxyBaseUrl + encodeURIComponent(image) + '" alt="Image" />' : '';
       }).join('');
     
       // 创建Telegram的SVG图标和跳转链接HTML
