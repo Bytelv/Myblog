@@ -129,14 +129,27 @@
 <div class="tag-plugin quot"><h3 class="content" id="最后一步：部署到你的网站" type="text"><a href="#最后一步：部署到你的网站" class="headerlink" title="最后一步：部署到你的网站"></a><span class="empty"></span><span class="text">最后一步：部署到你的网站</span><span class="empty"></span></h3></div>
 
 <p>修改 &#x2F;source&#x2F;_data&#x2F;widgets.yml 文件<br>新增一个小组件为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timeline:</span><br><span class="line">  layout: timeline</span><br><span class="line">  title: 近期动态</span><br><span class="line">  api: https://tgtalk.lvbyte.top/</span><br><span class="line">  type: memos</span><br><span class="line">  hide: user,footer	</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">timeline:</span><br><span class="line">  layout: timeline</span><br><span class="line">  title: 近期动态</span><br><span class="line">  api: https://tgtalk.lvbyte.top/</span><br><span class="line">  type: memos</span><br><span class="line">  hide: user,footer	</span><br></pre></td></tr></table></figure>
 <p>注意！修改【api】为你在cloudflare worker绑定的域名</p>
 <p>如果想要在独立页面展示说说，可以插入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline user:lvbytespace api:https://tgtalk.lvbyte.top type:memos %&#125;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline user:lvbytespace api:https://tgtalk.lvbyte.top type:memos %&#125;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure>
 <p>同理修改【api】<br>然后，你便可以得到一个说说</p>
 <div class="tag-plugin quot"><h3 class="content" id="最后的总结" type="text"><a href="#最后的总结" class="headerlink" title="最后的总结"></a><span class="empty"></span><span class="text">最后的总结</span><span class="empty"></span></h3></div>
 
-<p>在这里特别感谢Thun888的支持</p>
+<p>在这里特别感谢Thun888的支持,可以看看Thun888的文章</p>
+<div class="tag-plugin link dis-select"><a class="link-card plain" title="" href="https://blog.hzchu.top/2024/%E6%8A%8ATg-Channel%E6%8E%A5%E5%85%A5%E5%88%B0Stellar%E6%97%B6%E9%97%B4%E7%BA%BF/" target="_blank" rel="external nofollow noopener noreferrer" cardlink api="https://site-info.lvbyte.top/api/v1?url=https://blog.hzchu.top/2024/%E6%8A%8ATg-Channel%E6%8E%A5%E5%85%A5%E5%88%B0Stellar%E6%97%B6%E9%97%B4%E7%BA%BF/" autofill="title,icon"><div class="left"><span class="title">https://blog.hzchu.top/2024/%E6%8A%8ATg-Channel%E6%8E%A5%E5%85%A5%E5%88%B0Stellar%E6%97%B6%E9%97%B4%E7%BA%BF/</span><span class="cap link footnote">https://blog.hzchu.top/2024/%E6%8A%8ATg-Channel%E6%8E%A5%E5%85%A5%E5%88%B0Stellar%E6%97%B6%E9%97%B4%E7%BA%BF/</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>
+
+
+<p>以下是样式展示</p>
+<div class="tag-plugin grid"  style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));"><div class="cell" style="">
+    <div class="tag-plugin timeline stellar-memos-api" api="https://tgtalk.lvbyte.top/?limit=3" user="Thun888sDraftArticles"></div>
+    </div>
+    <div class="cell" style="">
+    <p><strong>代码：</strong></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline user:lvbyte api:https://tgtalk.lvbyte.top/ type:memos %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure><p>user为频道ID，api为你为CFW绑定的域名，type填memos</p><p>碍于篇幅限制，只展示前3条</p>
+    </div>
+    </div>
+
+
 <p>最后附上我的说说页面：</p>
 <div class="tag-plugin link dis-select"><a class="link-card plain" title="" href="https://blog.lvbyte.top/timeline" target="_blank" rel="external nofollow noopener noreferrer" cardlink api="https://site-info.lvbyte.top/api/v1?url=https://blog.lvbyte.top/timeline" autofill="title,icon"><div class="left"><span class="title">https://blog.lvbyte.top/timeline</span><span class="cap link footnote">https://blog.lvbyte.top/timeline</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>
 
