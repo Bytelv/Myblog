@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.lvbyte.top/posts/miwatch-termux/</loc>
-    <lastmod>2024-03-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.lvbyte.top/posts/me-with-computer/</loc>
-    <lastmod>2024-03-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.lvbyte.top/posts/rainyun-america-vps-test/</loc>
-    <lastmod>2024-03-02</lastmod>
-  </url>
-  <url>
     <loc>https://blog.lvbyte.top/posts/hongkong-vps-test-18r-2h2g/</loc>
     <lastmod>2024-03-02</lastmod>
   </url>
@@ -49,6 +37,18 @@
     <lastmod>2024-03-02</lastmod>
   </url>
   <url>
+    <loc>https://blog.lvbyte.top/posts/miwatch-termux/</loc>
+    <lastmod>2024-03-02</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.lvbyte.top/posts/me-with-computer/</loc>
+    <lastmod>2024-03-02</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.lvbyte.top/posts/rainyun-america-vps-test/</loc>
+    <lastmod>2024-03-02</lastmod>
+  </url>
+  <url>
     <loc>https://blog.lvbyte.top/posts/11214/</loc>
     <lastmod>2024-02-17</lastmod>
   </url>
@@ -57,19 +57,7 @@
     <lastmod>2023-04-16</lastmod>
   </url>
   <url>
-    <loc>https://blog.lvbyte.top/posts/38e2a761/</loc>
-    <lastmod>2023-04-07</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.lvbyte.top/posts/9e86b340/</loc>
-    <lastmod>2023-04-06</lastmod>
-  </url>
-  <url>
     <loc>https://blog.lvbyte.top/posts/51cbac72/</loc>
-    <lastmod>2023-04-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.lvbyte.top/posts/540f708d/</loc>
     <lastmod>2023-04-02</lastmod>
   </url>
   <url>
@@ -78,14 +66,6 @@
   </url>
   <url>
     <loc>https://blog.lvbyte.top/posts/a4a5aa30/</loc>
-    <lastmod>2023-04-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.lvbyte.top/posts/ced3798d/</loc>
-    <lastmod>2023-04-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.lvbyte.top/posts/b477934/</loc>
     <lastmod>2023-04-02</lastmod>
   </url>
 </urlset> 
