@@ -1,15 +1,14 @@
 utils.jq(() => {
   $(function () {
-    const els = document.getElementsByClassName('ds-ghinfo');
+    const els = document.getElementsByClassName('stellar-ghinfo-api');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
-      const api = el.dataset.api;
+      const api = el.getAttribute('api');
       if (api == null) {
         continue;
       }
       // layout
-      utils.request(null, api, async resp => {
-        const data = await resp.json();
+      utils.request(null, api, function(data) {
         function fill(data) {
           for (let key of Object.keys(data)) {
             $(el).find("[type=text]#" + key).text(data[key]);

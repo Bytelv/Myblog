@@ -10,16 +10,15 @@ utils.jq(() => {
       'rocket': '🚀', 
       'eyes': '👀'
     }
-    const timelines = document.getElementsByClassName('ds-timeline');
+    const timelines = document.getElementsByClassName('stellar-timeline-api');
     for (var i = 0; i < timelines.length; i++) {
       const el = timelines[i];
-      const api = el.dataset.api;
+      const api = el.getAttribute('api');
       if (api == null) {
         continue;
       }
       // layout
-      utils.request(el, api, async resp => {
-        const data = await resp.json();
+      utils.request(el, api, function(data) {
         const query = new URL(api).search;
         const arr = data.content || data;
         var users = [];
@@ -101,7 +100,6 @@ utils.jq(() => {
           cell += '</div>';
           $(el).append(cell);
         });
-        window.wrapLazyloadImages(el);
       });
     }
   });

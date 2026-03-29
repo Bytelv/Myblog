@@ -1,16 +1,15 @@
 utils.jq(() => {
   $(function () {
-    const els = document.getElementsByClassName('ds-weibo');
+    const els = document.getElementsByClassName('stellar-weibo-api');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
-      const api = el.dataset.api;
+      const api = el.getAttribute('api');
       if (api == null) {
         continue;
       }
       const default_avatar = el.getAttribute('avatar') || def.avatar;
       // layout
-      utils.request(el, api, async resp => {
-        const data = await resp.json();
+      utils.request(el, api, function(data) {
         const arr = data.tweets || [];
         const limit = el.getAttribute('limit');
         arr.forEach((item, i) => {

@@ -1,16 +1,15 @@
 utils.jq(() => {
   $(function () {
-    const els = document.getElementsByClassName('ds-fcircle');
+    const els = document.getElementsByClassName('stellar-fcircle-api');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
-      const api = el.dataset.api;
+      const api = el.getAttribute('api');
       if (api == null) {
         continue;
       }
       const default_avatar = def.avatar;
       // layout
-      utils.request(el, api, async resp => {
-        const data = await resp.json();
+      utils.request(el, api, function(data) {
         const arr = data.article_data || [];
         const limit = el.getAttribute('limit');
         arr.forEach((item, i) => {
