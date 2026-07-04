@@ -1,0 +1,50 @@
+# Cloudflare Pages 缓存和性能优化配置
+# 参考: https://developers.cloudflare.com/pages/configuration/headers/
+
+# 静态资源: 长期缓存（1年）
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 搜索 JSON
+/search.json
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# 站点地图
+/sitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate
+/baidusitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# RSS Feed
+/atom.xml
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# HTML 页面 - 短缓存
+/*.html
+  Cache-Control: public, max-age=600, must-revalidate
+
+# 首页和归档页
+/
+  Cache-Control: public, max-age=600, s-maxage=300, must-revalidate
+/archives/*
+  Cache-Control: public, max-age=600, s-maxage=300, must-revalidate
+/page/*
+  Cache-Control: public, max-age=600, s-maxage=300, must-revalidate
+
+# 文章页 - 内容变更频率低
+/posts/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# 分类/标签页面
+/categories/*
+  Cache-Control: public, max-age=600, must-revalidate
+/tags/*
+  Cache-Control: public, max-age=600, must-revalidate

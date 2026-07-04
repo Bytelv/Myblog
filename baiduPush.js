@@ -1,32 +1,31 @@
-// baiduPush.js
+'use strict'
 
 /**
- * 生成百度链接推送文件
+ * Generate baidu url push file
  */
 const fs = require('fs');
 const path = require('path');
-const logger = require('tracer').colorConsole();
-const matter = require('gray-matter'); // FrontMatter解析器 https://github.com/jonschlinkert/gray-matter
+const matter = require('gray-matter');
 const readFileList = require('./modules/readFileList');
-const urlsRoot = path.join(__dirname, '..', 'urls.txt'); // 百度链接推送文件
-const DOMAIN = process.argv.splice(2)[0]; // 获取命令行传入的参数
+const urlsRoot = path.join(__dirname, '..', 'urls.txt');
+const DOMAIN = process.argv.splice(2)[0];
 
 if (!DOMAIN) {
-  logger.error('https://blog.lvbyte.tk')
+  console.log('https://blog.lvbyte.tk')
   return
 }
 
 main();
 function main() {
   fs.writeFileSync(urlsRoot, DOMAIN)
-  const files = readFileList(); // 读取所有md文件数据
+  const files = readFileList();
 
-  files.forEach( file => {
-    const { data } = matter(fs.readFileSync(file.filePath, 'utf8')); 
-
+  files.forEach(function(file) {
+    const data = matter(fs.readFileSync(file.filePath, 'utf8'));
     if (data.permalink) {
-      const link = `\r\n${DOMAIN}${data.permalink}/`;
+      const link = '\r\n' + DOMAIN + data.permalink + '/';
       console.log(link)
       fs.appendFileSync(urlsRoot, link);
     }
   })
+}
