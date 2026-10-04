@@ -1,1 +1,1 @@
-"serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(n){},function(n){})});
+"serviceWorker"in navigator&&window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(n){console.log("[SW] 注册成功:",n.scope)},function(n){console.warn("[SW] 注册失败:",n)})});
