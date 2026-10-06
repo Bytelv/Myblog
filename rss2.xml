@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>字节君</title>
+    <link>https://blog.lvbyte.top</link>
+    <description>热爱漫无边际,生活自有分寸</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 06 Oct 2026 03:25:25 GMT</lastBuildDate>
+    <atom:link href="https://blog.lvbyte.top/rss2.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>GDPC宿舍电费查询：从 Windows 托盘到 Android 应用</title>
+      <link>https://blog.lvbyte.top/posts/dorm-power-two-clients/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/dorm-power-two-clients/</guid>
+      <pubDate>Sat, 03 Oct 2026 23:47:07 GMT</pubDate>
+      <![CDATA[学校只提供了一个查宿舍电费的接口。我用它写了 Windows 托盘程序和 Android 应用，中途还放弃过一个网站方案。这篇记录了接口的 WAF 限制、Android 后台的几个坑，以及一次「技术可行但不该做」的自我否决。]]>
+    </item>
+    <item>
+      <title>2faWeb：无服务部署的在线二步验证器</title>
+      <link>https://blog.lvbyte.top/posts/3b7df8e9/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/3b7df8e9/</guid>
+      <pubDate>Sat, 24 May 2025 15:34:15 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>stellar主题集成Telegram Channel说说</title>
+      <link>https://blog.lvbyte.top/posts/11214/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/11214/</guid>
+      <pubDate>Sat, 17 Feb 2024 08:44:22 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>出售一台美国雨云2H2G</title>
+      <link>https://blog.lvbyte.top/posts/rainyun-vps-sell/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/rainyun-vps-sell/</guid>
+      <pubDate>Sun, 27 Aug 2023 02:55:02 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>Cloudflare为你的网站保驾护航</title>
+      <link>https://blog.lvbyte.top/posts/cloudflare-protecting/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/cloudflare-protecting/</guid>
+      <pubDate>Fri, 25 Aug 2023 11:45:54 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>我与计算机的羁绊</title>
+      <link>https://blog.lvbyte.top/posts/me-with-computer/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/me-with-computer/</guid>
+      <pubDate>Fri, 25 Aug 2023 00:55:19 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>雨云美国1区 2h2g vps评测</title>
+      <link>https://blog.lvbyte.top/posts/rainyun-america-vps-test/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/rainyun-america-vps-test/</guid>
+      <pubDate>Tue, 01 Aug 2023 08:30:25 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>18R 香港2h2g 测试</title>
+      <link>https://blog.lvbyte.top/posts/hongkong-vps-test-18r-2h2g/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/hongkong-vps-test-18r-2h2g/</guid>
+      <pubDate>Sun, 23 Jul 2023 12:34:16 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>中考失利后的思考</title>
+      <link>https://blog.lvbyte.top/posts/342c1c3a/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/342c1c3a/</guid>
+      <pubDate>Tue, 18 Jul 2023 13:56:30 GMT</pubDate>
+      
+    </item>
+    <item>
+      <title>初中三年，花开盛夏</title>
+      <link>https://blog.lvbyte.top/posts/middleschool-leave/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/middleschool-leave/</guid>
+      <pubDate>Wed, 05 Jul 2023 04:05:15 GMT</pubDate>
+      
+    </item>
+  </channel>
+</rss>
