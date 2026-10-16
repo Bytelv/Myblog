@@ -6,8 +6,15 @@
     <link>https://blog.lvbyte.top</link>
     <description>山林从不向四季起誓，因为枯萎随缘</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Oct 2026 14:58:28 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 15:52:27 GMT</lastBuildDate>
     <atom:link href="https://blog.lvbyte.top/rss2.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>给博客接上 Steam：一个实时同步的游戏库页面</title>
+      <link>https://blog.lvbyte.top/posts/steam-library-live/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/steam-library-live/</guid>
+      <pubDate>Fri, 16 Oct 2026 15:50:00 GMT</pubDate>
+      <![CDATA[用 Cloudflare Worker 代持 Steam Web API key，把「当前在玩 / 最近两周 / 全库游玩时长」实时同步到博客；附完整部署指南和五个实测坑。]]>
+    </item>
     <item>
       <title>Steam Deck 初体验与折腾指南</title>
       <link>https://blog.lvbyte.top/posts/steam-deck-guide/</link>
@@ -69,13 +76,6 @@
       <link>https://blog.lvbyte.top/posts/hongkong-vps-test-18r-2h2g/</link>
       <guid isPermaLink="true">https://blog.lvbyte.top/posts/hongkong-vps-test-18r-2h2g/</guid>
       <pubDate>Sun, 23 Jul 2023 12:34:16 GMT</pubDate>
-      
-    </item>
-    <item>
-      <title>中考失利后的思考</title>
-      <link>https://blog.lvbyte.top/posts/342c1c3a/</link>
-      <guid isPermaLink="true">https://blog.lvbyte.top/posts/342c1c3a/</guid>
-      <pubDate>Tue, 18 Jul 2023 13:56:30 GMT</pubDate>
       
     </item>
   </channel>
