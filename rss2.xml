@@ -6,8 +6,15 @@
     <link>https://blog.lvbyte.top</link>
     <description>山林从不向四季起誓，因为枯萎随缘</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 31 Oct 2026 14:24:33 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 14:26:46 GMT</lastBuildDate>
     <atom:link href="https://blog.lvbyte.top/rss2.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>HexStudio：把 Hexo 博客管理搬进 Android 和 Cloudflare</title>
+      <link>https://blog.lvbyte.top/posts/hexstudio-android-cloudflare/</link>
+      <guid isPermaLink="true">https://blog.lvbyte.top/posts/hexstudio-android-cloudflare/</guid>
+      <pubDate>Sat, 31 Oct 2026 14:24:00 GMT</pubDate>
+      <![CDATA[记录 HexStudio 的做法：Android 管理 Hexo 仓库，Cloudflare Worker + D1 承载说说、友链和朋友圈， 以及这套服务从零部署的步骤和最近博客上的变化。]]>
+    </item>
     <item>
       <title>给博客接上 Steam：一个实时同步的游戏库页面</title>
       <link>https://blog.lvbyte.top/posts/steam-library-live/</link>
@@ -69,13 +76,6 @@
       <link>https://blog.lvbyte.top/posts/rainyun-america-vps-test/</link>
       <guid isPermaLink="true">https://blog.lvbyte.top/posts/rainyun-america-vps-test/</guid>
       <pubDate>Tue, 01 Aug 2023 08:30:25 GMT</pubDate>
-      
-    </item>
-    <item>
-      <title>18R 香港2h2g 测试</title>
-      <link>https://blog.lvbyte.top/posts/hongkong-vps-test-18r-2h2g/</link>
-      <guid isPermaLink="true">https://blog.lvbyte.top/posts/hongkong-vps-test-18r-2h2g/</guid>
-      <pubDate>Sun, 23 Jul 2023 12:34:16 GMT</pubDate>
       
     </item>
   </channel>
