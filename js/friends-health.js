@@ -1,0 +1,1 @@
+!function(){var e=document.querySelector('.ds-friends[data-api*="alive=0"]');if(e){var t=document.getElementById("lv-friends-dead-head"),i=e.querySelector(".grid-box");i&&new MutationObserver(r).observe(i,{childList:!0}),r(),setTimeout(r,1200),setTimeout(r,2600)}function r(){if(t){var e=!(!i||!i.children.length);t.classList.toggle("is-empty",!e)}}}();
