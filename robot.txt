@@ -6,6 +6,7 @@ Allow: /archives/
 Allow: /about/
 Allow: /friend/
 Allow: /timeline/
+Allow: /talks/
 
 Disallow: /vendors/
 Disallow: /js/
